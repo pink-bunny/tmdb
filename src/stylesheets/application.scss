@@ -1,16 +1,2 @@
-body {
-  background-color: skyblue;
-  color: black;
-}
-
-.app {
-  width: 450px;
-  margin: 0 auto;
-  padding-top: 50px;
-
-  & .app-header {
-    height: 250px;
-    width: inherit;
-    object-fit: cover;
-  }
-}
+@import "base/custom_reset";
+@import "layout/modules";
