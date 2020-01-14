@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const Header = () => (
   <header className="main-header">
@@ -15,7 +15,7 @@ const Header = () => (
         </ul>
       </nav>
     </div>
-  </ header>
+  </header>
 );
 
 export default Header;
