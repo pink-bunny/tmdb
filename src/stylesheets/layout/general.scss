@@ -1,0 +1,14 @@
+.main-app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.main-body {
+  flex-grow: 1;
+  overflow: auto;
+}
+.container {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+}
