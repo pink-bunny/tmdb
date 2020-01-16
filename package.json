@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --config config/webpack.base.config.js --open --hot --history-api-fallback --env.PLATFORM=local --env.VERSION=stag",
     "prebuild": "webpack --mode production --config config/webpack.prod.config.js --env.PLATFORM=production --env.VERSION=stag --progress",
-    "build": "node server"
+    "build": "node server",
+    "lint": "eslint src -c .eslintrc.json"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/pink-bunny/tmdb#readme",
   "dependencies": {
+    "eslint-config-airbnb": "^18.0.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-router-dom": "^5.1.2"
@@ -35,6 +37,11 @@
     "@babel/preset-react": "^7.0.0-beta.51",
     "babel-loader": "^8.0.0-beta.0",
     "css-loader": "^0.28.11",
+    "eslint": "^6.8.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.4.3",
     "node-sass": "^4.8.3",
