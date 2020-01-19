@@ -9,8 +9,7 @@ import { sayHi } from '../state/test/actions';
 import AppRoot from './components/AppRoot';
 
 const store = configureStore();
-store.subscribe(() => console.log(store.getState()));
-store.dispatch(sayHi('Hi everyone'));
+store.dispatch(sayHi('Hi everyone!'));
 
 render(
   <Provider store={store}>
