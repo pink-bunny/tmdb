@@ -1,26 +1,22 @@
-import { createStore, applyMiddleware } from 'redux';
-import thunkMiddleware from 'redux-thunk';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { createStore, applyMiddleware, compose } from 'redux';
+import { createLogicMiddleware } from 'redux-logic';
+import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 
 import reducer from './reducer';
-
-const loggerMiddleware = (store) => (next) => (action) => {
-  /* eslint-disable no-console */
-  console.group(action.type);
-  console.info('dispatching', action);
-  const result = next(action);
-  console.log('next state', store.getState());
-  console.groupEnd();
-  /* eslint-enable */
-
-  return result;
-};
+import logic from './logic';
 
 export default function configureStore() {
-  const middlewares = [loggerMiddleware, thunkMiddleware];
+  const depsLogic = {};
+  const logicMiddleware = createLogicMiddleware(...logic, depsLogic);
+  const middlewares = [logicMiddleware];
   const middlewareEnhancer = applyMiddleware(...middlewares);
 
-  const store = createStore(reducer, undefined, composeWithDevTools(middlewareEnhancer));
+  const composeEnhancers = compose(
+    middlewareEnhancer,
+    composeWithDevTools()
+  );
+
+  const store = createStore(reducer, undefined, composeEnhancers);
 
   return store;
 }

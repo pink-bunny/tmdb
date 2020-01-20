@@ -1,5 +1,6 @@
 import * as types from './types';
 
+/* eslint-disable import/prefer-default-export */
 export const sayHi = (greeting) => {
   const text = greeting || 'Hello world';
   return {
@@ -7,3 +8,4 @@ export const sayHi = (greeting) => {
     text
   };
 };
+/* eslint-enable */
