@@ -1,5 +1,5 @@
-import { service as serviceTest } from '../test/service';
+import sessionService from '../session/service';
 
 export default [
-  serviceTest
+  sessionService
 ];

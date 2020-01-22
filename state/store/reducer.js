@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import sayHiReducer from '../test/reducer';
+import sessionReducer from '../session/reducer';
 
 const reducer = combineReducers({
-  sayHiReducer
+  sessionReducer
 });
 
 export default reducer;
