@@ -9,7 +9,7 @@ export const sessionRequestTokenSuccess = (token) => ({
   token
 });
 
-export const sessionSetId = (id) => ({
+export const sessionSetId = () => ({
   type: types.SESSION_SET_ID,
-  id
+  id: 'it_is_session_id'
 });

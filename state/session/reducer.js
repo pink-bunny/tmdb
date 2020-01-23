@@ -1,8 +1,8 @@
 import * as types from './types';
 
 const initialState = {
-  session_id: '',
-  request_token: null
+  sessionId: '',
+  requestToken: null
 };
 
 function sessionReducer(state = initialState, action) {
@@ -15,12 +15,12 @@ function sessionReducer(state = initialState, action) {
     case types.SESSION_REQUEST_TOKEN_SUCCESS:
       return {
         ...state,
-        request_token: action.token
+        requestToken: action.token
       };
     case types.SESSION_SET_ID:
       return {
         ...state,
-        session_id: action.id
+        sessionId: action.id
       };
     default:
       return state;

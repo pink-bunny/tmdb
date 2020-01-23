@@ -14,7 +14,7 @@ Home.propTypes = {
 };
 
 const mapStateToProps = (state) => (
-  { userLoggedIn: state.sessionReducer.session_id }
+  { userLoggedIn: state.sessionReducer.sessionId }
 );
 
 export default connect(mapStateToProps)(Home);

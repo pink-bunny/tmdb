@@ -5,7 +5,7 @@ import {
   Button, Col, Form, Icon, Input, Layout, Row, Typography
 } from 'antd';
 
-const Login = (props) => (
+const Login = ({ sessionSetId }) => (
   <div className="center">
     <Layout>
       <Layout.Content>
@@ -46,7 +46,7 @@ const Login = (props) => (
                 <Button
                   type="primary"
                   htmlType="submit"
-                  onClick={() => props.onSessionSetId('it_is_session_id')}
+                  onClick={sessionSetId}
                 >
                   Log in
                 </Button>
@@ -60,7 +60,7 @@ const Login = (props) => (
 );
 
 Login.propTypes = {
-  onSessionSetId: PropTypes.func.isRequired
+  sessionSetId: PropTypes.func.isRequired
 };
 
 export default Login;
