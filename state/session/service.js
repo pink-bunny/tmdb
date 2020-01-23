@@ -9,7 +9,7 @@ const sessionRequestTokenLogic = createLogic({
   warnTimeout: 0,
 
   process({ httpClient }, dispatch, done) {
-    httpClient.get(`3/authentication/token/new?api_key=${API_KEY}`)
+    httpClient.get(`authentication/token/new?api_key=${API_KEY}`)
       .then(
         (payload) => {
           const token = payload.data.request_token;
