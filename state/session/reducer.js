@@ -1,7 +1,7 @@
 import * as types from './types';
 
 const initialState = {
-  session_id: null,
+  session_id: '',
   request_token: null
 };
 
