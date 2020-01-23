@@ -1,9 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import {
   Button, Col, Form, Icon, Input, Layout, Row, Typography
 } from 'antd';
 
-const Login = () => (
+const Login = (props) => (
   <div className="center">
     <Layout>
       <Layout.Content>
@@ -42,9 +44,9 @@ const Login = () => (
               </Form.Item>
               <Form.Item>
                 <Button
-                  loading
                   type="primary"
                   htmlType="submit"
+                  onClick={() => props.onSessionSetId('it_is_session_id')}
                 >
                   Log in
                 </Button>
@@ -56,5 +58,9 @@ const Login = () => (
     </Layout>
   </div>
 );
+
+Login.propTypes = {
+  onSessionSetId: PropTypes.func.isRequired
+};
 
 export default Login;

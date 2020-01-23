@@ -17,6 +17,11 @@ function sessionReducer(state = initialState, action) {
         ...state,
         request_token: action.token
       };
+    case types.SESSION_SET_ID:
+      return {
+        ...state,
+        session_id: action.id
+      };
     default:
       return state;
   }
