@@ -3,9 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Header from '../Header';
 import NotFound from '../../pages/NotFound';
-
-const Home = () => <div className="container"><h2>Home</h2></div>;
-const About = () => <div className="container"><h2>About</h2></div>;
+import Home from '../../pages/Home';
 
 const AppRoot = () => (
   <Router>
@@ -14,7 +12,6 @@ const AppRoot = () => (
     <div className="main-body">
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
         <Route component={NotFound} />
       </Switch>
     </div>
