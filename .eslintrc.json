@@ -26,6 +26,11 @@
   ],
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "comma-dangle": ["error", "never"]
+    "comma-dangle": ["error", "never"],
+    "camelcase": ["error", { "properties": "always" }],
+    "prefer-destructuring": ["error", {
+      "array": true,
+      "object": true
+    }]
   }
 }

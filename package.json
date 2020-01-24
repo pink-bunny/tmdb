@@ -24,6 +24,7 @@
     "antd": "^3.26.7",
     "axios": "^0.19.1",
     "eslint-config-airbnb": "^18.0.1",
+    "formik": "^2.1.2",
     "prop-types": "^15.7.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
@@ -31,7 +32,8 @@
     "react-router-dom": "^5.1.2",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
-    "redux-logic": "^2.1.1"
+    "redux-logic": "^2.1.1",
+    "yup": "^0.28.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
