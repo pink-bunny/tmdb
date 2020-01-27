@@ -6,12 +6,14 @@ const Button = ({
   text,
   type,
   htmlType,
-  loading
+  loading,
+  onClick
 }) => (
   <AntdButton
     loading={loading}
     type={type}
     htmlType={htmlType}
+    onClick={onClick}
   >
     {text}
   </AntdButton>
@@ -21,13 +23,15 @@ Button.propTypes = {
   text: PropTypes.string,
   type: PropTypes.string,
   htmlType: PropTypes.string,
-  loading: PropTypes.bool
+  loading: PropTypes.bool,
+  onClick: PropTypes.func
 };
 Button.defaultProps = {
   text: 'Button',
   type: 'primary',
   htmlType: 'button',
-  loading: false
+  loading: false,
+  onClick: undefined
 };
 
 export default Button;
