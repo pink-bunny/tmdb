@@ -1,24 +1,22 @@
 import { connect } from 'react-redux';
 import { withFormik } from 'formik';
+import * as Yup from 'yup';
 
 import Login from './component';
 import { sessionSetId } from '../../../state/session/actions';
 
+const SignInValidationSchema = Yup.object().shape({
+  username: Yup.string()
+    .required('Required'),
+  password: Yup.string()
+    .required('Required')
+    .min(4, 'Your password should contain at least 4 symbols')
+});
+
 const LoginForm = withFormik({
   mapPropsToValues: () => ({ username: '', password: '' }),
 
-  validate: (values) => {
-    const errors = {};
-
-    if (!values.username) {
-      errors.username = 'Required username field';
-    }
-    if (!values.password) {
-      errors.password = 'Required password field';
-    }
-
-    return errors;
-  },
+  validationSchema: SignInValidationSchema,
 
   handleSubmit: (values, { setSubmitting }) => {
     setTimeout(() => {
