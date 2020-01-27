@@ -8,10 +8,7 @@ import {
 import Button from '../../components/Button';
 import InputField from '../../components/InputField';
 
-const Login = ({
-  sessionSetId,
-  handleSubmit
-}) => (
+const Login = ({ handleSubmit }) => (
   <div className="center">
     <Layout>
       <Layout.Content>
@@ -52,7 +49,6 @@ const Login = ({
 );
 
 Login.propTypes = {
-  sessionSetId: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired
 };
 
