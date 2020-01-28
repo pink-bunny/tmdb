@@ -32,7 +32,8 @@ const InputField = ({
             />
           )
         )}
-        {...{ ...field, ...props }}
+        {...field}
+        {...props}
       />
     </Form.Item>
   );
