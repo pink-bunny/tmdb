@@ -18,7 +18,7 @@ const InputField = ({
   return (
     <Form.Item
       validateStatus={fieldErrors && fieldTouched && 'error'}
-      help={fieldErrors && fieldTouched && fieldErrors}
+      help={fieldErrors && fieldTouched ? fieldErrors : ''}
     >
       <Input
         type={type}
