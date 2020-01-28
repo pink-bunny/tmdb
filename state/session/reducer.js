@@ -7,20 +7,20 @@ const initialState = {
 
 function sessionReducer(state = initialState, action) {
   switch (action.type) {
-    case types.SESSION_REQUEST_TOKEN:
+    case types.REQUEST_SESSION:
       return {
         ...state,
         requestToken: action.text
       };
-    case types.SESSION_REQUEST_TOKEN_SUCCESS:
+    case types.REQUEST_SESSION_SUCCESS:
       return {
         ...state,
-        requestToken: action.token
+        sessionId: action.sessionId
       };
-    case types.SESSION_SET_ID:
+    case types.REQUEST_SESSION_ERROR:
       return {
         ...state,
-        sessionId: action.id
+        error: action.error
       };
     default:
       return state;
