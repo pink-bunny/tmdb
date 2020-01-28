@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { Field } from 'formik';
 import {
-  Button, Col, Form, Icon, Input, Layout, Row, Typography
+  Form, Col, Layout, Row, Typography
 } from 'antd';
 
-const Login = ({ sessionSetId }) => (
+import Button from '../../components/Button';
+import InputField from '../../components/InputField';
+
+const Login = ({ handleSubmit }) => (
   <div className="center">
     <Layout>
       <Layout.Content>
@@ -14,42 +17,28 @@ const Login = ({ sessionSetId }) => (
           justify="center"
         >
           <Col>
-            <Form>
+            <Form onSubmit={handleSubmit}>
               <Typography.Title>The Movie DB</Typography.Title>
-              <Form.Item
-                validateStatus="error"
-                help="Should be combination of numbers & alphabets"
-              >
-                <Input
-                  prefix={(
-                    <Icon
-                      type="user"
-                      style={{ color: 'rgba(0,0,0,.25)' }}
-                    />
-                  )}
-                  placeholder="Username"
-                />
-              </Form.Item>
-              <Form.Item>
-                <Input
-                  prefix={(
-                    <Icon
-                      type="lock"
-                      style={{ color: 'rgba(0,0,0,.25)' }}
-                    />
-                  )}
-                  type="password"
-                  placeholder="Password"
-                />
-              </Form.Item>
+              <Field
+                name="username"
+                id="username"
+                placeholder="Username"
+                icon="user"
+                component={InputField}
+              />
+              <Field
+                name="password"
+                id="password"
+                type="password"
+                placeholder="Password"
+                icon="lock"
+                component={InputField}
+              />
               <Form.Item>
                 <Button
-                  type="primary"
+                  text="Log in"
                   htmlType="submit"
-                  onClick={sessionSetId}
-                >
-                  Log in
-                </Button>
+                />
               </Form.Item>
             </Form>
           </Col>
@@ -60,7 +49,7 @@ const Login = ({ sessionSetId }) => (
 );
 
 Login.propTypes = {
-  sessionSetId: PropTypes.func.isRequired
+  handleSubmit: PropTypes.func.isRequired
 };
 
 export default Login;
