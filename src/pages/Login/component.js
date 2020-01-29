@@ -8,7 +8,7 @@ import {
 import Button from '../../components/Button';
 import InputField from '../../components/InputField';
 
-const Login = ({ handleSubmit }) => (
+const Login = ({ handleSubmit, isSubmitting }) => (
   <div className="center">
     <Layout>
       <Layout.Content>
@@ -36,6 +36,7 @@ const Login = ({ handleSubmit }) => (
               />
               <Form.Item>
                 <Button
+                  loading={isSubmitting}
                   text="Log in"
                   htmlType="submit"
                 />
@@ -49,7 +50,8 @@ const Login = ({ handleSubmit }) => (
 );
 
 Login.propTypes = {
-  handleSubmit: PropTypes.func.isRequired
+  handleSubmit: PropTypes.func.isRequired,
+  isSubmitting: PropTypes.bool.isRequired
 };
 
 export default Login;

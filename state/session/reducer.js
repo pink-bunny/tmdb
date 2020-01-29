@@ -1,7 +1,10 @@
+import cookie from 'cookie_js';
 import * as types from './types';
 
+const checkSessionIdInCookie = cookie.get('session_id');
+
 const initialState = {
-  sessionId: '',
+  sessionId: checkSessionIdInCookie,
   requestToken: null
 };
 
@@ -16,11 +19,6 @@ function sessionReducer(state = initialState, action) {
       return {
         ...state,
         sessionId: action.sessionId
-      };
-    case types.REQUEST_SESSION_ERROR:
-      return {
-        ...state,
-        error: action.error
       };
     default:
       return state;

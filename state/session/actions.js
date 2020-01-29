@@ -10,8 +10,3 @@ export const requestSessionSuccess = (sessionId) => ({
   type: types.REQUEST_SESSION_SUCCESS,
   sessionId
 });
-
-export const requestSessionError = (error) => ({
-  type: types.REQUEST_SESSION_ERROR,
-  error
-});

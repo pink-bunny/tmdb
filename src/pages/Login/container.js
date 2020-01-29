@@ -14,11 +14,13 @@ const SignInValidationSchema = Yup.object().shape({
 });
 
 const LoginForm = withFormik({
-  mapPropsToValues: () => ({ username: '', password: '' }),
+  mapPropsToValues: () => ({ username: '4betlana', password: 'strawberry91' }),
 
   validationSchema: SignInValidationSchema,
 
-  handleSubmit: (values, { props }) => props.requestSession(values),
+  handleSubmit: (values, { props }) => {
+    props.requestSession(values);
+  },
 
   displayName: 'LoginForm'
 })(Login);

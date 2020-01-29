@@ -1,9 +1,11 @@
 import { createLogic } from 'redux-logic';
+import cookie from 'cookie_js';
 
 import { API_KEY } from '../../constants';
 import { REQUEST_SESSION } from './types';
-import { requestSessionSuccess, requestSessionError } from './actions';
+import { requestSessionSuccess } from './actions';
 
+/* eslint-disable camelcase */
 const requestSessionLogic = createLogic({
   type: REQUEST_SESSION,
   warnTimeout: 0,
@@ -27,11 +29,8 @@ const requestSessionLogic = createLogic({
       const sessionId = responseSessionId.session_id;
 
       dispatch(requestSessionSuccess(sessionId));
-      document.cookie = `session_id=${sessionId}`;
-    } catch (error) {
-      dispatch(requestSessionError('Usermane or password is wrong. Try again'));
-      // setErrors(transformErrorsFromMyApi(error))
-    }
+      cookie.set('session_id', sessionId);
+    } catch (error) {}
     done();
   }
 });
