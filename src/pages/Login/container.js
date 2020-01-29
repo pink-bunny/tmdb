@@ -18,8 +18,8 @@ const LoginForm = withFormik({
 
   validationSchema: SignInValidationSchema,
 
-  handleSubmit: (values, { props }) => {
-    props.requestSession(values);
+  handleSubmit: (values, { props, setErrors, setSubmitting }) => {
+    props.requestSession(values, setErrors, setSubmitting);
   },
 
   displayName: 'LoginForm'

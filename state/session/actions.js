@@ -1,9 +1,11 @@
 import * as types from './types';
 
-export const requestSession = ({ username, password }) => ({
+export const requestSession = ({ username, password }, setErrors, setSubmitting) => ({
   type: types.REQUEST_SESSION,
   username,
-  password
+  password,
+  setErrors,
+  setSubmitting
 });
 
 export const requestSessionSuccess = (sessionId) => ({

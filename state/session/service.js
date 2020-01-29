@@ -11,9 +11,14 @@ const requestSessionLogic = createLogic({
   warnTimeout: 0,
 
   async process({ httpClient, action }, dispatch, done) {
-    try {
-      const { username, password } = action;
+    const {
+      username,
+      password,
+      setErrors,
+      setSubmitting
+    } = action;
 
+    try {
       const { data: responseToken } = await httpClient.get(`authentication/token/new?api_key=${API_KEY}`);
       const requestToken = responseToken.request_token;
 
@@ -30,7 +35,10 @@ const requestSessionLogic = createLogic({
 
       dispatch(requestSessionSuccess(sessionId));
       cookie.set('session_id', sessionId);
-    } catch (error) {}
+    } catch (error) {
+      setSubmitting(false);
+      setErrors({ serverError: 'Username or password is wrong. Try again' });
+    }
     done();
   }
 });
