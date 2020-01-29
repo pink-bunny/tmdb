@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-require('@babel/polyfill');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -9,7 +8,6 @@ module.exports = (env) => {
   const { PLATFORM } = env;
   return merge([
     {
-      entry: ['babel-polyfill', './src/index.js'],
       module: {
         rules: [
           {
