@@ -12,3 +12,7 @@ export const requestSessionSuccess = (sessionId) => ({
   type: types.REQUEST_SESSION_SUCCESS,
   sessionId
 });
+
+export const completeSession = () => ({
+  type: types.COMPLETE_SESSION
+});

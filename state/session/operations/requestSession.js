@@ -1,8 +1,8 @@
 import { createLogic } from 'redux-logic';
 import cookie from 'cookie_js';
 
-import { REQUEST_SESSION } from './types';
-import { requestSessionSuccess } from './actions';
+import { REQUEST_SESSION } from '../types';
+import { requestSessionSuccess } from '../actions';
 
 const requestSessionLogic = createLogic({
   type: REQUEST_SESSION,

@@ -1,10 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+
 import {
   Typography, Row, Col, Avatar, Dropdown, Icon, Menu, Layout
 } from 'antd';
-import { Link } from 'react-router-dom';
 
-const Overlay = () => (
+const getOverlay = (completeSession) => () => (
   <Menu>
     <Menu.Item>
       <Link to="/stubs/dashboard">Dashboard</Link>
@@ -20,11 +22,11 @@ const Overlay = () => (
       <Link to="/stubs/favorites">Favorites</Link>
     </Menu.Item>
     <Menu.Divider />
-    <Menu.Item>Logout</Menu.Item>
+    <Menu.Item onClick={completeSession}>Logout</Menu.Item>
   </Menu>
 );
 
-const Header = () => (
+const Header = ({ completeSession }) => (
   <Layout.Header>
     <Row
       type="flex"
@@ -32,11 +34,12 @@ const Header = () => (
     >
       <Col>
         <Typography.Text>THE MOVIE DB</Typography.Text>
+        <button type="button" onClick={completeSession}>click</button>
       </Col>
       <Col>
         <Avatar icon="user" />
         {' '}
-        <Dropdown overlay={Overlay}>
+        <Dropdown overlay={getOverlay(completeSession)}>
           <Typography.Text>
             Username
             {' '}
@@ -47,5 +50,9 @@ const Header = () => (
     </Row>
   </Layout.Header>
 );
+
+Header.propTypes = {
+  completeSession: PropTypes.func.isRequired
+};
 
 export default Header;
