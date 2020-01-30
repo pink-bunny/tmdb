@@ -1,7 +1,6 @@
 import { createLogic } from 'redux-logic';
 import cookie from 'cookie_js';
 
-import { API_KEY } from '../../constants';
 import { REQUEST_SESSION } from './types';
 import { requestSessionSuccess } from './actions';
 
@@ -18,17 +17,17 @@ const requestSessionLogic = createLogic({
     } = action;
 
     try {
-      const { data: responseToken } = await httpClient.get(`authentication/token/new?api_key=${API_KEY}`);
+      const { data: responseToken } = await httpClient.get('authentication/token/new');
       const requestToken = responseToken.request_token;
 
-      await httpClient.post(`authentication/token/validate_with_login?api_key=${API_KEY}`, {
+      await httpClient.post('authentication/token/validate_with_login', {
         username,
         password,
         /* eslint-disable-next-line */
         request_token: requestToken
       });
 
-      const { data: responseSessionId } = await httpClient.post(`authentication/session/new?api_key=${API_KEY}`, {
+      const { data: responseSessionId } = await httpClient.post('authentication/session/new', {
         /* eslint-disable-next-line */
         request_token: requestToken
       });
