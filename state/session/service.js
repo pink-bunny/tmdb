@@ -5,7 +5,6 @@ import { API_KEY } from '../../constants';
 import { REQUEST_SESSION } from './types';
 import { requestSessionSuccess } from './actions';
 
-/* eslint-disable camelcase */
 const requestSessionLogic = createLogic({
   type: REQUEST_SESSION,
   warnTimeout: 0,
@@ -25,10 +24,12 @@ const requestSessionLogic = createLogic({
       await httpClient.post(`authentication/token/validate_with_login?api_key=${API_KEY}`, {
         username,
         password,
+        /* eslint-disable-next-line */
         request_token: requestToken
       });
 
       const { data: responseSessionId } = await httpClient.post(`authentication/session/new?api_key=${API_KEY}`, {
+        /* eslint-disable-next-line */
         request_token: requestToken
       });
       const sessionId = responseSessionId.session_id;

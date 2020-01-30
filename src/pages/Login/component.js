@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Field } from 'formik';
 import {
-  Form, Col, Layout, Row, Typography, Alert
+  Form, Col, Layout, Row, Typography
 } from 'antd';
 
 import Button from '../../components/Button';
@@ -20,11 +20,12 @@ const Login = ({ handleSubmit, isSubmitting, errors }) => (
             <Form onSubmit={handleSubmit}>
               <Typography.Title>The Movie DB</Typography.Title>
               {errors.serverError && (
-                <Alert
-                  description={errors.serverError}
-                  type="error"
-                  style={{ marginBottom: '30px' }}
-                />
+                <Typography.Paragraph
+                  type="danger"
+                  style={{ marginBottom: '16px' }}
+                >
+                  {errors.serverError}
+                </Typography.Paragraph>
               )}
               <Field
                 name="username"
@@ -44,6 +45,7 @@ const Login = ({ handleSubmit, isSubmitting, errors }) => (
               <Form.Item>
                 <Button
                   loading={isSubmitting}
+                  disabled={isSubmitting}
                   text="Log in"
                   htmlType="submit"
                 />

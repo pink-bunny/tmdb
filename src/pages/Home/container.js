@@ -15,7 +15,7 @@ Home.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  userLoggedIn: isUserLoggedIn(state) || ''
+  userLoggedIn: isUserLoggedIn(state)
 });
 
 export default connect(mapStateToProps)(Home);
