@@ -34,7 +34,6 @@ const Header = ({ completeSession }) => (
     >
       <Col>
         <Typography.Text>THE MOVIE DB</Typography.Text>
-        <button type="button" onClick={completeSession}>click</button>
       </Col>
       <Col>
         <Avatar icon="user" />
