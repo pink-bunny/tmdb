@@ -8,7 +8,7 @@ import {
 import Button from '../../components/Button';
 import InputField from '../../components/InputField';
 
-const Login = ({ handleSubmit }) => (
+const Login = ({ handleSubmit, isSubmitting, errors }) => (
   <div className="center">
     <Layout>
       <Layout.Content>
@@ -19,6 +19,14 @@ const Login = ({ handleSubmit }) => (
           <Col>
             <Form onSubmit={handleSubmit}>
               <Typography.Title>The Movie DB</Typography.Title>
+              {errors.serverError && (
+                <Typography.Paragraph
+                  type="danger"
+                  style={{ marginBottom: '16px' }}
+                >
+                  {errors.serverError}
+                </Typography.Paragraph>
+              )}
               <Field
                 name="username"
                 id="username"
@@ -36,6 +44,8 @@ const Login = ({ handleSubmit }) => (
               />
               <Form.Item>
                 <Button
+                  loading={isSubmitting}
+                  disabled={isSubmitting}
                   text="Log in"
                   htmlType="submit"
                 />
@@ -49,7 +59,17 @@ const Login = ({ handleSubmit }) => (
 );
 
 Login.propTypes = {
-  handleSubmit: PropTypes.func.isRequired
+  handleSubmit: PropTypes.func.isRequired,
+  isSubmitting: PropTypes.bool.isRequired,
+  errors: PropTypes.shape({
+    serverError: PropTypes.string
+  })
+};
+
+Login.defaultProps = {
+  errors: {
+    serverError: null
+  }
 };
 
 export default Login;

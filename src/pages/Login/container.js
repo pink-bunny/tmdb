@@ -3,7 +3,7 @@ import { withFormik } from 'formik';
 import * as Yup from 'yup';
 
 import Login from './component';
-import { sessionSetId } from '../../../state/session/actions';
+import { requestSession } from '../../../state/session/actions';
 
 const SignInValidationSchema = Yup.object().shape({
   username: Yup.string()
@@ -14,17 +14,19 @@ const SignInValidationSchema = Yup.object().shape({
 });
 
 const LoginForm = withFormik({
-  mapPropsToValues: () => ({ username: '', password: '' }),
+  mapPropsToValues: () => ({ username: '4betlana', password: 'strawberry91' }),
 
   validationSchema: SignInValidationSchema,
 
-  handleSubmit: (values, { props }) => props.sessionSetId(values),
+  handleSubmit: (values, { props, setErrors, setSubmitting }) => {
+    props.requestSession(values, setErrors, setSubmitting);
+  },
 
   displayName: 'LoginForm'
 })(Login);
 
 const mapDispatchToProps = {
-  sessionSetId
+  requestSession
 };
 
 export default connect(null, mapDispatchToProps)(LoginForm);

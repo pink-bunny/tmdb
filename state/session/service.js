@@ -1,27 +1,46 @@
 import { createLogic } from 'redux-logic';
+import cookie from 'cookie_js';
 
-import { API_KEY } from '../../constants';
-import { SESSION_REQUEST_TOKEN } from './types';
-import { sessionRequestTokenSuccess } from './actions';
+import { REQUEST_SESSION } from './types';
+import { requestSessionSuccess } from './actions';
 
-const sessionRequestTokenLogic = createLogic({
-  type: SESSION_REQUEST_TOKEN,
+const requestSessionLogic = createLogic({
+  type: REQUEST_SESSION,
   warnTimeout: 0,
 
-  process({ httpClient }, dispatch, done) {
-    httpClient.get(`authentication/token/new?api_key=${API_KEY}`)
-      .then(
-        (payload) => {
-          const token = payload.data.request_token;
-          dispatch(sessionRequestTokenSuccess(token));
-        }
-      )
-      .catch(
-        /* eslint-disable no-console */
-        (err) => console.error('ERROR', err)
-      )
-      .then(() => done());
+  async process({ httpClient, action }, dispatch, done) {
+    const {
+      username,
+      password,
+      setErrors,
+      setSubmitting
+    } = action;
+
+    try {
+      const { data: responseToken } = await httpClient.get('authentication/token/new');
+      const requestToken = responseToken.request_token;
+
+      await httpClient.post('authentication/token/validate_with_login', {
+        username,
+        password,
+        /* eslint-disable-next-line */
+        request_token: requestToken
+      });
+
+      const { data: responseSessionId } = await httpClient.post('authentication/session/new', {
+        /* eslint-disable-next-line */
+        request_token: requestToken
+      });
+      const sessionId = responseSessionId.session_id;
+
+      dispatch(requestSessionSuccess(sessionId));
+      cookie.set('session_id', sessionId);
+    } catch (error) {
+      setSubmitting(false);
+      setErrors({ serverError: 'Username or password is wrong. Try again' });
+    }
+    done();
   }
 });
 
-export default sessionRequestTokenLogic;
+export default requestSessionLogic;
