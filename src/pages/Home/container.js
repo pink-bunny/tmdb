@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import Login from '../Login';
-import DashboardEmpty from '../DashboardEmpty';
+import Dashboard from '../Dashboard';
 import { isUserLoggedIn } from '../../../state/session/selectors';
 
 const Home = ({ userLoggedIn }) => (
-  userLoggedIn ? <DashboardEmpty /> : <Login />
+  userLoggedIn ? <Dashboard /> : <Login />
 );
 
 Home.propTypes = {
