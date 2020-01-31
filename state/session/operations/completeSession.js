@@ -9,7 +9,7 @@ const requestSessionLogic = createLogic({
   warnTimeout: 0,
 
   process(_, dispatch, done) {
-    cookie.remove('session_id');
+    cookie.remove('sessionId', 'username');
     dispatch(completeSessionSuccess());
     done();
   }

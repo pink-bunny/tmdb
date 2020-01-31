@@ -26,7 +26,7 @@ const getOverlay = (completeSession) => () => (
   </Menu>
 );
 
-const Header = ({ completeSession }) => (
+const Header = ({ completeSession, userLoggedIn, username }) => (
   <Layout.Header>
     <Row
       type="flex"
@@ -36,22 +36,27 @@ const Header = ({ completeSession }) => (
         <Typography.Text>THE MOVIE DB</Typography.Text>
       </Col>
       <Col>
-        <Avatar icon="user" />
-        {' '}
-        <Dropdown overlay={getOverlay(completeSession)}>
-          <Typography.Text>
-            Username
+        {userLoggedIn && (
+          <>
+            <Avatar icon="user" />
             {' '}
-            <Icon type="caret-down" />
-          </Typography.Text>
-        </Dropdown>
+            <Dropdown overlay={getOverlay(completeSession)}>
+              <Typography.Text>
+                {`${username} `}
+                <Icon type="caret-down" />
+              </Typography.Text>
+            </Dropdown>
+          </>
+        )}
       </Col>
     </Row>
   </Layout.Header>
 );
 
 Header.propTypes = {
-  completeSession: PropTypes.func.isRequired
+  completeSession: PropTypes.func.isRequired,
+  userLoggedIn: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired
 };
 
 export default Header;
