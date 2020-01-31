@@ -7,16 +7,14 @@ const fetchTrendingMoviesLogic = createLogic({
   type: FETCH_TRANDING_MOVIES,
   warnTimeout: 0,
 
-  async process({ httpClient }, dispatch, done) {
+  async process({ httpClient, action }, dispatch, done) {
+    const { pageNum } = action;
     try {
-      const { data } = await httpClient.get('trending/movie/day?page=5');
-      console.log('DATA', data);
-      dispatch(fetchTrendingMoviesSuccess(data.results));
-      /* eslint-disable-next-line */
+      const { data } = await httpClient.get(`trending/movie/day?page=${pageNum}`);
+      const list = data.results;
+      dispatch(fetchTrendingMoviesSuccess(list));
     } catch (error) {
-      /* eslint-disable-next-line */
-      console.log('ERR fetchTrendingMoviesLogic', error);
-      dispatch(fetchTrendingMoviesError());
+      dispatch(fetchTrendingMoviesError('Error'));
     }
     done();
   }

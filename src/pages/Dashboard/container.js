@@ -3,8 +3,13 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Dashboard from './component';
-import { isTrendingMoviesFetcing } from '../../../state/movies/selectors';
-import { fetchTrendingMovies as fetchTrendingMoviesAction } from '../../../state/movies/actions';
+import {
+  isTrendingMoviesLoading,
+  trendingMoviesList
+} from '../../../state/movies/selectors';
+import {
+  fetchTrendingMovies as fetchTrendingMoviesAction
+} from '../../../state/movies/actions';
 
 class DashboardPage extends React.Component {
   componentDidMount() {
@@ -13,14 +18,17 @@ class DashboardPage extends React.Component {
   }
 
   render() {
+    const { list, loading } = this.props;
     return (
-      <Dashboard isTrendingMoviesFetcing />
+      <Dashboard list={list} loading={loading} />
     );
   }
 }
 
 DashboardPage.propTypes = {
-  fetchTrendingMovies: PropTypes.func.isRequired
+  fetchTrendingMovies: PropTypes.func.isRequired,
+  list: PropTypes.arrayOf(PropTypes.object).isRequired,
+  loading: PropTypes.bool.isRequired
 };
 
 const mapDispatchToPtops = {
@@ -28,7 +36,8 @@ const mapDispatchToPtops = {
 };
 
 const mapStateToProps = (state) => ({
-  isTrendingMoviesFetcing
+  loading: isTrendingMoviesLoading(state),
+  list: trendingMoviesList(state)
 });
 
 export default connect(mapStateToProps, mapDispatchToPtops)(DashboardPage);

@@ -32,7 +32,8 @@ function trendingMoviesReducer(state = initialState, action) {
         ...state,
         trendingList: {
           ...state.trendingList,
-          loading: false
+          loading: false,
+          error: action.error
         }
       };
     default:
