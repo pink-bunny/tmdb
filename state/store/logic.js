@@ -1,4 +1,4 @@
-import sessionService from '../session/service';
+import sessionService from '../session/operations';
 import fetchTrendingMoviesLogic from '../movies/service';
 
 export default [

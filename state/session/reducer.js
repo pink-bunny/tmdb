@@ -1,10 +1,12 @@
 import cookie from 'cookie_js';
 import * as types from './types';
 
-const sessionId = cookie.get('session_id');
+const sessionId = cookie.get('sessionId');
+const username = cookie.get('username');
 
 const initialState = {
-  sessionId
+  sessionId,
+  username
 };
 
 function sessionReducer(state = initialState, action) {
@@ -12,7 +14,14 @@ function sessionReducer(state = initialState, action) {
     case types.REQUEST_SESSION_SUCCESS:
       return {
         ...state,
-        sessionId: action.sessionId
+        sessionId: action.sessionId,
+        username: action.username
+      };
+    case types.COMPLETE_SESSION_SUCCESS:
+      return {
+        ...state,
+        sessionId: null,
+        username: null
       };
     default:
       return state;
