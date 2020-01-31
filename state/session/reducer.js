@@ -14,7 +14,7 @@ function sessionReducer(state = initialState, action) {
         ...state,
         sessionId: action.sessionId
       };
-    case types.COMPLETE_SESSION:
+    case types.COMPLETE_SESSION_SUCCESS:
       return {
         ...state,
         sessionId: null
