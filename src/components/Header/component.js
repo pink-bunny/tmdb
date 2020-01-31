@@ -1,10 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+
 import {
   Typography, Row, Col, Avatar, Dropdown, Icon, Menu, Layout
 } from 'antd';
-import { Link } from 'react-router-dom';
 
-const Overlay = () => (
+const getOverlay = (completeSession) => () => (
   <Menu>
     <Menu.Item>
       <Link to="/stubs/dashboard">Dashboard</Link>
@@ -20,11 +22,11 @@ const Overlay = () => (
       <Link to="/stubs/favorites">Favorites</Link>
     </Menu.Item>
     <Menu.Divider />
-    <Menu.Item>Logout</Menu.Item>
+    <Menu.Item onClick={completeSession}>Logout</Menu.Item>
   </Menu>
 );
 
-const Header = () => (
+const Header = ({ completeSession, userLoggedIn, username }) => (
   <Layout.Header>
     <Row
       type="flex"
@@ -34,18 +36,27 @@ const Header = () => (
         <Typography.Text>THE MOVIE DB</Typography.Text>
       </Col>
       <Col>
-        <Avatar icon="user" />
-        {' '}
-        <Dropdown overlay={Overlay}>
-          <Typography.Text>
-            Username
+        {userLoggedIn && (
+          <>
+            <Avatar icon="user" />
             {' '}
-            <Icon type="caret-down" />
-          </Typography.Text>
-        </Dropdown>
+            <Dropdown overlay={getOverlay(completeSession)}>
+              <Typography.Text>
+                {`${username} `}
+                <Icon type="caret-down" />
+              </Typography.Text>
+            </Dropdown>
+          </>
+        )}
       </Col>
     </Row>
   </Layout.Header>
 );
+
+Header.propTypes = {
+  completeSession: PropTypes.func.isRequired,
+  userLoggedIn: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired
+};
 
 export default Header;

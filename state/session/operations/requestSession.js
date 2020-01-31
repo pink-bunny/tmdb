@@ -1,8 +1,8 @@
 import { createLogic } from 'redux-logic';
 import cookie from 'cookie_js';
 
-import { REQUEST_SESSION } from './types';
-import { requestSessionSuccess } from './actions';
+import { REQUEST_SESSION } from '../types';
+import { requestSessionSuccess } from '../actions';
 
 const requestSessionLogic = createLogic({
   type: REQUEST_SESSION,
@@ -23,18 +23,19 @@ const requestSessionLogic = createLogic({
       await httpClient.post('authentication/token/validate_with_login', {
         username,
         password,
-        /* eslint-disable-next-line */
-        request_token: requestToken
+        request_token: requestToken /* eslint-disable-line */
       });
 
       const { data: responseSessionId } = await httpClient.post('authentication/session/new', {
-        /* eslint-disable-next-line */
-        request_token: requestToken
+        request_token: requestToken /* eslint-disable-line */
       });
       const sessionId = responseSessionId.session_id;
 
-      dispatch(requestSessionSuccess(sessionId));
-      cookie.set('session_id', sessionId);
+      dispatch(requestSessionSuccess(sessionId, username));
+      cookie.set({
+        sessionId,
+        username
+      });
     } catch (error) {
       setSubmitting(false);
       setErrors({ serverError: 'Username or password is wrong. Try again' });

@@ -8,7 +8,15 @@ export const requestSession = ({ username, password }, setErrors, setSubmitting)
   setSubmitting
 });
 
-export const requestSessionSuccess = (sessionId) => ({
+export const requestSessionSuccess = (sessionId, username) => ({
   type: types.REQUEST_SESSION_SUCCESS,
-  sessionId
+  sessionId,
+  username
+});
+
+export const completeSession = () => ({
+  type: types.COMPLETE_SESSION
+});
+export const completeSessionSuccess = () => ({
+  type: types.COMPLETE_SESSION_SUCCESS
 });
