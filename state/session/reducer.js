@@ -9,7 +9,7 @@ const initialState = {
   username
 };
 
-function sessionReducer(state = initialState, action) {
+const session = (state = initialState, action) => {
   switch (action.type) {
     case types.REQUEST_SESSION_SUCCESS:
       return {
@@ -26,6 +26,6 @@ function sessionReducer(state = initialState, action) {
     default:
       return state;
   }
-}
+};
 
-export default sessionReducer;
+export default session;

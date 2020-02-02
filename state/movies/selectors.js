@@ -1,3 +1,5 @@
-export const isTrendingMoviesLoading = (state) => state.trendingMoviesReducer.trendingList.loading;
+export const isTrendingMoviesLoading = (state) => state.trendingMovies.trendingList.loading;
 
-export const trendingMoviesList = (state) => state.trendingMoviesReducer.trendingList.list;
+export const trendingMoviesList = (state) => state.trendingMovies.trendingList.list;
+
+export const trendingMoviesError = (state) => state.trendingMovies.trendingList.error || '';

@@ -5,7 +5,8 @@ import PropTypes from 'prop-types';
 import Dashboard from './component';
 import {
   isTrendingMoviesLoading,
-  trendingMoviesList
+  trendingMoviesList,
+  trendingMoviesError
 } from '../../../state/movies/selectors';
 import {
   fetchTrendingMovies as fetchTrendingMoviesAction
@@ -18,9 +19,9 @@ class DashboardPage extends React.Component {
   }
 
   render() {
-    const { list, loading } = this.props;
+    const { list, loading, error } = this.props;
     return (
-      <Dashboard list={list} loading={loading} />
+      <Dashboard list={list} loading={loading} error={error} />
     );
   }
 }
@@ -28,7 +29,8 @@ class DashboardPage extends React.Component {
 DashboardPage.propTypes = {
   fetchTrendingMovies: PropTypes.func.isRequired,
   list: PropTypes.arrayOf(PropTypes.object).isRequired,
-  loading: PropTypes.bool.isRequired
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.string.isRequired
 };
 
 const mapDispatchToPtops = {
@@ -37,7 +39,8 @@ const mapDispatchToPtops = {
 
 const mapStateToProps = (state) => ({
   loading: isTrendingMoviesLoading(state),
-  list: trendingMoviesList(state)
+  list: trendingMoviesList(state),
+  error: trendingMoviesError(state)
 });
 
 export default connect(mapStateToProps, mapDispatchToPtops)(DashboardPage);

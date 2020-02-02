@@ -1,7 +1,7 @@
 import sessionService from '../session/operations';
-import fetchTrendingMoviesLogic from '../movies/service';
+import moviesService from '../movies/operations';
 
 export default [
   ...sessionService,
-  fetchTrendingMoviesLogic
+  ...moviesService
 ];

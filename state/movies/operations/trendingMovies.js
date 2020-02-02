@@ -1,9 +1,9 @@
 import { createLogic } from 'redux-logic';
 
-import { FETCH_TRANDING_MOVIES } from './types';
-import { fetchTrendingMoviesSuccess, fetchTrendingMoviesError } from './actions';
+import { FETCH_TRANDING_MOVIES } from '../types';
+import { fetchTrendingMoviesSuccess, fetchTrendingMoviesError } from '../actions';
 
-const fetchTrendingMoviesLogic = createLogic({
+const trendingMoviesLogic = createLogic({
   type: FETCH_TRANDING_MOVIES,
   warnTimeout: 0,
 
@@ -14,10 +14,11 @@ const fetchTrendingMoviesLogic = createLogic({
       const list = data.results;
       dispatch(fetchTrendingMoviesSuccess(list));
     } catch (error) {
-      dispatch(fetchTrendingMoviesError('Error'));
+      const errorMessage = error.response.data.status_message;
+      dispatch(fetchTrendingMoviesError(errorMessage));
     }
     done();
   }
 });
 
-export default fetchTrendingMoviesLogic;
+export default trendingMoviesLogic;

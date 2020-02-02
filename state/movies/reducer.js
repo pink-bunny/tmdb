@@ -8,7 +8,7 @@ const initialState = {
   }
 };
 
-function trendingMoviesReducer(state = initialState, action) {
+const trendingMovies = (state = initialState, action) => {
   switch (action.type) {
     case types.FETCH_TRANDING_MOVIES:
       return {
@@ -39,6 +39,6 @@ function trendingMoviesReducer(state = initialState, action) {
     default:
       return state;
   }
-}
+};
 
-export default trendingMoviesReducer;
+export default trendingMovies;
