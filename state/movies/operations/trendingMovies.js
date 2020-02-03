@@ -12,7 +12,8 @@ const trendingMoviesLogic = createLogic({
     try {
       const { data } = await httpClient.get(`trending/movie/day?page=${pageNum}`);
       const list = data.results;
-      dispatch(fetchTrendingMoviesSuccess(list));
+      const totalPages = data.total_pages;
+      dispatch(fetchTrendingMoviesSuccess(list, totalPages));
     } catch (error) {
       const errorMessage = error.response.data.status_message;
       dispatch(fetchTrendingMoviesError(errorMessage));

@@ -11,7 +11,12 @@ import {
 
 import Movie from './MovieItem';
 
-const List = ({ list, loading, error }) => {
+const List = ({
+  list,
+  loading,
+  error,
+  totalPages
+}) => {
   if (loading) {
     return (
       <Row type="flex" justify="center">
@@ -78,7 +83,7 @@ const List = ({ list, loading, error }) => {
         <Col>
           <Pagination
             defaultCurrent={1}
-            total={50}
+            total={totalPages}
             className="pagination"
           />
         </Col>
@@ -90,7 +95,8 @@ const List = ({ list, loading, error }) => {
 List.propTypes = {
   list: PropTypes.arrayOf(PropTypes.object).isRequired,
   loading: PropTypes.bool.isRequired,
-  error: PropTypes.string.isRequired
+  error: PropTypes.string.isRequired,
+  totalPages: PropTypes.number.isRequired
 };
 
 export default List;

@@ -24,7 +24,8 @@ const trendingMovies = (state = initialState, action) => {
         trendingList: {
           ...state.trendingList,
           loading: false,
-          list: action.list
+          list: action.list,
+          totalPages: action.totalPages
         }
       };
     case types.FETCH_TRANDING_MOVIES_ERROR:
