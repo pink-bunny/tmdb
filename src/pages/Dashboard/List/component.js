@@ -4,13 +4,46 @@ import {
   Row,
   Col,
   Pagination,
-  Empty
+  Empty,
+  Typography,
+  Spin
 } from 'antd';
 
 import Movie from './MovieItem';
 
-const List = ({ list }) => (
-  list ? (
+const List = ({ list, loading, error }) => {
+  if (loading) {
+    return (
+      <Row type="flex" justify="center">
+        <Col>
+          <Spin />
+        </Col>
+      </Row>
+    );
+  }
+
+  if (error) {
+    return (
+      <Row type="flex" justify="center">
+        <Col>
+          <Typography.Paragraph type="danger">
+            {error}
+          </Typography.Paragraph>
+        </Col>
+      </Row>
+    );
+  }
+
+  if (!list) {
+    return (
+      <Empty
+        description="No movies found"
+        image={Empty.PRESENTED_IMAGE_SIMPLE}
+      />
+    );
+  }
+
+  return (
     <>
       <Row
         type="flex"
@@ -51,16 +84,13 @@ const List = ({ list }) => (
         </Col>
       </Row>
     </>
-  ) : (
-    <Empty
-      description="No movies found"
-      image={Empty.PRESENTED_IMAGE_SIMPLE}
-    />
-  )
-);
+  );
+};
 
 List.propTypes = {
-  list: PropTypes.arrayOf(PropTypes.object).isRequired
+  list: PropTypes.arrayOf(PropTypes.object).isRequired,
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.string.isRequired
 };
 
 export default List;

@@ -1,13 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {
-  Layout,
-  Row,
-  Col,
-  Spin,
-  Typography
-} from 'antd';
+import { Layout } from 'antd';
 import Search from './Search';
 import List from './List';
 
@@ -17,25 +11,7 @@ const Dashboard = ({ list, loading, error }) => (
       <Search />
 
       <div className="top-margin">
-        {loading && (
-          <Row type="flex" justify="center">
-            <Col>
-              <Spin />
-            </Col>
-          </Row>
-        )}
-
-        {error && (
-          <Row type="flex" justify="center">
-            <Col>
-              <Typography.Paragraph type="danger">
-                {error}
-              </Typography.Paragraph>
-            </Col>
-          </Row>
-        )}
-
-        {!loading && !error ? <List list={list} /> : null}
+        <List list={list} error={error} loading={loading} />
       </div>
     </Layout.Content>
   </Layout>
