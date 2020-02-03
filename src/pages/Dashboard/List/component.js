@@ -15,7 +15,9 @@ const List = ({
   list,
   loading,
   error,
-  totalPages
+  totalItems,
+  fetchMovies,
+  currentPage
 }) => {
   if (loading) {
     return (
@@ -76,18 +78,24 @@ const List = ({
           ))}
         </Col>
       </Row>
-      <Row
-        type="flex"
-        justify="center"
-      >
-        <Col>
-          <Pagination
-            defaultCurrent={1}
-            total={totalPages}
-            className="pagination"
-          />
-        </Col>
-      </Row>
+      {totalItems > 20 ? (
+        <Row
+          type="flex"
+          justify="center"
+        >
+          <Col>
+            <Pagination
+              current={currentPage}
+              pageSize={20}
+              total={totalItems}
+              className="pagination"
+              onChange={(page) => fetchMovies(page)}
+            />
+          </Col>
+        </Row>
+      ) : (
+        null
+      )}
     </>
   );
 };
@@ -96,7 +104,9 @@ List.propTypes = {
   list: PropTypes.arrayOf(PropTypes.object).isRequired,
   loading: PropTypes.bool.isRequired,
   error: PropTypes.string.isRequired,
-  totalPages: PropTypes.number.isRequired
+  totalItems: PropTypes.number.isRequired,
+  fetchMovies: PropTypes.func.isRequired,
+  currentPage: PropTypes.number.isRequired
 };
 
 export default List;

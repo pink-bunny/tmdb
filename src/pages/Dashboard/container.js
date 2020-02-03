@@ -7,7 +7,8 @@ import {
   isTrendingMoviesLoading,
   trendingMoviesList,
   trendingMoviesError,
-  trendingMoviesTotalPages
+  trendingMoviesTotalPages,
+  trendingMoviesCurrentPage
 } from '../../../state/movies/selectors';
 import { fetchTrendingMovies } from '../../../state/movies/actions';
 
@@ -22,7 +23,9 @@ class DashboardPage extends React.Component {
       list,
       loading,
       error,
-      totalPages
+      totalItems,
+      fetchMovies,
+      currentPage
     } = this.props;
 
     return (
@@ -30,7 +33,9 @@ class DashboardPage extends React.Component {
         list={list}
         loading={loading}
         error={error}
-        totalPages={totalPages}
+        totalItems={totalItems}
+        fetchMovies={fetchMovies}
+        currentPage={currentPage}
       />
     );
   }
@@ -41,7 +46,8 @@ DashboardPage.propTypes = {
   list: PropTypes.arrayOf(PropTypes.object).isRequired,
   loading: PropTypes.bool.isRequired,
   error: PropTypes.string.isRequired,
-  totalPages: PropTypes.number.isRequired
+  totalItems: PropTypes.number.isRequired,
+  currentPage: PropTypes.number.isRequired
 };
 
 const mapDispatchToPtops = {
@@ -52,7 +58,8 @@ const mapStateToProps = (state) => ({
   loading: isTrendingMoviesLoading(state),
   list: trendingMoviesList(state),
   error: trendingMoviesError(state),
-  totalPages: trendingMoviesTotalPages(state)
+  totalItems: trendingMoviesTotalPages(state),
+  currentPage: trendingMoviesCurrentPage(state)
 });
 
 export default connect(mapStateToProps, mapDispatchToPtops)(DashboardPage);

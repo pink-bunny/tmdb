@@ -11,10 +11,14 @@ const Movie = ({
   <Card
     hoverable
     cover={(
-      <img
-        alt={title}
-        src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${poster}`}
-      />
+      poster ? (
+        <img
+          alt={title}
+          src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${poster}`}
+        />
+      ) : (
+        null
+      )
     )}
     className="top-margin"
     actions={actions}
@@ -30,11 +34,12 @@ Movie.propTypes = {
   actions: PropTypes.arrayOf(PropTypes.node),
   title: PropTypes.string.isRequired,
   overview: PropTypes.string.isRequired,
-  poster: PropTypes.string.isRequired
+  poster: PropTypes.string
 };
 
 Movie.defaultProps = {
-  actions: []
+  actions: [],
+  poster: ''
 };
 
 export default Movie;
