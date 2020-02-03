@@ -1,2 +1,2 @@
-export const isUserLoggedIn = (state) => state.sessionReducer.sessionId || '';
-export const username = (state) => state.sessionReducer.username || '';
+export const isUserLoggedIn = (state) => state.session.sessionId || '';
+export const username = (state) => state.session.username || '';

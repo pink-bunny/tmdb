@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import sessionReducer from '../session/reducer';
+import session from '../session/reducer';
+import trendingMovies from '../movies/reducer';
 
 const reducer = combineReducers({
-  sessionReducer
+  session,
+  trendingMovies
 });
 
 export default reducer;
