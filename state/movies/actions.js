@@ -5,9 +5,9 @@ export const fetchTrendingMovies = (page = 1) => ({
   page
 });
 
-export const fetchTrendingMoviesSuccess = (list, totalItems, currentPage) => ({
+export const fetchTrendingMoviesSuccess = (ids, totalItems, currentPage) => ({
   type: types.FETCH_TRANDING_MOVIES_SUCCESS,
-  list,
+  ids,
   totalItems,
   currentPage
 });

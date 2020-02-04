@@ -1,7 +1,9 @@
 import { createLogic } from 'redux-logic';
+import { normalize, schema } from 'normalizr';
 
 import { FETCH_TRANDING_MOVIES } from '../types';
 import { fetchTrendingMoviesSuccess, fetchTrendingMoviesError } from '../actions';
+import { mergeMoviesList } from '../../data/actions';
 
 const trendingMoviesLogic = createLogic({
   type: FETCH_TRANDING_MOVIES,
@@ -12,9 +14,16 @@ const trendingMoviesLogic = createLogic({
     const currentPage = page;
     try {
       const { data } = await httpClient.get(`trending/movie/day?page=${page}`);
-      const list = data.results;
-      const totalItems = data.total_results;
-      dispatch(fetchTrendingMoviesSuccess(list, totalItems, currentPage));
+      // normalize data
+      const movie = new schema.Entity('movies');
+      const moviesSchema = { results: [movie] };
+      const normalizedMovies = normalize(data, moviesSchema);
+      const { movies } = normalizedMovies.entities;
+      const ids = normalizedMovies.result.results;
+      const totalItems = normalizedMovies.result.total_results;
+
+      dispatch(mergeMoviesList(movies));
+      dispatch(fetchTrendingMoviesSuccess(ids, totalItems, currentPage));
     } catch (error) {
       const errorMessage = error.response.data.status_message;
       dispatch(fetchTrendingMoviesError(errorMessage));

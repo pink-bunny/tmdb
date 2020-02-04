@@ -1,0 +1,1 @@
+export const MERGE_MOVIES_LIST = 'MERGE_MOVIES_LIST';
