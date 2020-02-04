@@ -1,7 +1,7 @@
 import sessionService from '../session/operations';
-import moviesService from '../movies/operations';
+import dashboardService from '../dashboard/operations';
 
 export default [
   ...sessionService,
-  ...moviesService
+  ...dashboardService
 ];

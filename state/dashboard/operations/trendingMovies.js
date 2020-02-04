@@ -1,12 +1,12 @@
 import { createLogic } from 'redux-logic';
 import { normalize, schema } from 'normalizr';
 
-import { FETCH_TRANDING_MOVIES } from '../types';
+import { FETCH_TRENDING_MOVIES } from '../types';
 import { fetchTrendingMoviesSuccess, fetchTrendingMoviesError } from '../actions';
 import { mergeMoviesList } from '../../data/actions';
 
 const trendingMoviesLogic = createLogic({
-  type: FETCH_TRANDING_MOVIES,
+  type: FETCH_TRENDING_MOVIES,
   warnTimeout: 0,
 
   async process({ httpClient, action }, dispatch, done) {
