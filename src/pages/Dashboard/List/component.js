@@ -89,7 +89,7 @@ const List = ({
               pageSize={20}
               total={totalItems}
               className="pagination"
-              onChange={(page) => fetchMovies(page)}
+              onChange={fetchMovies}
             />
           </Col>
         </Row>
