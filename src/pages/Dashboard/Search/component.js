@@ -1,7 +1,13 @@
 import React from 'react';
-import { Row, Col, Input } from 'antd';
+import PropTypes from 'prop-types';
+import { Field } from 'formik';
 
-const Search = () => (
+import { Row, Col } from 'antd';
+import SearchComponent from '../../../components/Search';
+
+const Search = ({
+  handleSubmit
+}) => (
   <Row type="flex">
     <Col
       xs={{ span: 22, offset: 1 }}
@@ -10,14 +16,23 @@ const Search = () => (
       lg={{ span: 16, offset: 4 }}
       xl={{ span: 14, offset: 5 }}
     >
-      <Input.Search
-        placeholder="Enter movie name"
-        size="large"
-        enterButton="Search"
-        className="top-margin"
-      />
+      <div className="top-margin">
+        <form>
+          <Field
+            name="search"
+            placeholder="Enter movie name"
+            enterButton="Search"
+            onSearch={handleSubmit}
+            component={SearchComponent}
+          />
+        </form>
+      </div>
     </Col>
   </Row>
 );
+
+Search.propTypes = {
+  handleSubmit: PropTypes.func.isRequired
+};
 
 export default Search;
