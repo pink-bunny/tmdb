@@ -1,13 +1,15 @@
 import * as types from './types';
 
-export const fetchTrendingMovies = (pageNum = 1) => ({
+export const fetchTrendingMovies = (page = 1) => ({
   type: types.FETCH_TRANDING_MOVIES,
-  pageNum
+  page
 });
 
-export const fetchTrendingMoviesSuccess = (list) => ({
+export const fetchTrendingMoviesSuccess = (list, totalItems, currentPage) => ({
   type: types.FETCH_TRANDING_MOVIES_SUCCESS,
-  list
+  list,
+  totalItems,
+  currentPage
 });
 
 export const fetchTrendingMoviesError = (error) => ({

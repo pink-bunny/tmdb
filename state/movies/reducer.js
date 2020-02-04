@@ -4,7 +4,9 @@ const initialState = {
   trendingList: {
     loading: false,
     error: null,
-    list: []
+    list: [],
+    totalItems: null,
+    currentPage: null
   }
 };
 
@@ -24,7 +26,9 @@ const trendingMovies = (state = initialState, action) => {
         trendingList: {
           ...state.trendingList,
           loading: false,
-          list: action.list
+          list: action.list,
+          totalItems: action.totalItems,
+          currentPage: action.currentPage
         }
       };
     case types.FETCH_TRANDING_MOVIES_ERROR:

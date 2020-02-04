@@ -4,13 +4,53 @@ import {
   Row,
   Col,
   Pagination,
-  Empty
+  Empty,
+  Typography,
+  Spin
 } from 'antd';
 
 import Movie from './MovieItem';
 
-const List = ({ list }) => (
-  list ? (
+const List = ({
+  list,
+  loading,
+  error,
+  totalItems,
+  fetchMovies,
+  currentPage
+}) => {
+  if (loading) {
+    return (
+      <Row type="flex" justify="center">
+        <Col>
+          <Spin />
+        </Col>
+      </Row>
+    );
+  }
+
+  if (error) {
+    return (
+      <Row type="flex" justify="center">
+        <Col>
+          <Typography.Paragraph type="danger">
+            {error}
+          </Typography.Paragraph>
+        </Col>
+      </Row>
+    );
+  }
+
+  if (!list) {
+    return (
+      <Empty
+        description="No movies found"
+        image={Empty.PRESENTED_IMAGE_SIMPLE}
+      />
+    );
+  }
+
+  return (
     <>
       <Row
         type="flex"
@@ -38,29 +78,35 @@ const List = ({ list }) => (
           ))}
         </Col>
       </Row>
-      <Row
-        type="flex"
-        justify="center"
-      >
-        <Col>
-          <Pagination
-            defaultCurrent={1}
-            total={50}
-            className="pagination"
-          />
-        </Col>
-      </Row>
+      {totalItems > 20 ? (
+        <Row
+          type="flex"
+          justify="center"
+        >
+          <Col>
+            <Pagination
+              current={currentPage}
+              pageSize={20}
+              total={totalItems}
+              className="pagination"
+              onChange={fetchMovies}
+            />
+          </Col>
+        </Row>
+      ) : (
+        null
+      )}
     </>
-  ) : (
-    <Empty
-      description="No movies found"
-      image={Empty.PRESENTED_IMAGE_SIMPLE}
-    />
-  )
-);
+  );
+};
 
 List.propTypes = {
-  list: PropTypes.arrayOf(PropTypes.object).isRequired
+  list: PropTypes.arrayOf(PropTypes.object).isRequired,
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.string.isRequired,
+  totalItems: PropTypes.number.isRequired,
+  fetchMovies: PropTypes.func.isRequired,
+  currentPage: PropTypes.number.isRequired
 };
 
 export default List;

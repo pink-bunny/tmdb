@@ -6,41 +6,60 @@ import Dashboard from './component';
 import {
   isTrendingMoviesLoading,
   trendingMoviesList,
-  trendingMoviesError
+  trendingMoviesError,
+  trendingMoviesTotalPages,
+  trendingMoviesCurrentPage
 } from '../../../state/movies/selectors';
-import {
-  fetchTrendingMovies as fetchTrendingMoviesAction
-} from '../../../state/movies/actions';
+import { fetchTrendingMovies } from '../../../state/movies/actions';
 
 class DashboardPage extends React.Component {
   componentDidMount() {
-    const { fetchTrendingMovies } = this.props;
-    fetchTrendingMovies();
+    const { fetchMovies } = this.props;
+    fetchMovies();
   }
 
   render() {
-    const { list, loading, error } = this.props;
+    const {
+      list,
+      loading,
+      error,
+      totalItems,
+      fetchMovies,
+      currentPage
+    } = this.props;
+
     return (
-      <Dashboard list={list} loading={loading} error={error} />
+      <Dashboard
+        list={list}
+        loading={loading}
+        error={error}
+        totalItems={totalItems}
+        fetchMovies={fetchMovies}
+        currentPage={currentPage}
+      />
     );
   }
 }
 
 DashboardPage.propTypes = {
-  fetchTrendingMovies: PropTypes.func.isRequired,
+  fetchMovies: PropTypes.func.isRequired,
   list: PropTypes.arrayOf(PropTypes.object).isRequired,
   loading: PropTypes.bool.isRequired,
-  error: PropTypes.string.isRequired
+  error: PropTypes.string.isRequired,
+  totalItems: PropTypes.number.isRequired,
+  currentPage: PropTypes.number.isRequired
 };
 
 const mapDispatchToPtops = {
-  fetchTrendingMovies: fetchTrendingMoviesAction
+  fetchMovies: fetchTrendingMovies
 };
 
 const mapStateToProps = (state) => ({
   loading: isTrendingMoviesLoading(state),
   list: trendingMoviesList(state),
-  error: trendingMoviesError(state)
+  error: trendingMoviesError(state),
+  totalItems: trendingMoviesTotalPages(state),
+  currentPage: trendingMoviesCurrentPage(state)
 });
 
 export default connect(mapStateToProps, mapDispatchToPtops)(DashboardPage);

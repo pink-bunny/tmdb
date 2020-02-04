@@ -8,11 +8,13 @@ const trendingMoviesLogic = createLogic({
   warnTimeout: 0,
 
   async process({ httpClient, action }, dispatch, done) {
-    const { pageNum } = action;
+    const { page } = action;
+    const currentPage = page;
     try {
-      const { data } = await httpClient.get(`trending/movie/day?page=${pageNum}`);
+      const { data } = await httpClient.get(`trending/movie/day?page=${page}`);
       const list = data.results;
-      dispatch(fetchTrendingMoviesSuccess(list));
+      const totalItems = data.total_results;
+      dispatch(fetchTrendingMoviesSuccess(list, totalItems, currentPage));
     } catch (error) {
       const errorMessage = error.response.data.status_message;
       dispatch(fetchTrendingMoviesError(errorMessage));
