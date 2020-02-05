@@ -9,8 +9,8 @@ import {
   trendingMoviesError,
   trendingMoviesTotalPages,
   trendingMoviesCurrentPage
-} from '../../../state/movies/selectors';
-import { fetchTrendingMovies } from '../../../state/movies/actions';
+} from '../../../state/dashboard/selectors';
+import { fetchTrendingMovies } from '../../../state/dashboard/actions';
 
 class DashboardPage extends React.Component {
   componentDidMount() {
