@@ -32,12 +32,16 @@ const Dashboard = ({
 );
 
 Dashboard.propTypes = {
-  list: PropTypes.arrayOf(PropTypes.object).isRequired,
+  list: PropTypes.arrayOf(PropTypes.object),
   loading: PropTypes.bool.isRequired,
   error: PropTypes.string.isRequired,
   totalItems: PropTypes.number.isRequired,
   fetchMovies: PropTypes.func.isRequired,
   currentPage: PropTypes.number.isRequired
+};
+
+Dashboard.defaultProps = {
+  list: null
 };
 
 export default Dashboard;

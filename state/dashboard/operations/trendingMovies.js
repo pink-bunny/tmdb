@@ -2,7 +2,7 @@ import { createLogic } from 'redux-logic';
 import { normalize, schema } from 'normalizr';
 
 import { FETCH_TRENDING_MOVIES } from '../types';
-import { fetchTrendingMoviesSuccess, fetchTrendingMoviesError } from '../actions';
+import { fetchMoviesSuccess, fetchMoviesError } from '../actions';
 import { mergeMoviesList } from '../../data/actions';
 
 const trendingMoviesLogic = createLogic({
@@ -23,10 +23,10 @@ const trendingMoviesLogic = createLogic({
       const totalItems = normalizedMovies.result.total_results;
 
       dispatch(mergeMoviesList(movies));
-      dispatch(fetchTrendingMoviesSuccess(ids, totalItems, currentPage));
+      dispatch(fetchMoviesSuccess(ids, totalItems, currentPage));
     } catch (error) {
       const errorMessage = error.response.data.status_message;
-      dispatch(fetchTrendingMoviesError(errorMessage));
+      dispatch(fetchMoviesError(errorMessage));
     }
     done();
   }

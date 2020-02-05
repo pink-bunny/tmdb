@@ -5,7 +5,8 @@ const initialState = {
   error: '',
   ids: [],
   totalItems: 0,
-  currentPage: 0
+  currentPage: 0,
+  searchQuery: ''
 };
 
 const dashboard = (state = initialState, action) => {
@@ -15,7 +16,7 @@ const dashboard = (state = initialState, action) => {
         ...state,
         loading: true
       };
-    case types.FETCH_TRENDING_MOVIES_SUCCESS:
+    case types.FETCH_MOVIES_SUCCESS:
       return {
         ...state,
         loading: false,
@@ -23,7 +24,7 @@ const dashboard = (state = initialState, action) => {
         totalItems: action.totalItems,
         currentPage: action.currentPage
       };
-    case types.FETCH_TRENDING_MOVIES_ERROR:
+    case types.FETCH_MOVIES_ERROR:
       return {
         ...state,
         loading: false,
@@ -33,6 +34,11 @@ const dashboard = (state = initialState, action) => {
       return {
         ...state,
         loading: true
+      };
+    case types.SET_SEARCH_MOVIES_QUERY:
+      return {
+        ...state,
+        searchQuery: action.searchQuery
       };
     default:
       return state;
