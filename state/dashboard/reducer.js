@@ -29,6 +29,11 @@ const dashboard = (state = initialState, action) => {
         loading: false,
         error: action.error
       };
+    case types.SEARCH_MOVIES:
+      return {
+        ...state,
+        loading: true
+      };
     default:
       return state;
   }

@@ -1,7 +1,7 @@
-import React from 'react';
 import { withFormik } from 'formik';
 import { connect } from 'react-redux';
 import * as Yup from 'yup';
+import { searchMovies } from '../../../../state/dashboard/actions';
 
 import Search from './component';
 
@@ -15,16 +15,15 @@ const SearchForm = withFormik({
 
   validationSchema: SearchFormSchema,
 
-  handleSubmit: (values, { setSubmitting }) => {
-    setTimeout(() => {
-      alert(JSON.stringify(values, null, 2));
-      setSubmitting(false);
-    }, 1000);
+  handleSubmit: (values, { props, setErrors, setSubmitting }) => {
+    props.searchMovies(values, setErrors, setSubmitting);
   },
 
   displayName: 'SearchForm'
 })(Search);
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  searchMovies
+};
 
 export default connect(null, mapDispatchToProps)(SearchForm);
