@@ -16,3 +16,11 @@ export const fetchTrendingMoviesError = (error) => ({
   type: types.FETCH_TRENDING_MOVIES_ERROR,
   error
 });
+
+export const searchMovies = ({ search }, setErrors, setSubmitting, page = 1) => ({
+  type: types.SEARCH_MOVIES,
+  search,
+  page,
+  setErrors,
+  setSubmitting
+});
