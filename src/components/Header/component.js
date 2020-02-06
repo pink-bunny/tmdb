@@ -9,7 +9,7 @@ import {
 const getOverlay = (completeSession) => () => (
   <Menu>
     <Menu.Item>
-      <Link to="/stubs/dashboard">Dashboard</Link>
+      <Link to="/">Dashboard</Link>
     </Menu.Item>
     <Menu.Divider />
     <Menu.Item>

@@ -17,17 +17,22 @@ import {
 } from '../../../state/dashboard/actions';
 
 class DashboardPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.checkSearchState = this.checkSearchState.bind(this);
+  }
+
   componentDidMount() {
     const { fetchMovies } = this.props;
     fetchMovies();
   }
 
-  checkSearchState() {
+  checkSearchState(page) {
     const { searchQuery, fetchMovies, searchMovies } = this.props;
     if (searchQuery) {
-      return searchMovies;
+      return searchMovies(searchQuery, page);
     }
-    return fetchMovies;
+    return fetchMovies(page);
   }
 
   render() {
@@ -45,7 +50,7 @@ class DashboardPage extends React.Component {
         loading={loading}
         error={error}
         totalItems={totalItems}
-        fetchMovies={this.checkSearchState()}
+        fetchMovies={this.checkSearchState}
         currentPage={currentPage}
       />
     );

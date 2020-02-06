@@ -17,13 +17,8 @@ export const fetchMoviesError = (error) => ({
   error
 });
 
-export const searchMovies = (page = 1, { search }) => ({
+export const searchMovies = (search, page = 1) => ({
   type: types.SEARCH_MOVIES,
   searchQuery: search,
   page
-});
-
-export const setSearchMoviesQuery = (searchQuery) => ({
-  type: types.SET_SEARCH_MOVIES_QUERY,
-  searchQuery
 });

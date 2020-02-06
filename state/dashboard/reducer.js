@@ -33,11 +33,7 @@ const dashboard = (state = initialState, action) => {
     case types.SEARCH_MOVIES:
       return {
         ...state,
-        loading: true
-      };
-    case types.SET_SEARCH_MOVIES_QUERY:
-      return {
-        ...state,
+        loading: true,
         searchQuery: action.searchQuery
       };
     default:
