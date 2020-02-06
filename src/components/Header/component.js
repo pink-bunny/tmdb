@@ -13,7 +13,7 @@ const getOverlay = (completeSession) => () => (
     </Menu.Item>
     <Menu.Divider />
     <Menu.Item>
-      <Link to="/stubs/lists">My Lists</Link>
+      <Link to="my-lists">My Lists</Link>
     </Menu.Item>
     <Menu.Item>
       <Link to="/stubs/watchlist">Watchlist</Link>
