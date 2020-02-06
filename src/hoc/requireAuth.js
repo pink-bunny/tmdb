@@ -6,16 +6,17 @@ import { Redirect } from 'react-router-dom';
 import { isUserLoggedIn as getUserLoggedIn } from '../../state/session/selectors';
 
 export default function requireAuth(WrappedComponent) {
-  function Authentication({ isUserLoggedIn }) {
+  const Authentication = (props) => {
+    const { isUserLoggedIn } = props;
     if (!isUserLoggedIn) {
       return <Redirect to="/" />;
     }
-    return <WrappedComponent />;
-  }
+    return <WrappedComponent {...props} />; /* eslint-disable-line */
+  };
 
-  function mapStateToProps(state) {
-    return { isUserLoggedIn: getUserLoggedIn(state) };
-  }
+  const mapStateToProps = (state) => ({
+    isUserLoggedIn: getUserLoggedIn(state)
+  });
 
   Authentication.propTypes = {
     isUserLoggedIn: PropTypes.string
