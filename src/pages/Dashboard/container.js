@@ -17,17 +17,12 @@ import {
 } from '../../../state/dashboard/actions';
 
 class DashboardPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.checkSearchState = this.checkSearchState.bind(this);
-  }
-
   componentDidMount() {
     const { fetchMovies } = this.props;
     fetchMovies();
   }
 
-  checkSearchState(page) {
+  checkSearchState = (page) => {
     const { searchQuery, fetchMovies, searchMovies } = this.props;
     if (searchQuery) {
       return searchMovies(searchQuery, page);
