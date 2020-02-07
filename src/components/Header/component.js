@@ -13,7 +13,7 @@ const getOverlay = (completeSession) => () => (
     </Menu.Item>
     <Menu.Divider />
     <Menu.Item>
-      <Link to="my-lists">My Lists</Link>
+      <Link to="/my-lists">My Lists</Link>
     </Menu.Item>
     <Menu.Item>
       <Link to="/stubs/watchlist">Watchlist</Link>
@@ -55,7 +55,7 @@ const Header = ({ completeSession, userLoggedIn, username }) => (
 
 Header.propTypes = {
   completeSession: PropTypes.func.isRequired,
-  userLoggedIn: PropTypes.string.isRequired,
+  userLoggedIn: PropTypes.bool.isRequired,
   username: PropTypes.string.isRequired
 };
 

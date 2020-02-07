@@ -2,7 +2,7 @@ import { createLogic } from 'redux-logic';
 import { normalize, schema } from 'normalizr';
 
 import { FETCH_MY_LISTS } from '../types';
-import { isUserLoggedIn } from '../../session/selectors';
+import { getSessionId } from '../../session/selectors';
 import { fetchMyListsSuccess, fetchMyListsError } from '../actions';
 import { mergeListsList } from '../../data/actions';
 
@@ -11,7 +11,7 @@ const myListsLogic = createLogic({
 
   async process({ getState, httpClient }, dispatch, done) {
     const state = getState();
-    const sessinId = isUserLoggedIn(state);
+    const sessinId = getSessionId(state);
     try {
       const { data } = await httpClient.get(`/account/{account_id}/lists?session_id=${sessinId}`);
 

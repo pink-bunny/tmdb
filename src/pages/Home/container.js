@@ -11,7 +11,7 @@ const Home = ({ userLoggedIn }) => (
 );
 
 Home.propTypes = {
-  userLoggedIn: PropTypes.string.isRequired
+  userLoggedIn: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = (state) => ({
