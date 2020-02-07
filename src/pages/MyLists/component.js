@@ -1,11 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Layout, Row, Col, Typography, Icon
 } from 'antd';
 
 import List from './List';
 
-const MyLists = () => (
+const MyLists = ({
+  list,
+  loading,
+  error
+}) => (
   <Layout>
     <Layout.Content>
       <Row>
@@ -20,9 +25,19 @@ const MyLists = () => (
         </Col>
       </Row>
 
-      <List />
+      <List
+        list={list}
+        loading={loading}
+        error={error}
+      />
     </Layout.Content>
   </Layout>
 );
+
+MyLists.propTypes = {
+  list: PropTypes.arrayOf(PropTypes.object).isRequired,
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.string.isRequired
+};
 
 export default MyLists;

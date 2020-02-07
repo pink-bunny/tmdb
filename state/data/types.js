@@ -1,1 +1,3 @@
 export const MERGE_MOVIES_LIST = 'MERGE_MOVIES_LIST';
+
+export const MERGE_LISTS_LIST = 'MERGE_LISTS_LIST';

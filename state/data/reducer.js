@@ -1,7 +1,8 @@
 import * as types from './types';
 
 const initialState = {
-  movies: {}
+  movies: {},
+  lists: {}
 };
 
 const data = (state = initialState, action) => {
@@ -10,6 +11,11 @@ const data = (state = initialState, action) => {
       return {
         ...state,
         movies: action.movies
+      };
+    case types.MERGE_LISTS_LIST:
+      return {
+        ...state,
+        lists: action.lists
       };
     default:
       return state;
