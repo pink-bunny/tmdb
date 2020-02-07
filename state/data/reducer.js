@@ -9,7 +9,10 @@ const data = (state = initialState, action) => {
     case types.MERGE_MOVIES_LIST:
       return {
         ...state,
-        movies: action.movies
+        movies: {
+          ...state.movies,
+          ...action.movies
+        }
       };
     default:
       return state;

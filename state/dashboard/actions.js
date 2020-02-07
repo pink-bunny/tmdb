@@ -5,22 +5,20 @@ export const fetchTrendingMovies = (page = 1) => ({
   page
 });
 
-export const fetchTrendingMoviesSuccess = (ids, totalItems, currentPage) => ({
-  type: types.FETCH_TRENDING_MOVIES_SUCCESS,
+export const fetchMoviesSuccess = (ids, totalItems, currentPage) => ({
+  type: types.FETCH_MOVIES_SUCCESS,
   ids,
   totalItems,
   currentPage
 });
 
-export const fetchTrendingMoviesError = (error) => ({
-  type: types.FETCH_TRENDING_MOVIES_ERROR,
+export const fetchMoviesError = (error) => ({
+  type: types.FETCH_MOVIES_ERROR,
   error
 });
 
-export const searchMovies = ({ search }, setErrors, setSubmitting, page = 1) => ({
+export const searchMovies = (search, page = 1) => ({
   type: types.SEARCH_MOVIES,
-  search,
-  page,
-  setErrors,
-  setSubmitting
+  searchQuery: search,
+  page
 });

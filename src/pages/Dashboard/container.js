@@ -4,18 +4,30 @@ import PropTypes from 'prop-types';
 
 import Dashboard from './component';
 import {
-  isTrendingMoviesLoading,
-  trendingMoviesList,
-  trendingMoviesError,
-  trendingMoviesTotalPages,
-  trendingMoviesCurrentPage
+  isDashboardMoviesLoading,
+  dashboardMoviesList,
+  dashboardMoviesError,
+  dashboardMoviesTotalPages,
+  dashboardMoviesCurrentPage,
+  dashboardMoviesSearchQuery
 } from '../../../state/dashboard/selectors';
-import { fetchTrendingMovies } from '../../../state/dashboard/actions';
+import {
+  fetchTrendingMovies,
+  searchMovies as searchMoviesAction
+} from '../../../state/dashboard/actions';
 
 class DashboardPage extends React.Component {
   componentDidMount() {
     const { fetchMovies } = this.props;
     fetchMovies();
+  }
+
+  checkSearchState = (page) => {
+    const { searchQuery, fetchMovies, searchMovies } = this.props;
+    if (searchQuery) {
+      return searchMovies(searchQuery, page);
+    }
+    return fetchMovies(page);
   }
 
   render() {
@@ -24,7 +36,6 @@ class DashboardPage extends React.Component {
       loading,
       error,
       totalItems,
-      fetchMovies,
       currentPage
     } = this.props;
 
@@ -34,7 +45,7 @@ class DashboardPage extends React.Component {
         loading={loading}
         error={error}
         totalItems={totalItems}
-        fetchMovies={fetchMovies}
+        fetchMovies={this.checkSearchState}
         currentPage={currentPage}
       />
     );
@@ -42,24 +53,33 @@ class DashboardPage extends React.Component {
 }
 
 DashboardPage.propTypes = {
-  fetchMovies: PropTypes.func.isRequired,
-  list: PropTypes.arrayOf(PropTypes.object).isRequired,
+  fetchMovies: PropTypes.func,
+  searchMovies: PropTypes.func,
+  list: PropTypes.arrayOf(PropTypes.object),
   loading: PropTypes.bool.isRequired,
   error: PropTypes.string.isRequired,
+  searchQuery: PropTypes.string.isRequired,
   totalItems: PropTypes.number.isRequired,
   currentPage: PropTypes.number.isRequired
 };
+DashboardPage.defaultProps = {
+  list: null,
+  fetchMovies: null,
+  searchMovies: null
+};
 
 const mapDispatchToPtops = {
-  fetchMovies: fetchTrendingMovies
+  fetchMovies: fetchTrendingMovies,
+  searchMovies: searchMoviesAction
 };
 
 const mapStateToProps = (state) => ({
-  loading: isTrendingMoviesLoading(state),
-  list: trendingMoviesList(state),
-  error: trendingMoviesError(state),
-  totalItems: trendingMoviesTotalPages(state),
-  currentPage: trendingMoviesCurrentPage(state)
+  loading: isDashboardMoviesLoading(state),
+  list: dashboardMoviesList(state),
+  error: dashboardMoviesError(state),
+  totalItems: dashboardMoviesTotalPages(state),
+  currentPage: dashboardMoviesCurrentPage(state),
+  searchQuery: dashboardMoviesSearchQuery(state)
 });
 
 export default connect(mapStateToProps, mapDispatchToPtops)(DashboardPage);

@@ -15,8 +15,9 @@ const SearchForm = withFormik({
 
   validationSchema: SearchFormSchema,
 
-  handleSubmit: (values, { props, setErrors, setSubmitting }) => {
-    props.searchMovies(values, setErrors, setSubmitting);
+  handleSubmit: (values, { props }) => {
+    const { search } = values;
+    props.searchMovies(search);
   },
 
   displayName: 'SearchForm'
