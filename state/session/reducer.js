@@ -20,8 +20,8 @@ const session = (state = initialState, action) => {
     case types.COMPLETE_SESSION_SUCCESS:
       return {
         ...state,
-        sessionId: null,
-        username: null
+        sessionId: '',
+        username: ''
       };
     default:
       return state;
