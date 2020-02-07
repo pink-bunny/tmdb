@@ -14,3 +14,11 @@ export const fetchMyListsError = (error) => ({
   type: types.FETCH_MY_LISTS_ERROR,
   error
 });
+
+export const createMyList = ({ name, description }, setErrors, hideModal) => ({
+  type: types.CREATE_MY_LIST,
+  name,
+  description,
+  setErrors,
+  hideModal
+});
