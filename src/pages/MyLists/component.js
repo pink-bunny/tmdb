@@ -1,19 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Layout, Row, Col, Typography, Icon
+  Layout, Row, Col, Typography
 } from 'antd';
 
 import List from './List';
-import CreateNewListForm from './CreateNewListForm';
+import CreateNewListModal from './CreateNewListModal';
 
 const MyLists = ({
   list,
   loading,
-  error,
-  modalVisible,
-  showModal,
-  hideModal
+  error
 }) => (
   <Layout>
     <Layout.Content>
@@ -23,7 +20,7 @@ const MyLists = ({
             <Typography.Title>
               My Lists
               {' '}
-              <Icon type="plus-circle" onClick={showModal} />
+              <CreateNewListModal />
             </Typography.Title>
           </div>
         </Col>
@@ -34,10 +31,6 @@ const MyLists = ({
         loading={loading}
         error={error}
       />
-      <CreateNewListForm
-        modalVisible={modalVisible}
-        hideModal={hideModal}
-      />
     </Layout.Content>
   </Layout>
 );
@@ -45,10 +38,7 @@ const MyLists = ({
 MyLists.propTypes = {
   list: PropTypes.arrayOf(PropTypes.object).isRequired,
   loading: PropTypes.bool.isRequired,
-  error: PropTypes.string.isRequired,
-  modalVisible: PropTypes.bool.isRequired,
-  hideModal: PropTypes.func.isRequired,
-  showModal: PropTypes.func.isRequired
+  error: PropTypes.string.isRequired
 };
 
 export default MyLists;

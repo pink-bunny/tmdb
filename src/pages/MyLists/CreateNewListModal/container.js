@@ -2,7 +2,8 @@ import { withFormik } from 'formik';
 import { connect } from 'react-redux';
 import * as Yup from 'yup';
 
-import CreateNewListForm from './component';
+import withModal from '../../../hoc/withModal';
+import CreateNewListModal from './component';
 import {
   createMyList as createMyListAction
 } from '../../../../state/my_lists/actions';
@@ -14,7 +15,7 @@ const createNewListFormSchema = Yup.object().shape({
     .required('Required')
 });
 
-const CreateNewListFormContainer = withFormik({
+const CreateNewListModalContainer = withFormik({
   mapPropsToValues: () => ({ name: '', description: '' }),
 
   validationSchema: createNewListFormSchema,
@@ -25,10 +26,10 @@ const CreateNewListFormContainer = withFormik({
   },
 
   displayName: 'CreateNewListForm'
-})(CreateNewListForm);
+})(CreateNewListModal);
 
 const mapDispatchToPtops = {
   createMyList: createMyListAction
 };
 
-export default connect(null, mapDispatchToPtops)(CreateNewListFormContainer);
+export default connect(null, mapDispatchToPtops)(withModal(CreateNewListModalContainer));
