@@ -4,16 +4,14 @@ import {
   Layout, Row, Col, Typography, Icon
 } from 'antd';
 
+import ModalHOC from '../../hoc/ModalHOC';
 import List from './List';
 import CreateNewListForm from './CreateNewListForm';
 
 const MyLists = ({
   list,
   loading,
-  error,
-  modalVisible,
-  showModal,
-  hideModal
+  error
 }) => (
   <Layout>
     <Layout.Content>
@@ -23,7 +21,17 @@ const MyLists = ({
             <Typography.Title>
               My Lists
               {' '}
-              <Icon type="plus-circle" onClick={showModal} />
+              <ModalHOC
+                showModalComponent={({ showModal }) => (
+                  <Icon onClick={showModal} type="plus-circle" />
+                )}
+                modalContent={({ modalVisible, hideModal }) => (
+                  <CreateNewListForm
+                    modalVisible={modalVisible}
+                    hideModal={hideModal}
+                  />
+                )}
+              />
             </Typography.Title>
           </div>
         </Col>
@@ -34,10 +42,6 @@ const MyLists = ({
         loading={loading}
         error={error}
       />
-      <CreateNewListForm
-        modalVisible={modalVisible}
-        hideModal={hideModal}
-      />
     </Layout.Content>
   </Layout>
 );
@@ -45,10 +49,7 @@ const MyLists = ({
 MyLists.propTypes = {
   list: PropTypes.arrayOf(PropTypes.object).isRequired,
   loading: PropTypes.bool.isRequired,
-  error: PropTypes.string.isRequired,
-  modalVisible: PropTypes.bool.isRequired,
-  hideModal: PropTypes.func.isRequired,
-  showModal: PropTypes.func.isRequired
+  error: PropTypes.string.isRequired
 };
 
 export default MyLists;
