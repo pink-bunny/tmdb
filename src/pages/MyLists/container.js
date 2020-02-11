@@ -13,12 +13,28 @@ import {
 } from '../../../state/my_lists/selectors';
 
 class MyListsContainer extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { modalVisible: false };
+  }
+
   componentDidMount() {
     const { fetchMyLists } = this.props;
     fetchMyLists();
   }
 
+  showModal = () => {
+    this.setState({ modalVisible: true });
+  };
+
+  hideModal = () => {
+    this.setState({ modalVisible: false });
+  };
+
   render() {
+    const { modalVisible } = this.state;
+
     const {
       list,
       loading,
@@ -30,6 +46,9 @@ class MyListsContainer extends React.Component {
         list={list}
         loading={loading}
         error={error}
+        modalVisible={modalVisible}
+        showModal={this.showModal}
+        hideModal={this.hideModal}
       />
     );
   }

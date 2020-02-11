@@ -19,7 +19,7 @@ export default function requireAuth(WrappedComponent) {
   });
 
   Authentication.propTypes = {
-    isUserLoggedIn: PropTypes.string
+    isUserLoggedIn: PropTypes.bool
   };
   Authentication.defaultProps = {
     isUserLoggedIn: ''
