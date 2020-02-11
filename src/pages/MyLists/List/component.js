@@ -73,18 +73,6 @@ const List = ({
           ))}
         </Col>
       </Row>
-      <Row
-        type="flex"
-        justify="center"
-      >
-        <Col>
-          <Pagination
-            defaultCurrent={1}
-            total={50}
-            className="pagination"
-          />
-        </Col>
-      </Row>
     </>
   );
 };
