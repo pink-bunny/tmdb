@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Layout, Row, Col, Typography, Icon
+  Layout, Row, Col, Typography
 } from 'antd';
 
-import ModalHOC from '../../hoc/ModalHOC';
 import List from './List';
-import CreateNewListForm from './CreateNewListForm';
+import CreateNewListModal from './CreateNewListModal';
 
 const MyLists = ({
   list,
@@ -21,17 +20,7 @@ const MyLists = ({
             <Typography.Title>
               My Lists
               {' '}
-              <ModalHOC
-                showModalComponent={({ showModal }) => (
-                  <Icon onClick={showModal} type="plus-circle" />
-                )}
-                modalContent={({ modalVisible, hideModal }) => (
-                  <CreateNewListForm
-                    modalVisible={modalVisible}
-                    hideModal={hideModal}
-                  />
-                )}
-              />
+              <CreateNewListModal />
             </Typography.Title>
           </div>
         </Col>
