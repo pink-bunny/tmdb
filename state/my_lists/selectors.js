@@ -8,3 +8,5 @@ export const myListsList = (state) => {
 };
 
 export const myListsListError = (state) => state.myLists.error;
+
+export const deleteMyListError = (state) => state.myLists.deleteMyListError;

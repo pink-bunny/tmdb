@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Row, Col, Card, Typography, Icon, Pagination, Spin, Empty
+  Row, Col, Card, Typography, Spin, Empty
 } from 'antd';
+
+import DeleteListModal from '../DeleteListModal';
 
 const List = ({
   list,
@@ -59,10 +61,13 @@ const List = ({
               <Card
                 hoverable
                 className="top-margin"
-                actions={[<Icon
-                  key="delete"
-                  type="delete"
-                />]}
+                actions={[
+                  <DeleteListModal
+                    id={item.id}
+                    name={item.name}
+                    key="delete"
+                  />
+                ]}
               >
                 <Typography.Title level={4}>
                   {item.name}
