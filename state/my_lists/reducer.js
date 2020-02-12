@@ -11,7 +11,8 @@ const myLists = (state = initialState, action) => {
     case types.FETCH_MY_LISTS:
       return {
         ...state,
-        loading: true
+        loading: true,
+        deleteMyListError: ''
       };
     case types.FETCH_MY_LISTS_SUCCESS:
       return {
