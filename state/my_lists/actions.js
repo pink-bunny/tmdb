@@ -27,3 +27,9 @@ export const deleteMyList = (id) => ({
   type: types.DELETE_MY_LIST,
   id
 });
+
+export const deleteMyListError = (error, hideModal) => ({
+  type: types.DELETE_MY_LIST_ERROR,
+  error,
+  hideModal
+});

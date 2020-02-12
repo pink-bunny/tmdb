@@ -62,7 +62,11 @@ const List = ({
                 hoverable
                 className="top-margin"
                 actions={[
-                  <DeleteListModal id={item.id} key="delete" />
+                  <DeleteListModal
+                    id={item.id}
+                    name={item.name}
+                    key="delete"
+                  />
                 ]}
               >
                 <Typography.Title level={4}>

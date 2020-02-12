@@ -25,6 +25,11 @@ const myLists = (state = initialState, action) => {
         loading: false,
         error: action.error
       };
+    case types.DELETE_MY_LIST_ERROR:
+      return {
+        ...state,
+        deleteMyListError: action.error
+      };
     default:
       return state;
   }
