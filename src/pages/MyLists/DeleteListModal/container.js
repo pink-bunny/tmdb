@@ -13,9 +13,7 @@ class DeleteListModalContainer extends React.Component {
   deleteList = () => {
     const { deleteMyList, id, hideModal } = this.props;
 
-    return (
-      deleteMyList(id, hideModal)
-    );
+    deleteMyList(id, hideModal);
   };
 
   render() {
