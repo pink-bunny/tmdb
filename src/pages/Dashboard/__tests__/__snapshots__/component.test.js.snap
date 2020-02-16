@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard component matches snapshot with custom props 1`] = `
+<Adapter>
+  <Adapter>
+    <Connect(WithFormik(Search)) />
+    <div
+      className="top-margin"
+    >
+      <List
+        currentPage={0}
+        error=""
+        fetchMovies={[MockFunction]}
+        list={Array []}
+        loading={false}
+        totalItems={0}
+      />
+    </div>
+  </Adapter>
+</Adapter>
+`;
+
+exports[`Dashboard component matches snapshot with required props 1`] = `
+<Adapter>
+  <Adapter>
+    <Connect(WithFormik(Search)) />
+    <div
+      className="top-margin"
+    >
+      <List
+        currentPage={0}
+        error=""
+        fetchMovies={[MockFunction]}
+        list={null}
+        loading={false}
+        totalItems={0}
+      />
+    </div>
+  </Adapter>
+</Adapter>
+`;

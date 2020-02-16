@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MyLists component matches snapshot 1`] = `
+<Adapter>
+  <Adapter>
+    <Row
+      gutter={0}
+    >
+      <Col
+        offset={2}
+        span={20}
+      >
+        <div
+          className="top-margin"
+        >
+          <Title>
+            My Lists
+             
+            <Connect(WrappedComponentShell) />
+          </Title>
+        </div>
+      </Col>
+    </Row>
+    <List
+      error=""
+      list={Array []}
+      loading={false}
+    />
+  </Adapter>
+</Adapter>
+`;

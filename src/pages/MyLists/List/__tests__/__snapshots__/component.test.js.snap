@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List component matches snapshot when it has error 1`] = `
+<Row
+  gutter={0}
+  justify="center"
+  type="flex"
+>
+  <Col>
+    <Paragraph
+      type="danger"
+    >
+      Loading error
+    </Paragraph>
+  </Col>
+</Row>
+`;
+
+exports[`List component matches snapshot when it is loading 1`] = `
+<Row
+  gutter={0}
+  justify="center"
+  type="flex"
+>
+  <Col>
+    <Spin
+      size="default"
+      spinning={true}
+      wrapperClassName=""
+    />
+  </Col>
+</Row>
+`;
+
+exports[`List component matches snapshot with empty list 1`] = `
+<Empty
+  description="No results"
+/>
+`;
+
+exports[`List component matches snapshot with list 1`] = `
+<Fragment>
+  <Row
+    gutter={8}
+    type="flex"
+  >
+    <Col
+      offset={2}
+      span={20}
+    >
+      <Col
+        key="1"
+        lg={
+          Object {
+            "span": 4,
+          }
+        }
+        md={
+          Object {
+            "span": 6,
+          }
+        }
+        sm={
+          Object {
+            "span": 8,
+          }
+        }
+        xl={
+          Object {
+            "span": 4,
+          }
+        }
+        xs={
+          Object {
+            "span": 12,
+          }
+        }
+      >
+        <Card
+          actions={
+            Array [
+              <Memo(Connect(WrappedComponentShell))
+                id={1}
+                name="My favorites movies"
+              />,
+            ]
+          }
+          className="top-margin"
+          hoverable={true}
+        >
+          <Title
+            level={4}
+          >
+            My favorites movies
+          </Title>
+          Description of my favorites movies
+        </Card>
+      </Col>
+    </Col>
+  </Row>
+</Fragment>
+`;

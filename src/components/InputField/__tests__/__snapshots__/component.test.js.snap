@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputField component matches snapshot when field is touched and has error 1`] = `
+<FormItem
+  hasFeedback={false}
+  help="Reqired"
+  validateStatus="error"
+>
+  <Input
+    autoComplete="off"
+    name="password"
+    placeholder=""
+    prefix={null}
+    type="text"
+  />
+</FormItem>
+`;
+
+exports[`InputField component matches snapshot with custom props 1`] = `
+<FormItem
+  hasFeedback={false}
+  help=""
+>
+  <Input
+    autoComplete="on"
+    name="password"
+    placeholder="Enter password"
+    prefix={
+      <Icon
+        style={
+          Object {
+            "color": "rgba(0,0,0,.25)",
+          }
+        }
+        type="lock"
+      />
+    }
+    type="password"
+  />
+</FormItem>
+`;
+
+exports[`InputField component matches snapshot with icon 1`] = `
+<FormItem
+  hasFeedback={false}
+  help=""
+>
+  <Input
+    autoComplete="off"
+    name="password"
+    placeholder=""
+    prefix={
+      <Icon
+        style={
+          Object {
+            "color": "rgba(0,0,0,.25)",
+          }
+        }
+        type="lock"
+      />
+    }
+    type="text"
+  />
+</FormItem>
+`;
+
+exports[`InputField component matches snapshot with required props 1`] = `
+<FormItem
+  hasFeedback={false}
+  help=""
+>
+  <Input
+    autoComplete="off"
+    name="password"
+    placeholder=""
+    prefix={null}
+    type="text"
+  />
+</FormItem>
+`;

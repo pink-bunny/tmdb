@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login component matches snapshot with required props 1`] = `
+<div
+  className="center"
+>
+  <Adapter>
+    <Adapter>
+      <Row
+        gutter={0}
+        justify="center"
+        type="flex"
+      >
+        <Col>
+          <Form
+            colon={true}
+            hideRequiredMark={false}
+            layout="horizontal"
+            onSubmit={[MockFunction]}
+          >
+            <Title>
+              The Movie DB
+            </Title>
+            <Field
+              component={[Function]}
+              icon="user"
+              id="username"
+              name="username"
+              placeholder="Username"
+            />
+            <Field
+              component={[Function]}
+              icon="lock"
+              id="password"
+              name="password"
+              placeholder="Password"
+              type="password"
+            />
+            <FormItem
+              hasFeedback={false}
+            >
+              <Button
+                disabled={false}
+                htmlType="submit"
+                loading={false}
+                text="Log in"
+                type="primary"
+              />
+            </FormItem>
+          </Form>
+        </Col>
+      </Row>
+    </Adapter>
+  </Adapter>
+</div>
+`;
+
+exports[`Login component matches snapshot with server error 1`] = `
+<div
+  className="center"
+>
+  <Adapter>
+    <Adapter>
+      <Row
+        gutter={0}
+        justify="center"
+        type="flex"
+      >
+        <Col>
+          <Form
+            colon={true}
+            hideRequiredMark={false}
+            layout="horizontal"
+            onSubmit={[MockFunction]}
+          >
+            <Title>
+              The Movie DB
+            </Title>
+            <Paragraph
+              style={
+                Object {
+                  "marginBottom": "16px",
+                }
+              }
+              type="danger"
+            >
+              Server error
+            </Paragraph>
+            <Field
+              component={[Function]}
+              icon="user"
+              id="username"
+              name="username"
+              placeholder="Username"
+            />
+            <Field
+              component={[Function]}
+              icon="lock"
+              id="password"
+              name="password"
+              placeholder="Password"
+              type="password"
+            />
+            <FormItem
+              hasFeedback={false}
+            >
+              <Button
+                disabled={false}
+                htmlType="submit"
+                loading={false}
+                text="Log in"
+                type="primary"
+              />
+            </FormItem>
+          </Form>
+        </Col>
+      </Row>
+    </Adapter>
+  </Adapter>
+</div>
+`;
