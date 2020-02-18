@@ -16,6 +16,10 @@
     "setupFiles": ["./test/jestsetup.js"],
     "snapshotSerializers": ["enzyme-to-json/serializer"],
     "testURL": "http://test.com",
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/src/components/AppRoot/index.js",
+      "<rootDir>/src/components/AppRoot/component.js"
+    ],
     "coverageThreshold": {
       "global": {
         "statements": 100

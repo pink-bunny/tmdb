@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFound component matches snapshot 1`] = `
+<div
+  className="container"
+>
+  <h2>
+    No match for
+    <code>
+      /random
+    </code>
+  </h2>
+</div>
+`;
