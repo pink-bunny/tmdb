@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component matches snapshot when user logged in 1`] = `
+<Adapter>
+  <Row
+    gutter={0}
+    justify="space-between"
+    type="flex"
+  >
+    <Col>
+      <Text>
+        THE MOVIE DB
+      </Text>
+    </Col>
+    <Col>
+      <Avatar
+        icon="user"
+        shape="circle"
+        size="default"
+      />
+       
+      <Dropdown
+        mouseEnterDelay={0.15}
+        mouseLeaveDelay={0.1}
+        overlay={[Function]}
+        placement="bottomLeft"
+      >
+        <Text>
+          John Doe 
+          <Icon
+            type="caret-down"
+          />
+        </Text>
+      </Dropdown>
+    </Col>
+  </Row>
+</Adapter>
+`;
+
+exports[`Header component matches snapshot when user logged out 1`] = `
+<Adapter>
+  <Row
+    gutter={0}
+    justify="space-between"
+    type="flex"
+  >
+    <Col>
+      <Text>
+        THE MOVIE DB
+      </Text>
+    </Col>
+    <Col />
+  </Row>
+</Adapter>
+`;

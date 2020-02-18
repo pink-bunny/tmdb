@@ -32,8 +32,8 @@ const InputField = ({
             />
           )
         )}
-        {...field}
-        {...props}
+        {...field} /* eslint-disable-line */
+        {...props} /* eslint-disable-line */
       />
     </Form.Item>
   );

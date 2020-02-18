@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreateNewListModal component matches snapshot with required props 1`] = `
+<Fragment>
+  <Icon
+    onClick={[MockFunction]}
+    type="plus-circle"
+  />
+  <Modal
+    confirmLoading={false}
+    maskTransitionName="fade"
+    okText="Create"
+    okType="primary"
+    onCancel={[MockFunction]}
+    onOk={[MockFunction]}
+    title="Create list"
+    transitionName="zoom"
+    visible={false}
+    width={520}
+  >
+    <Form
+      colon={true}
+      hideRequiredMark={false}
+      layout="horizontal"
+      onSubmit={[Function]}
+    >
+      <Field
+        component={[Function]}
+        name="name"
+        placeholder="Name"
+      />
+      <Field
+        component={[Function]}
+        name="description"
+        placeholder="Description"
+      />
+    </Form>
+  </Modal>
+</Fragment>
+`;
+
+exports[`CreateNewListModal component matches snapshot with server error 1`] = `
+<Fragment>
+  <Icon
+    onClick={[MockFunction]}
+    type="plus-circle"
+  />
+  <Modal
+    confirmLoading={false}
+    maskTransitionName="fade"
+    okText="Create"
+    okType="primary"
+    onCancel={[MockFunction]}
+    onOk={[MockFunction]}
+    title="Create list"
+    transitionName="zoom"
+    visible={false}
+    width={520}
+  >
+    <Paragraph
+      style={
+        Object {
+          "marginBottom": "16px",
+        }
+      }
+      type="danger"
+    >
+      Server error
+    </Paragraph>
+    <Form
+      colon={true}
+      hideRequiredMark={false}
+      layout="horizontal"
+      onSubmit={[Function]}
+    >
+      <Field
+        component={[Function]}
+        name="name"
+        placeholder="Name"
+      />
+      <Field
+        component={[Function]}
+        name="description"
+        placeholder="Description"
+      />
+    </Form>
+  </Modal>
+</Fragment>
+`;

@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search component matches snapshot when field is touched and has error 1`] = `
+<Fragment>
+  <Search
+    enterButton="Enter"
+    name="searchField"
+    onSearch={[MockFunction]}
+    placeholder=""
+    size="large"
+  />
+  <Paragraph
+    style={
+      Object {
+        "marginBottom": "16px",
+      }
+    }
+    type="danger"
+  >
+    Search field can't be empty
+  </Paragraph>
+</Fragment>
+`;
+
+exports[`Search component matches snapshot with custom props 1`] = `
+<Fragment>
+  <Search
+    enterButton="Search"
+    name="searchField"
+    onSearch={[MockFunction]}
+    placeholder="Enter movie name"
+    size="large"
+  />
+</Fragment>
+`;
+
+exports[`Search component matches snapshot with required props 1`] = `
+<Fragment>
+  <Search
+    enterButton="Enter"
+    name="searchField"
+    onSearch={[MockFunction]}
+    placeholder=""
+    size="large"
+  />
+</Fragment>
+`;

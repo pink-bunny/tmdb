@@ -48,7 +48,7 @@ Search.propTypes = {
 };
 Search.defaultProps = {
   placeholder: '',
-  enterButton: ''
+  enterButton: 'Enter'
 };
 
 export default Search;

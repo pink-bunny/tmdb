@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search component matches snapshot 1`] = `
+<Row
+  gutter={0}
+  type="flex"
+>
+  <Col
+    lg={
+      Object {
+        "offset": 4,
+        "span": 16,
+      }
+    }
+    md={
+      Object {
+        "offset": 3,
+        "span": 18,
+      }
+    }
+    sm={
+      Object {
+        "offset": 2,
+        "span": 20,
+      }
+    }
+    xl={
+      Object {
+        "offset": 5,
+        "span": 14,
+      }
+    }
+    xs={
+      Object {
+        "offset": 1,
+        "span": 22,
+      }
+    }
+  >
+    <div
+      className="top-margin"
+    >
+      <form>
+        <Field
+          component={[Function]}
+          enterButton="Search"
+          name="search"
+          onSearch={[MockFunction]}
+          placeholder="Enter movie name"
+        />
+      </form>
+    </div>
+  </Col>
+</Row>
+`;
