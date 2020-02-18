@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import Search from '../index';
 
-describe('Search component matches snapshot', () => {
+describe('Search component', () => {
   const fieldName = 'searchField';
   const requiredProps = {
     onSearch: jest.fn(),
@@ -14,13 +14,13 @@ describe('Search component matches snapshot', () => {
     }
   };
 
-  it('with required props', () => {
+  it('matches snapshot with required props', () => {
     const wrapper = shallow(<Search {...requiredProps} />); /* eslint-disable-line */
 
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('with custom props', () => {
+  it('matches snapshot with custom props', () => {
     const props = {
       ...requiredProps,
       enterButton: 'Search',
@@ -31,7 +31,7 @@ describe('Search component matches snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('when field is touched and has error', () => {
+  it('matches snapshot when field is touched and has error', () => {
     const props = {
       ...requiredProps,
       form: {

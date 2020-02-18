@@ -3,11 +3,14 @@ import { shallow } from 'enzyme';
 
 import Search from '../component';
 
-test('Search component matches snapshot', () => {
+describe('Search component', () => {
   const requiredProps = {
     handleSubmit: jest.fn()
   };
-  const wrapper = shallow(<Search {...requiredProps} />);/* eslint-disable-line */
 
-  expect(wrapper).toMatchSnapshot();
+  it('matches snapshot', () => {
+    const wrapper = shallow(<Search {...requiredProps} />); /* eslint-disable-line */
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });

@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import Dashboard from '../component';
 import Search from '../Search';
 
-describe('Dashboard component matches snapshot', () => {
+describe('Dashboard component', () => {
   const requiredProps = {
     loading: false,
     error: '',
@@ -12,23 +12,28 @@ describe('Dashboard component matches snapshot', () => {
     fetchMovies: jest.fn(),
     currentPage: 0
   };
-  it('with required props', () => {
+  it('matches snapshot with required props', () => {
     const wrapper = shallow(<Dashboard {...requiredProps} />);/* eslint-disable-line */
 
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('with custom props', () => {
+  it('matches snapshot with custom props', () => {
     const props = {
       ...requiredProps,
-      list: []
+      list: [{
+        id: 1,
+        title: 'Terminator: Dark Fate',
+        overview: 'Decades after Sarah Connor prevented Judgment Day.',
+        poster_path: '/vqzNJRH4YyquRiWxCCOH0aXggHI.jpg' /* eslint-disable-line */
+      }]
     };
     const wrapper = shallow(<Dashboard {...props} />); /* eslint-disable-line */
 
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('and contains Search', () => {
+  it('matches snapshot and contains Search', () => {
     const wrapper = shallow(<Dashboard {...requiredProps} />);/* eslint-disable-line */
 
     expect(wrapper.contains(<Search />)).toEqual(true);

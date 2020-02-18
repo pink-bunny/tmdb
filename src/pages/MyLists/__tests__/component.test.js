@@ -3,13 +3,16 @@ import { shallow } from 'enzyme';
 
 import MyLists from '../component';
 
-test('MyLists component matches snapshot', () => {
+describe('MyLists component', () => {
   const requiredProps = {
     list: [],
     loading: false,
     error: ''
   };
-  const wrapper = shallow(<MyLists {...requiredProps} />); /* eslint-disable-line */
 
-  expect(wrapper).toMatchSnapshot();
+  it('matches snapshot', () => {
+    const wrapper = shallow(<MyLists {...requiredProps} />); /* eslint-disable-line */
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });

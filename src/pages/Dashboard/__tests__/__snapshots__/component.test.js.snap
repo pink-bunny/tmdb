@@ -11,7 +11,16 @@ exports[`Dashboard component matches snapshot with custom props 1`] = `
         currentPage={0}
         error=""
         fetchMovies={[MockFunction]}
-        list={Array []}
+        list={
+          Array [
+            Object {
+              "id": 1,
+              "overview": "Decades after Sarah Connor prevented Judgment Day.",
+              "poster_path": "/vqzNJRH4YyquRiWxCCOH0aXggHI.jpg",
+              "title": "Terminator: Dark Fate",
+            },
+          ]
+        }
         loading={false}
         totalItems={0}
       />

@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import InputField from '../index';
 
-describe('InputField component matches snapshot', () => {
+describe('InputField component', () => {
   const fieldName = 'password';
   const requiredProps = {
     field: {
@@ -15,13 +15,13 @@ describe('InputField component matches snapshot', () => {
     }
   };
 
-  it('with required props', () => {
+  it('matches snapshot with required props', () => {
     const wrapper = shallow(<InputField {...requiredProps} />); /* eslint-disable-line */
 
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('with icon', () => {
+  it('matches snapshot with icon', () => {
     const props = {
       ...requiredProps,
       icon: 'lock'
@@ -31,7 +31,7 @@ describe('InputField component matches snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('with custom props', () => {
+  it('matches snapshot with custom props', () => {
     const props = {
       ...requiredProps,
       type: 'password',
@@ -44,7 +44,7 @@ describe('InputField component matches snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('when field is touched and has error', () => {
+  it('matches snapshot when field is touched and has error', () => {
     const props = {
       ...requiredProps,
       form: {

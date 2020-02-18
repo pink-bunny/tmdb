@@ -3,13 +3,13 @@ import { shallow } from 'enzyme';
 
 import Button from '../index';
 
-describe('Button component matches snapshot', () => {
-  it('without props', () => {
+describe('Button component', () => {
+  it('matches snapshot without props', () => {
     const wrapper = shallow(<Button />);
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('with custom props', () => {
+  it('matches snapshot with custom props', () => {
     const props = {
       text: 'Custom button',
       type: 'dashed',
