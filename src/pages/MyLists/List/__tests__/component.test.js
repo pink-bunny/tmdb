@@ -3,14 +3,14 @@ import { shallow } from 'enzyme';
 
 import List from '../component';
 
-describe('List component matches snapshot', () => {
+describe('List component', () => {
   const requiredProps = {
     loading: false,
     error: '',
     list: []
   };
 
-  it('when it is loading', () => {
+  it('matches snapshot when it is loading', () => {
     const props = {
       ...requiredProps,
       loading: true
@@ -20,7 +20,7 @@ describe('List component matches snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('when it has error', () => {
+  it('matches snapshot when it has error', () => {
     const props = {
       ...requiredProps,
       error: 'Loading error'
@@ -30,13 +30,13 @@ describe('List component matches snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('with empty list', () => {
+  it('matches snapshot with empty list', () => {
     const wrapper = shallow(<List {...requiredProps} />); /* eslint-disable-line */
 
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('with list', () => {
+  it('matches snapshot with list', () => {
     const props = {
       ...requiredProps,
       list: [{

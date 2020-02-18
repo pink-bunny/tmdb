@@ -3,20 +3,20 @@ import { shallow } from 'enzyme';
 
 import Header from '../component';
 
-describe('Header component matches snapshot', () => {
+describe('Header component', () => {
   const requiredProps = {
     completeSession: jest.fn(),
     userLoggedIn: false,
     username: ''
   };
 
-  it('when user logged out', () => {
+  it('matches snapshot when user logged out', () => {
     const wrapper = shallow(<Header {...requiredProps} />); /* eslint-disable-line */
 
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('when user logged in', () => {
+  it('matches snapshot when user logged in', () => {
     const props = {
       ...requiredProps,
       userLoggedIn: true,

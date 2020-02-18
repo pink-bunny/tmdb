@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import DeleteListModal from '../component';
 
-describe('DeleteListModal component matches snapshot', () => {
+describe('DeleteListModal component', () => {
   const requiredProps = {
     name: 'Test list',
     modalVisible: false,
@@ -12,13 +12,13 @@ describe('DeleteListModal component matches snapshot', () => {
     deleteList: jest.fn()
   };
 
-  it('with required props', () => {
+  it('matches snapshot with required props', () => {
     const wrapper = shallow(<DeleteListModal {...requiredProps} />); /* eslint-disable-line */
 
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('with error', () => {
+  it('matches snapshot with error', () => {
     const props = {
       ...requiredProps,
       error: 'Delete error'

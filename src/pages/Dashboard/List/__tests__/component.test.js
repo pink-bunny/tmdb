@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import List from '../component';
 
-describe('List component matches snapshot', () => {
+describe('List component', () => {
   const requiredProps = {
     loading: false,
     error: '',
@@ -18,7 +18,7 @@ describe('List component matches snapshot', () => {
     poster_path: '/vqzNJRH4YyquRiWxCCOH0aXggHI.jpg' /* eslint-disable-line */
   }];
 
-  it('when it is loading', () => {
+  it('matches snapshot when it is loading', () => {
     const props = {
       ...requiredProps,
       loading: true
@@ -28,7 +28,7 @@ describe('List component matches snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('when it has error', () => {
+  it('matches snapshot when it has error', () => {
     const props = {
       ...requiredProps,
       error: 'Loading error'
@@ -38,7 +38,7 @@ describe('List component matches snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('with empty list', () => {
+  it('matches snapshot with empty list', () => {
     const props = {
       ...requiredProps,
       list: null
@@ -48,7 +48,7 @@ describe('List component matches snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('with list and without pagination', () => {
+  it('matches snapshot with list and without pagination', () => {
     const props = {
       ...requiredProps,
       list: listArr
@@ -58,7 +58,7 @@ describe('List component matches snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('with list and pagination', () => {
+  it('matches snapshot with list and pagination', () => {
     const props = {
       ...requiredProps,
       list: listArr,

@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import CreateNewListModal from '../component';
 
-describe('CreateNewListModal component matches snapshot', () => {
+describe('CreateNewListModal component', () => {
   const requiredProps = {
     showModal: jest.fn(),
     modalVisible: false,
@@ -11,13 +11,13 @@ describe('CreateNewListModal component matches snapshot', () => {
     handleSubmit: jest.fn()
   };
 
-  it('with required props', () => {
+  it('matches snapshot with required props', () => {
     const wrapper = shallow(<CreateNewListModal {...requiredProps} />); /* eslint-disable-line */
 
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('with server error', () => {
+  it('matches snapshot with server error', () => {
     const props = {
       ...requiredProps,
       errors: { serverError: 'Server error' }

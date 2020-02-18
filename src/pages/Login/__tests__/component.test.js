@@ -3,19 +3,19 @@ import { shallow } from 'enzyme';
 
 import Login from '../component';
 
-describe('Login component matches snapshot', () => {
+describe('Login component', () => {
   const requiredProps = {
     isSubmitting: false,
     handleSubmit: jest.fn()
   };
 
-  it('with required props', () => {
+  it('matches snapshot with required props', () => {
     const wrapper = shallow(<Login {...requiredProps} />); /* eslint-disable-line */
 
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('with server error', () => {
+  it('matches snapshot with server error', () => {
     const props = {
       ...requiredProps,
       errors: { serverError: 'Server error' }
