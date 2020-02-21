@@ -3,19 +3,19 @@ import { Icon } from 'antd';
 import PropTypes from 'prop-types';
 
 const ToggleToWatchlistComponent = ({
-  visible,
-  toggleVisible
+  isMovieInWatchlist,
+  changeWatchlistStatus
 }) => (
   <Icon
     type="book"
-    theme={visible ? 'filled' : undefined}
-    onClick={toggleVisible}
+    theme={isMovieInWatchlist ? 'filled' : undefined}
+    onClick={changeWatchlistStatus}
   />
 );
 
 ToggleToWatchlistComponent.propTypes = {
-  visible: PropTypes.bool.isRequired,
-  toggleVisible: PropTypes.func.isRequired
+  isMovieInWatchlist: PropTypes.bool.isRequired,
+  changeWatchlistStatus: PropTypes.func.isRequired
 };
 
 export default ToggleToWatchlistComponent;

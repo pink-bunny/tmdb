@@ -2,22 +2,33 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import withToggleState from '../../../../hoc/withToggleState';
 import {
   toggleToWatchlist as toggleToWatchlistAction
 } from '../../../../../state/movie/actions';
 import ToggleToWatchlistComponent from './component';
 
-const ToggleToWatchlistContainer = ({
-  id,
-  visible,
-  toggleVisible,
-  toggleToWatchlist
-}) => {
-  toggleToWatchlist(id, visible);
+class ToggleToWatchlistContainer extends React.Component {
+  changeWatchlistStatus = () => {
+    const {
+      id,
+      isMovieInWatchlist,
+      toggleToWatchlist
+    } = this.props;
 
-  return <ToggleToWatchlistComponent visible={visible} toggleVisible={toggleVisible} />;
-};
+    toggleToWatchlist(id, isMovieInWatchlist);
+  }
+
+  render() {
+    const { isMovieInWatchlist } = this.props;
+
+    return (
+      <ToggleToWatchlistComponent
+        changeWatchlistStatus={this.changeWatchlistStatus}
+        isMovieInWatchlist={isMovieInWatchlist}
+      />
+    );
+  }
+}
 
 const mapDispatchToProps = {
   toggleToWatchlist: toggleToWatchlistAction
@@ -26,8 +37,7 @@ const mapDispatchToProps = {
 ToggleToWatchlistContainer.propTypes = {
   id: PropTypes.number.isRequired,
   toggleToWatchlist: PropTypes.func.isRequired,
-  visible: PropTypes.bool.isRequired,
-  toggleVisible: PropTypes.func.isRequired
+  isMovieInWatchlist: PropTypes.bool.isRequired
 };
 
-export default connect(null, mapDispatchToProps)(withToggleState(ToggleToWatchlistContainer));
+export default connect(null, mapDispatchToProps)(ToggleToWatchlistContainer);

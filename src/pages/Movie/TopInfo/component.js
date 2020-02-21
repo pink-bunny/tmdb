@@ -18,7 +18,8 @@ const TopInfo = ({
   runtime,
   budget,
   revenue,
-  genres
+  genres,
+  isMovieInWatchlist
 }) => (
   <>
     <Row>
@@ -35,7 +36,7 @@ const TopInfo = ({
             type="heart"
           />
           {' '}
-          <ToggleToWatchlist id={id} />
+          <ToggleToWatchlist id={id} isMovieInWatchlist={isMovieInWatchlist} />
         </Typography.Title>
 
         <Typography.Title level={3}>Overview</Typography.Title>
@@ -116,7 +117,8 @@ TopInfo.propTypes = {
   runtime: PropTypes.number,
   budget: PropTypes.number,
   revenue: PropTypes.number,
-  genres: PropTypes.arrayOf(PropTypes.object)
+  genres: PropTypes.arrayOf(PropTypes.object),
+  isMovieInWatchlist: PropTypes.bool
 };
 
 TopInfo.defaultProps = {
@@ -127,7 +129,8 @@ TopInfo.defaultProps = {
   runtime: null,
   budget: null,
   revenue: null,
-  genres: null
+  genres: null,
+  isMovieInWatchlist: null
 };
 
 export default TopInfo;

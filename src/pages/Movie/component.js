@@ -54,6 +54,7 @@ const MovieComponent = ({
             budget={details.budget}
             revenue={details.revenue}
             genres={details.genres}
+            isMovieInWatchlist={details.watchlist}
           />
           <Cast cast={details.cast} />
           <Crew crew={details.crew} />
@@ -74,7 +75,8 @@ MovieComponent.propTypes = {
     genres: PropTypes.arrayOf(PropTypes.object),
     backdrops: PropTypes.arrayOf(PropTypes.object),
     cast: PropTypes.arrayOf(PropTypes.object),
-    crew: PropTypes.arrayOf(PropTypes.object)
+    crew: PropTypes.arrayOf(PropTypes.object),
+    watchlist: PropTypes.bool
   }),
   loading: PropTypes.bool.isRequired,
   error: PropTypes.string
@@ -91,7 +93,8 @@ MovieComponent.defaultProps = {
     genres: null,
     backdrops: null,
     cast: null,
-    crew: null
+    crew: null,
+    watchlist: null
   },
   error: ''
 };
