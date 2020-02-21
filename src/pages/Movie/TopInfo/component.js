@@ -8,7 +8,10 @@ import {
 } from 'antd';
 import PropTypes from 'prop-types';
 
+import ToggleToWatchlist from './ToggleToWatchlist';
+
 const TopInfo = ({
+  id,
   title,
   overview,
   originalLanguage,
@@ -32,10 +35,9 @@ const TopInfo = ({
             type="heart"
           />
           {' '}
-          <Icon
-            type="book"
-          />
+          <ToggleToWatchlist id={id} />
         </Typography.Title>
+
         <Typography.Title level={3}>Overview</Typography.Title>
         <Typography.Paragraph>
           {overview}
@@ -107,6 +109,7 @@ const TopInfo = ({
 );
 
 TopInfo.propTypes = {
+  id: PropTypes.number,
   overview: PropTypes.string,
   title: PropTypes.string,
   originalLanguage: PropTypes.string,
@@ -117,6 +120,7 @@ TopInfo.propTypes = {
 };
 
 TopInfo.defaultProps = {
+  id: null,
   overview: '',
   title: '',
   originalLanguage: '',

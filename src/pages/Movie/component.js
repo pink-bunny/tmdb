@@ -46,6 +46,7 @@ const MovieComponent = ({
 
         <div className="top-margin">
           <TopInfo
+            id={details.id}
             title={details.title}
             overview={details.overview}
             originalLanguage={details.original_language}
