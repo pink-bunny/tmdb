@@ -16,8 +16,8 @@ export const mergeMovie = (movie) => ({
   movie
 });
 
-export const toggleToWatchlistSuccess = (id, newStatus) => ({
+export const toggleToWatchlistSuccess = (id, isMovieInWatchlist) => ({
   type: TOGGLE_TO_WATCHLIST_SUCCESS,
   id,
-  newStatus
+  isMovieInWatchlist
 });

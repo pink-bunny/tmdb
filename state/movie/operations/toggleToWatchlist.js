@@ -11,20 +11,19 @@ const toggleToWatchlistLogic = createLogic({
     const { id, isMovieInWatchlist } = action;
     const state = getState();
     const sessionId = getSessionId(state);
-    const newStatus = !isMovieInWatchlist;
 
     try {
       await httpClient.post(`/account/{account_id}/watchlist?session_id=${sessionId}`, {
         media_type: 'movie', /* eslint-disable-line */
         media_id: id, /* eslint-disable-line */
-        watchlist: newStatus
+        watchlist: isMovieInWatchlist
       });
 
-      dispatch(toggleToWatchlistSuccess(id, newStatus));
+      dispatch(toggleToWatchlistSuccess(id, isMovieInWatchlist));
     } catch (error) {
       const errorMessage = error.response.data.status_message;
-      console.log('errorMessage', errorMessage);
-      // dispatch(fetchMovieError(errorMessage));
+      /* eslint-disable no-console */
+      console.log(errorMessage);
     }
     done();
   }

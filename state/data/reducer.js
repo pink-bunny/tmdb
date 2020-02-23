@@ -37,7 +37,7 @@ const data = (state = initialState, action) => {
           ...state.movie,
           [action.id]: {
             ...state.movie[action.id],
-            watchlist: action.newStatus
+            watchlist: action.isMovieInWatchlist
           }
         }
       };

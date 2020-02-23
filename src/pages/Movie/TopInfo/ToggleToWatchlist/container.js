@@ -14,8 +14,9 @@ class ToggleToWatchlistContainer extends React.Component {
       isMovieInWatchlist,
       toggleToWatchlist
     } = this.props;
+    const updatedStatus = !isMovieInWatchlist;
 
-    toggleToWatchlist(id, isMovieInWatchlist);
+    toggleToWatchlist(id, updatedStatus);
   }
 
   render() {
