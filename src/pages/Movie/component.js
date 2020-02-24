@@ -40,62 +40,34 @@ const MovieComponent = ({
   }
 
   return (
-    details && (
+    details ? (
       <>
         <Carousel backdrops={details.backdrops} />
 
         <div className="top-margin">
-          <TopInfo
-            id={details.id}
-            title={details.title}
-            overview={details.overview}
-            originalLanguage={details.original_language}
-            runtime={details.runtime}
-            budget={details.budget}
-            revenue={details.revenue}
-            genres={details.genres}
-            isMovieInWatchlist={details.watchlist}
-          />
+          <TopInfo details={details} />
+
           <Cast cast={details.cast} />
+
           <Crew crew={details.crew} />
         </div>
       </>
-    )
+    ) : null
   );
 };
 
 MovieComponent.propTypes = {
   details: PropTypes.shape({
-    overview: PropTypes.string,
-    title: PropTypes.string,
-    original_language: PropTypes.string, /* eslint-disable-line */
-    runtime: PropTypes.number,
-    budget: PropTypes.number,
-    revenue: PropTypes.number,
-    genres: PropTypes.arrayOf(PropTypes.object),
-    backdrops: PropTypes.arrayOf(PropTypes.object),
-    cast: PropTypes.arrayOf(PropTypes.object),
-    crew: PropTypes.arrayOf(PropTypes.object),
-    watchlist: PropTypes.bool
+    backdrops: PropTypes.arrayOf(PropTypes.object).isRequired,
+    cast: PropTypes.arrayOf(PropTypes.object).isRequired,
+    crew: PropTypes.arrayOf(PropTypes.object).isRequired
   }),
   loading: PropTypes.bool.isRequired,
   error: PropTypes.string
 };
 
 MovieComponent.defaultProps = {
-  details: {
-    overview: '',
-    title: '',
-    original_language: '', /* eslint-disable-line */
-    runtime: null,
-    budget: null,
-    revenue: null,
-    genres: null,
-    backdrops: null,
-    cast: null,
-    crew: null,
-    watchlist: null
-  },
+  details: null,
   error: ''
 };
 

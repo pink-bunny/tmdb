@@ -11,21 +11,21 @@ class ToggleToWatchlistContainer extends React.Component {
   changeWatchlistStatus = () => {
     const {
       id,
-      isMovieInWatchlist,
+      watchlist,
       toggleToWatchlist
     } = this.props;
-    const updatedStatus = !isMovieInWatchlist;
+    const updatedStatus = !watchlist;
 
     toggleToWatchlist(id, updatedStatus);
   }
 
   render() {
-    const { isMovieInWatchlist } = this.props;
+    const { watchlist } = this.props;
 
     return (
       <ToggleToWatchlistComponent
         changeWatchlistStatus={this.changeWatchlistStatus}
-        isMovieInWatchlist={isMovieInWatchlist}
+        watchlist={watchlist}
       />
     );
   }
@@ -38,7 +38,7 @@ const mapDispatchToProps = {
 ToggleToWatchlistContainer.propTypes = {
   id: PropTypes.number.isRequired,
   toggleToWatchlist: PropTypes.func.isRequired,
-  isMovieInWatchlist: PropTypes.bool.isRequired
+  watchlist: PropTypes.bool.isRequired
 };
 
 export default connect(null, mapDispatchToProps)(ToggleToWatchlistContainer);

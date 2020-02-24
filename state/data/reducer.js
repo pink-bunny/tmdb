@@ -22,21 +22,13 @@ const data = (state = initialState, action) => {
         ...state,
         lists: action.lists
       };
-    case types.MERGE_MOVIES:
-      return {
-        ...state,
-        movie: {
-          ...state.movie,
-          ...action.movie
-        }
-      };
     case TOGGLE_TO_WATCHLIST_SUCCESS:
       return {
         ...state,
-        movie: {
-          ...state.movie,
+        movies: {
+          ...state.movies,
           [action.id]: {
-            ...state.movie[action.id],
+            ...state.movies[action.id],
             watchlist: action.isMovieInWatchlist
           }
         }

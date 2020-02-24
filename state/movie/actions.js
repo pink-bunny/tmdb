@@ -15,8 +15,8 @@ export const fetchMovieError = (error) => ({
   error
 });
 
-export const toggleToWatchlist = (id, isMovieInWatchlist) => ({
+export const toggleToWatchlist = (id, watchlist) => ({
   type: types.TOGGLE_TO_WATCHLIST,
   id,
-  isMovieInWatchlist
+  watchlist
 });

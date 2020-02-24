@@ -4,7 +4,7 @@ export const movieError = (state) => state.movie.error;
 
 export const movieDetails = (state) => {
   const id = state.movie.id || null;
-  const movie = state.data.movie || {};
+  const movie = state.data.movies || {};
 
   if (!id) {
     return null;
