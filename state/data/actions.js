@@ -9,8 +9,3 @@ export const mergeListsList = (lists) => ({
   type: types.MERGE_LISTS_LIST,
   lists
 });
-
-export const mergeMovie = (movie) => ({
-  type: types.MERGE_MOVIES,
-  movie
-});

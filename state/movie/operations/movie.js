@@ -3,7 +3,7 @@ import { normalize, schema } from 'normalizr';
 
 import { FETCH_MOVIE } from '../types';
 import { fetchMovieSuccess, fetchMovieError } from '../actions';
-import { mergeMovie } from '../../data/actions';
+import { mergeMoviesList } from '../../data/actions';
 
 const movieLogic = createLogic({
   type: FETCH_MOVIE,
@@ -24,8 +24,8 @@ const movieLogic = createLogic({
       const normalizedInfo = normalize(data, movieInfoSchema);
       const { movie } = normalizedInfo.entities;
 
+      dispatch(mergeMoviesList(movie));
       dispatch(fetchMovieSuccess(id));
-      dispatch(mergeMovie(movie));
     } catch (error) {
       const errorMessage = error.response.data.status_message;
       dispatch(fetchMovieError(errorMessage));
