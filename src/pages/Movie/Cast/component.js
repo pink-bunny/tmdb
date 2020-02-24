@@ -63,11 +63,7 @@ const Cast = ({ cast }) => (
 );
 
 Cast.propTypes = {
-  cast: PropTypes.arrayOf(PropTypes.object)
-};
-
-Cast.defaultProps = {
-  cast: null
+  cast: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export default Cast;

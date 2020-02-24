@@ -63,11 +63,7 @@ const Crew = ({ crew }) => (
 );
 
 Crew.propTypes = {
-  crew: PropTypes.arrayOf(PropTypes.object)
-};
-
-Crew.defaultProps = {
-  crew: null
+  crew: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export default Crew;

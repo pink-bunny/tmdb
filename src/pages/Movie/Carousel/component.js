@@ -21,11 +21,7 @@ const Carousel = ({ backdrops }) => (
 );
 
 Carousel.propTypes = {
-  backdrops: PropTypes.arrayOf(PropTypes.object)
-};
-
-Carousel.defaultProps = {
-  backdrops: null
+  backdrops: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export default Carousel;
