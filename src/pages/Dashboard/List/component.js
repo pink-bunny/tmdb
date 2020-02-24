@@ -70,6 +70,7 @@ const List = ({
               xl={{ span: 4 }}
             >
               <Movie
+                id={item.id}
                 title={item.title}
                 overview={item.overview}
                 poster={item.poster_path}

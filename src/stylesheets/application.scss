@@ -61,3 +61,25 @@ body,
   height: 296px;
   overflow: hidden;
 }
+
+.movie-image {
+  height: auto;
+}
+
+.ant-tag {
+  text-transform: uppercase;
+}
+
+.detailed-movie__card {
+  .ant-card-body {
+    height: auto;
+  }
+  .ant-card-meta-description {
+    height: 60px;
+  }
+}
+.detailed-movie__card-img {
+  padding-top: 120%;
+  background-color: #ccc;
+  background-size: cover;
+}

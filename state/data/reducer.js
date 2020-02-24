@@ -20,11 +20,6 @@ const data = (state = initialState, action) => {
         ...state,
         lists: action.lists
       };
-    case types.MERGE_LISTS_LIST:
-      return {
-        ...state,
-        lists: action.lists
-      };
     default:
       return state;
   }
