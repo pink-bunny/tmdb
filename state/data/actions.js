@@ -11,11 +11,6 @@ export const mergeListsList = (lists) => ({
   lists
 });
 
-export const mergeMovie = (movie) => ({
-  type: types.MERGE_MOVIES,
-  movie
-});
-
 export const toggleToWatchlistSuccess = (id, isMovieInWatchlist) => ({
   type: TOGGLE_TO_WATCHLIST_SUCCESS,
   id,
