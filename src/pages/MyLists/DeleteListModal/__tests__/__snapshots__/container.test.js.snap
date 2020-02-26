@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeleteListModalContainer matches snapshot 1`] = `
+<DeleteListModal
+  deleteList={[Function]}
+  error=""
+  hideModal={[Function]}
+  id={1}
+  modalVisible={false}
+  name="Mock list"
+  showModal={[Function]}
+/>
+`;
