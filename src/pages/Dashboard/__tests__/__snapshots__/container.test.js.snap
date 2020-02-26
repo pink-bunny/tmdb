@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard container matches snapsot 1`] = `
+DashboardPage {
+  "checkSearchState": [Function],
+  "context": Object {},
+  "props": Object {
+    "currentPage": 1,
+    "error": "",
+    "fetchMovies": [Function],
+    "list": Array [
+      Object {
+        "id": 1,
+        "overview": "Overview",
+        "poster_path": "Path",
+        "title": "Title",
+      },
+    ],
+    "loading": false,
+    "searchMovies": [Function],
+    "searchQuery": "query",
+    "store": Object {
+      "clearActions": [Function],
+      "dispatch": [MockFunction] {
+        "calls": Array [
+          Array [
+            undefined,
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      },
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    },
+    "totalItems": 21,
+  },
+  "refs": Object {},
+  "setState": [Function],
+  "state": null,
+  "updater": Updater {
+    "_callbacks": Array [],
+    "_renderer": ReactShallowRenderer {
+      "_context": Object {},
+      "_didScheduleRenderPhaseUpdate": false,
+      "_dispatcher": Object {
+        "readContext": [Function],
+        "useCallback": [Function],
+        "useContext": [Function],
+        "useDebugValue": [Function],
+        "useDeferredValue": [Function],
+        "useEffect": [Function],
+        "useImperativeHandle": [Function],
+        "useLayoutEffect": [Function],
+        "useMemo": [Function],
+        "useReducer": [Function],
+        "useRef": [Function],
+        "useResponder": [Function],
+        "useState": [Function],
+        "useTransition": [Function],
+      },
+      "_element": <DashboardPage
+        currentPage={1}
+        error=""
+        fetchMovies={[Function]}
+        list={
+          Array [
+            Object {
+              "id": 1,
+              "overview": "Overview",
+              "poster_path": "Path",
+              "title": "Title",
+            },
+          ]
+        }
+        loading={false}
+        searchMovies={[Function]}
+        searchQuery="query"
+        store={
+          Object {
+            "clearActions": [Function],
+            "dispatch": [MockFunction] {
+              "calls": Array [
+                Array [
+                  undefined,
+                ],
+              ],
+              "results": Array [
+                Object {
+                  "type": "return",
+                  "value": undefined,
+                },
+              ],
+            },
+            "getActions": [Function],
+            "getState": [Function],
+            "replaceReducer": [Function],
+            "subscribe": [Function],
+          }
+        }
+        totalItems={21}
+      />,
+      "_firstWorkInProgressHook": null,
+      "_forcedUpdate": false,
+      "_instance": [Circular],
+      "_isReRender": false,
+      "_newState": null,
+      "_numberOfReRenders": 0,
+      "_renderPhaseUpdates": null,
+      "_rendered": <Dashboard
+        currentPage={1}
+        error=""
+        fetchMovies={[Function]}
+        list={
+          Array [
+            Object {
+              "id": 1,
+              "overview": "Overview",
+              "poster_path": "Path",
+              "title": "Title",
+            },
+          ]
+        }
+        loading={false}
+        totalItems={21}
+      />,
+      "_rendering": false,
+      "_updater": [Circular],
+      "_workInProgressHook": null,
+    },
+  },
+}
+`;

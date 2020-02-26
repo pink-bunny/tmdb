@@ -4,14 +4,13 @@ import { shallow } from 'enzyme';
 
 import ConnectedHeader from '../container';
 
+jest.mock('../../../../state/session/selectors', () => ({
+  isUserLoggedIn: jest.fn(() => true),
+  username: jest.fn(() => 'John Doe')
+}));
+
 describe('Header container', () => {
-  const initialState = {
-    session: {
-      sessionId: '123456',
-      username: 'John Doe'
-    }
-  };
-  const store = configureStore()(initialState);
+  const store = configureStore()({});
   const wrapper = shallow(<ConnectedHeader store={store} />).dive();
 
   it('matches snapshot', () => {
