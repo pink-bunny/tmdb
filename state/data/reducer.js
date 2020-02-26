@@ -1,8 +1,10 @@
 import * as types from './types';
+import { TOGGLE_TO_WATCHLIST_SUCCESS } from '../movie/types';
 
 const initialState = {
   movies: {},
-  lists: {}
+  lists: {},
+  movie: {}
 };
 
 const data = (state = initialState, action) => {
@@ -19,6 +21,17 @@ const data = (state = initialState, action) => {
       return {
         ...state,
         lists: action.lists
+      };
+    case TOGGLE_TO_WATCHLIST_SUCCESS:
+      return {
+        ...state,
+        movies: {
+          ...state.movies,
+          [action.id]: {
+            ...state.movies[action.id],
+            watchlist: action.isMovieInWatchlist
+          }
+        }
       };
     default:
       return state;

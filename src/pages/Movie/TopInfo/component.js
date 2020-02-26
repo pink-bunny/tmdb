@@ -8,15 +8,19 @@ import {
 } from 'antd';
 import PropTypes from 'prop-types';
 
+import ToggleToWatchlist from './ToggleToWatchlist';
+
 const TopInfo = ({ details }) => {
   const {
+    id,
     title,
     overview,
     original_language: originalLanguage,
     runtime,
     budget,
     revenue,
-    genres
+    genres,
+    watchlist
   } = details;
 
   return (
@@ -35,9 +39,7 @@ const TopInfo = ({ details }) => {
               type="heart"
             />
             {' '}
-            <Icon
-              type="book"
-            />
+            <ToggleToWatchlist id={id} watchlist={watchlist} />
           </Typography.Title>
           {overview && (
             <>
@@ -130,7 +132,8 @@ TopInfo.propTypes = {
     genres: PropTypes.arrayOf(PropTypes.object).isRequired,
     backdrops: PropTypes.arrayOf(PropTypes.object).isRequired,
     cast: PropTypes.arrayOf(PropTypes.object).isRequired,
-    crew: PropTypes.arrayOf(PropTypes.object).isRequired
+    crew: PropTypes.arrayOf(PropTypes.object).isRequired,
+    watchlist: PropTypes.bool.isRequired
   })
 };
 
