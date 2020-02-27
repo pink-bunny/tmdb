@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+Object {
+  "fields": Object {
+    "description": Object {
+      "label": undefined,
+      "meta": undefined,
+      "tests": Array [
+        Object {
+          "name": "required",
+          "params": undefined,
+        },
+      ],
+      "type": "string",
+    },
+    "name": Object {
+      "label": undefined,
+      "meta": undefined,
+      "tests": Array [
+        Object {
+          "name": "required",
+          "params": undefined,
+        },
+      ],
+      "type": "string",
+    },
+  },
+  "label": undefined,
+  "meta": undefined,
+  "tests": Array [],
+  "type": "object",
+}
+`;
+
+exports[`CreateNewListModal container matches snapshot 1`] = `
+<CreateNewListModal
+  createMyList={[Function]}
+  dirty={false}
+  errors={Object {}}
+  getFieldHelpers={[Function]}
+  getFieldMeta={[Function]}
+  getFieldProps={[Function]}
+  handleBlur={[Function]}
+  handleChange={[Function]}
+  handleReset={[Function]}
+  handleSubmit={[Function]}
+  hideModal={[Function]}
+  initialErrors={Object {}}
+  initialTouched={Object {}}
+  initialValues={
+    Object {
+      "description": "",
+      "name": "",
+    }
+  }
+  isSubmitting={false}
+  isValid={true}
+  isValidating={false}
+  modalVisible={false}
+  registerField={[Function]}
+  resetForm={[Function]}
+  setErrors={[Function]}
+  setFieldError={[Function]}
+  setFieldTouched={[Function]}
+  setFieldValue={[Function]}
+  setFormikState={[Function]}
+  setStatus={[Function]}
+  setSubmitting={[Function]}
+  setTouched={[Function]}
+  setValues={[Function]}
+  showModal={[Function]}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [MockFunction],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  submitCount={0}
+  submitForm={[Function]}
+  touched={Object {}}
+  unregisterField={[Function]}
+  validateField={[Function]}
+  validateForm={[Function]}
+  validateOnBlur={true}
+  validateOnChange={true}
+  validateOnMount={false}
+  values={
+    Object {
+      "description": "",
+      "name": "",
+    }
+  }
+/>
+`;

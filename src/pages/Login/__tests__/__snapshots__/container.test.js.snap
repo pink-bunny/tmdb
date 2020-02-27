@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+Object {
+  "fields": Object {
+    "password": Object {
+      "label": undefined,
+      "meta": undefined,
+      "tests": Array [
+        Object {
+          "name": "required",
+          "params": undefined,
+        },
+        Object {
+          "name": "min",
+          "params": Object {
+            "min": 4,
+          },
+        },
+      ],
+      "type": "string",
+    },
+    "username": Object {
+      "label": undefined,
+      "meta": undefined,
+      "tests": Array [
+        Object {
+          "name": "required",
+          "params": undefined,
+        },
+      ],
+      "type": "string",
+    },
+  },
+  "label": undefined,
+  "meta": undefined,
+  "tests": Array [],
+  "type": "object",
+}
+`;
+
+exports[`Login container matches snapshot 1`] = `
+<Login
+  dirty={false}
+  errors={Object {}}
+  getFieldHelpers={[Function]}
+  getFieldMeta={[Function]}
+  getFieldProps={[Function]}
+  handleBlur={[Function]}
+  handleChange={[Function]}
+  handleReset={[Function]}
+  handleSubmit={[Function]}
+  initialErrors={Object {}}
+  initialTouched={Object {}}
+  initialValues={
+    Object {
+      "password": "",
+      "username": "",
+    }
+  }
+  isSubmitting={false}
+  isValid={true}
+  isValidating={false}
+  registerField={[Function]}
+  requestSession={[Function]}
+  resetForm={[Function]}
+  setErrors={[Function]}
+  setFieldError={[Function]}
+  setFieldTouched={[Function]}
+  setFieldValue={[Function]}
+  setFormikState={[Function]}
+  setStatus={[Function]}
+  setSubmitting={[Function]}
+  setTouched={[Function]}
+  setValues={[Function]}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [MockFunction],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  submitCount={0}
+  submitForm={[Function]}
+  touched={Object {}}
+  unregisterField={[Function]}
+  validateField={[Function]}
+  validateForm={[Function]}
+  validateOnBlur={true}
+  validateOnChange={true}
+  validateOnMount={false}
+  values={
+    Object {
+      "password": "",
+      "username": "",
+    }
+  }
+/>
+`;

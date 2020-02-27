@@ -5,6 +5,7 @@ import MovieItem from '../component';
 
 describe('MovieItem component', () => {
   const requiredProps = {
+    id: 1,
     title: 'Terminator: Dark Fate',
     overview: 'Decades after Sarah Connor prevented Judgment Day.'
   };

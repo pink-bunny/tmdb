@@ -79,6 +79,7 @@ exports[`List component matches snapshot with list and pagination 1`] = `
       >
         <Movie
           actions={Array []}
+          id={1}
           overview="Decades after Sarah Connor prevented Judgment Day."
           poster="/vqzNJRH4YyquRiWxCCOH0aXggHI.jpg"
           title="Terminator: Dark Fate"
@@ -144,6 +145,7 @@ exports[`List component matches snapshot with list and without pagination 1`] = 
       >
         <Movie
           actions={Array []}
+          id={1}
           overview="Decades after Sarah Connor prevented Judgment Day."
           poster="/vqzNJRH4YyquRiWxCCOH0aXggHI.jpg"
           title="Terminator: Dark Fate"

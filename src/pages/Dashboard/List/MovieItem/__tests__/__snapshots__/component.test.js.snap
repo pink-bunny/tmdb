@@ -1,34 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MovieItem component matches snapshot with poster 1`] = `
-<Card
-  actions={Array []}
+<Link
   className="top-margin"
-  cover={
-    <img
-      alt="Terminator: Dark Fate"
-      src="https://image.tmdb.org/t/p/w300_and_h450_bestv2//vqzNJRH4YyquRiWxCCOH0aXggHI.jpg"
-    />
+  style={
+    Object {
+      "display": "inline-block",
+    }
   }
-  hoverable={true}
+  to="movie/1"
 >
-  <Meta
-    description="Decades after Sarah Connor prevented Judgment Day."
-    title="Terminator: Dark Fate"
-  />
-</Card>
+  <Card
+    actions={Array []}
+    cover={
+      <img
+        alt="Terminator: Dark Fate"
+        src="https://image.tmdb.org/t/p/w300_and_h450_bestv2//vqzNJRH4YyquRiWxCCOH0aXggHI.jpg"
+      />
+    }
+    hoverable={true}
+  >
+    <Meta
+      description="Decades after Sarah Connor prevented Judgment Day."
+      title="Terminator: Dark Fate"
+    />
+  </Card>
+</Link>
 `;
 
 exports[`MovieItem component matches snapshot with required props 1`] = `
-<Card
-  actions={Array []}
+<Link
   className="top-margin"
-  cover={null}
-  hoverable={true}
+  style={
+    Object {
+      "display": "inline-block",
+    }
+  }
+  to="movie/1"
 >
-  <Meta
-    description="Decades after Sarah Connor prevented Judgment Day."
-    title="Terminator: Dark Fate"
-  />
-</Card>
+  <Card
+    actions={Array []}
+    cover={null}
+    hoverable={true}
+  >
+    <Meta
+      description="Decades after Sarah Connor prevented Judgment Day."
+      title="Terminator: Dark Fate"
+    />
+  </Card>
+</Link>
 `;
