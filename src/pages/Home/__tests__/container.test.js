@@ -13,9 +13,9 @@ describe('Header container.', () => {
   const store = configureStore()({});
 
   describe('User is logged in.', () => {
-    const wrapper = shallow(<ConnectedHome store={store} />).dive().dive();
-
     it('Should render dashboard', () => {
+      const wrapper = shallow(<ConnectedHome store={store} />).dive().dive();
+
       expect(wrapper).toMatchSnapshot();
     });
   });

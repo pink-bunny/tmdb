@@ -33,7 +33,6 @@ describe('Dashboard container', () => {
   const wrapper = shallow(<ConnectedDashboard store={store} />).dive().dive();
   const instance = wrapper.instance();
 
-
   it('matches snapsot', () => {
     expect(instance).toMatchSnapshot();
   });
@@ -51,10 +50,12 @@ describe('Dashboard container', () => {
       expect(searchMovies).toHaveBeenCalledWith(searchQuery, page);
     });
 
-    it('has empty search query', () => {
+    it('has empty search query and page=3', () => {
+      const page = 3;
+
       wrapper.setProps({ searchQuery: '' });
-      instance.checkSearchState();
-      expect(fetchTrendingMovies).toHaveBeenCalled();
+      instance.checkSearchState(page);
+      expect(fetchTrendingMovies).toHaveBeenCalledWith(page);
     });
   });
 });
