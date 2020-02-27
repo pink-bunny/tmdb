@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MyListsContainer container matches snapshot 1`] = `
+<MyLists
+  error=""
+  list={
+    Array [
+      Object {
+        "description": "Description of my favorites movies",
+        "id": 1,
+        "name": "My favorites movies",
+      },
+    ]
+  }
+  loading={true}
+/>
+`;

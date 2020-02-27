@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header container. User is logged in. Should render dashboard 1`] = `<Connect(DashboardPage) />`;
+
+exports[`Header container. User is not logged in. Should render login 1`] = `<Connect(WithFormik(Login)) />`;
