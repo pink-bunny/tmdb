@@ -3,24 +3,29 @@ import configureStore from 'redux-mock-store';
 import { shallow } from 'enzyme';
 
 import ConnectedHome from '../container';
+import { isUserLoggedIn } from '../../../../state/session/selectors';
 
 jest.mock('../../../../state/session/selectors', () => ({
   isUserLoggedIn: jest.fn(() => true)
 }));
 
-describe('Header container', () => {
+describe('Header container.', () => {
   const store = configureStore()({});
-  const wrapper = shallow(<ConnectedHome store={store} />);
-  const container = wrapper.dive().dive();
 
-  it('should render dashboard', () => {
-    expect(container).toMatchSnapshot();
+  describe('User is logged in.', () => {
+    const wrapper = shallow(<ConnectedHome store={store} />).dive().dive();
+
+    it('Should render dashboard', () => {
+      expect(wrapper).toMatchSnapshot();
+    });
   });
 
-  it('should render login', () => {
-    wrapper.setProps({ userLoggedIn: false, custom: 'Hey' });
-    // console.log('SS', wrapper.props());
+  describe('User is not logged in.', () => {
+    it('Should render login', () => {
+      isUserLoggedIn.mockImplementation(() => false);
+      const wrapper = shallow(<ConnectedHome store={store} />).dive().dive();
 
-    expect(container).toMatchSnapshot();
+      expect(wrapper).toMatchSnapshot();
+    });
   });
 });
