@@ -33,6 +33,8 @@ describe('CreateNewListModal container', () => {
     const container = wrapper.dive().dive().props().validationSchema()
       .describe();
 
-    expect(container).toMatchSnapshot();
+    it('matches snapshot', () => {
+      expect(container).toMatchSnapshot();
+    });
   });
 });

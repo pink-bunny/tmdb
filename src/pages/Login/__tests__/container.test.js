@@ -30,6 +30,8 @@ describe('Login container', () => {
   describe('validationSchema', () => {
     const container = wrapper.dive().props().validationSchema().describe();
 
-    expect(container).toMatchSnapshot();
+    it('matches snapshot', () => {
+      expect(container).toMatchSnapshot();
+    });
   });
 });

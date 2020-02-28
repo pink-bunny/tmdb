@@ -100,3 +100,42 @@ exports[`Login container matches snapshot 1`] = `
   }
 />
 `;
+
+exports[`Login container validationSchema matches snapshot 1`] = `
+Object {
+  "fields": Object {
+    "password": Object {
+      "label": undefined,
+      "meta": undefined,
+      "tests": Array [
+        Object {
+          "name": "required",
+          "params": undefined,
+        },
+        Object {
+          "name": "min",
+          "params": Object {
+            "min": 4,
+          },
+        },
+      ],
+      "type": "string",
+    },
+    "username": Object {
+      "label": undefined,
+      "meta": undefined,
+      "tests": Array [
+        Object {
+          "name": "required",
+          "params": undefined,
+        },
+      ],
+      "type": "string",
+    },
+  },
+  "label": undefined,
+  "meta": undefined,
+  "tests": Array [],
+  "type": "object",
+}
+`;

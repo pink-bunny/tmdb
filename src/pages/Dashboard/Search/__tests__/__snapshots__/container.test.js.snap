@@ -81,3 +81,25 @@ exports[`DashboardSearch container matches snapshot 1`] = `
   }
 />
 `;
+
+exports[`DashboardSearch container validationSchema matches snapshot 1`] = `
+Object {
+  "fields": Object {
+    "search": Object {
+      "label": undefined,
+      "meta": undefined,
+      "tests": Array [
+        Object {
+          "name": "required",
+          "params": undefined,
+        },
+      ],
+      "type": "string",
+    },
+  },
+  "label": undefined,
+  "meta": undefined,
+  "tests": Array [],
+  "type": "object",
+}
+`;
