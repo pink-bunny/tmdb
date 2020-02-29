@@ -5,6 +5,10 @@ import * as Yup from 'yup';
 import Login from './component';
 import { requestSession } from '../../../state/session/actions';
 
+export const handleSubmit = (values, { props, setErrors, setSubmitting }) => {
+  props.requestSession(values, setErrors, setSubmitting);
+};
+
 const SignInValidationSchema = Yup.object().shape({
   username: Yup.string()
     .required('Required'),
@@ -14,13 +18,11 @@ const SignInValidationSchema = Yup.object().shape({
 });
 
 const LoginForm = withFormik({
-  mapPropsToValues: () => ({ username: '4betlana', password: 'strawberry91' }),
+  mapPropsToValues: () => ({ username: '', password: '' }),
 
   validationSchema: SignInValidationSchema,
 
-  handleSubmit: (values, { props, setErrors, setSubmitting }) => {
-    props.requestSession(values, setErrors, setSubmitting);
-  },
+  handleSubmit,
 
   displayName: 'LoginForm'
 })(Login);

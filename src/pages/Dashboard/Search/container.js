@@ -5,6 +5,11 @@ import { searchMovies } from '../../../../state/dashboard/actions';
 
 import Search from './component';
 
+export const handleSubmit = (values, { props }) => {
+  const { search } = values;
+  props.searchMovies(search);
+};
+
 const SearchFormSchema = Yup.object().shape({
   search: Yup.string()
     .required('Search field can\'t be empty')
@@ -15,10 +20,7 @@ const SearchForm = withFormik({
 
   validationSchema: SearchFormSchema,
 
-  handleSubmit: (values, { props }) => {
-    const { search } = values;
-    props.searchMovies(search);
-  },
+  handleSubmit,
 
   displayName: 'SearchForm'
 })(Search);

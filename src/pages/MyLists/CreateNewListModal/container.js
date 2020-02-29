@@ -8,6 +8,11 @@ import {
   createMyList as createMyListAction
 } from '../../../../state/my_lists/actions';
 
+export const handleSubmit = (values, { props, setErrors }) => {
+  const { hideModal } = props;
+  props.createMyList(values, setErrors, hideModal);
+};
+
 const createNewListFormSchema = Yup.object().shape({
   name: Yup.string()
     .required('Required'),
@@ -20,10 +25,7 @@ const CreateNewListModalContainer = withFormik({
 
   validationSchema: createNewListFormSchema,
 
-  handleSubmit: (values, { props, setErrors }) => {
-    const { hideModal } = props;
-    props.createMyList(values, setErrors, hideModal);
-  },
+  handleSubmit,
 
   displayName: 'CreateNewListForm'
 })(CreateNewListModal);
