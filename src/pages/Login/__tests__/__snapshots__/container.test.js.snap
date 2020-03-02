@@ -1,44 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[` 1`] = `
-Object {
-  "fields": Object {
-    "password": Object {
-      "label": undefined,
-      "meta": undefined,
-      "tests": Array [
-        Object {
-          "name": "required",
-          "params": undefined,
-        },
-        Object {
-          "name": "min",
-          "params": Object {
-            "min": 4,
-          },
-        },
-      ],
-      "type": "string",
-    },
-    "username": Object {
-      "label": undefined,
-      "meta": undefined,
-      "tests": Array [
-        Object {
-          "name": "required",
-          "params": undefined,
-        },
-      ],
-      "type": "string",
-    },
-  },
-  "label": undefined,
-  "meta": undefined,
-  "tests": Array [],
-  "type": "object",
-}
-`;
-
 exports[`Login container matches snapshot 1`] = `
 <Login
   dirty={false}

@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToggleToWatchlistComponent component matches snapshot whenwatchlist is turned on 1`] = `
+<Icon
+  onClick={[MockFunction]}
+  theme="filled"
+  type="book"
+/>
+`;
+
+exports[`ToggleToWatchlistComponent component matches snapshot with required props 1`] = `
+<Icon
+  onClick={[MockFunction]}
+  type="book"
+/>
+`;

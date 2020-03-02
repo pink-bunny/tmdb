@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movie container matches snapshot with error 1`] = `
+<MovieComponent
+  details={null}
+  error="Mock error"
+  loading={false}
+/>
+`;
+
+exports[`Movie container matches snapshot with required props 1`] = `
+<MovieComponent
+  details={null}
+  error=""
+  loading={false}
+/>
+`;

@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Layout } from 'antd';
 
 import MovieComponent from './component';
 import {
@@ -27,17 +26,12 @@ class MovieContainer extends React.Component {
       loading,
       error
     } = this.props;
-
     return (
-      <Layout>
-        <Layout.Content>
-          <MovieComponent
-            details={details}
-            loading={loading}
-            error={error}
-          />
-        </Layout.Content>
-      </Layout>
+      <MovieComponent
+        details={details}
+        loading={loading}
+        error={error}
+      />
     );
   }
 }
