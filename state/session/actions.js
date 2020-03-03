@@ -17,6 +17,7 @@ export const requestSessionSuccess = (sessionId, username) => ({
 export const completeSession = () => ({
   type: types.COMPLETE_SESSION
 });
+
 export const completeSessionSuccess = () => ({
   type: types.COMPLETE_SESSION_SUCCESS
 });
