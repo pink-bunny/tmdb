@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`withModal HOC matches snapshot 1`] = `
+<MockModal
+  hideModal={[Function]}
+  modalVisible={false}
+  showModal={[Function]}
+/>
+`;

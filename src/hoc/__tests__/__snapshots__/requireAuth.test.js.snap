@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`requireAuth() should give access to the MockPage for registered user 1`] = `
+<MockPage
+  dispatch={[Function]}
+  isUserLoggedIn={true}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+/>
+`;
+
+exports[`requireAuth() should redirect to the home page unregistered user 1`] = `
+<Redirect
+  to="/"
+/>
+`;
