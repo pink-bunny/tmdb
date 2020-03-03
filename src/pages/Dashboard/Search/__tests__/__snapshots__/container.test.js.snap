@@ -1,27 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[` 1`] = `
-Object {
-  "fields": Object {
-    "search": Object {
-      "label": undefined,
-      "meta": undefined,
-      "tests": Array [
-        Object {
-          "name": "required",
-          "params": undefined,
-        },
-      ],
-      "type": "string",
-    },
-  },
-  "label": undefined,
-  "meta": undefined,
-  "tests": Array [],
-  "type": "object",
-}
-`;
-
 exports[`DashboardSearch container matches snapshot 1`] = `
 <Search
   dirty={false}

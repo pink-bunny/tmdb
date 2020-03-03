@@ -130,9 +130,6 @@ TopInfo.propTypes = {
     budget: PropTypes.number.isRequired,
     revenue: PropTypes.number.isRequired,
     genres: PropTypes.arrayOf(PropTypes.object).isRequired,
-    backdrops: PropTypes.arrayOf(PropTypes.object).isRequired,
-    cast: PropTypes.arrayOf(PropTypes.object).isRequired,
-    crew: PropTypes.arrayOf(PropTypes.object).isRequired,
     watchlist: PropTypes.bool.isRequired
   })
 };

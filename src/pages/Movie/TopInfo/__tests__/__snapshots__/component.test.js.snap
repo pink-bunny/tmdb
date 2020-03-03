@@ -1,0 +1,204 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TopInfo component has optional props 1`] = `
+<Fragment>
+  <Row
+    gutter={0}
+  >
+    <Col
+      offset={2}
+      span={20}
+    >
+      <Title>
+        <span>
+          Mock title
+        </span>
+         
+        <Icon
+          type="heart"
+        />
+         
+        <Connect(ToggleToWatchlistContainer)
+          id={1}
+          watchlist={false}
+        />
+      </Title>
+      <Title
+        level={3}
+      >
+        Overview
+      </Title>
+      <Paragraph>
+        Mock overview
+      </Paragraph>
+    </Col>
+  </Row>
+  <Row
+    gutter={0}
+  >
+    <Col
+      offset={2}
+      span={20}
+    >
+      <Paragraph>
+        <b>
+          Original Language: 
+        </b>
+        <span>
+          Mock language
+        </span>
+      </Paragraph>
+    </Col>
+    <Col
+      offset={2}
+      span={20}
+    >
+      <Paragraph>
+        <b>
+          Runtime: 
+        </b>
+        <span>
+          124
+        </span>
+      </Paragraph>
+    </Col>
+    <Col
+      offset={2}
+      span={20}
+    >
+      <Paragraph>
+        <b>
+          Budget: 
+        </b>
+        <span>
+          $
+          1000000
+        </span>
+      </Paragraph>
+    </Col>
+    <Col
+      offset={2}
+      span={20}
+    >
+      <Paragraph>
+        <b>
+          Revenue: 
+        </b>
+        <span>
+          $
+          50000
+        </span>
+      </Paragraph>
+    </Col>
+    <Col
+      offset={2}
+      span={20}
+    >
+      <Paragraph>
+        <b>
+          Genres: 
+        </b>
+        <Tag
+          closable={false}
+          key="1"
+        >
+          Mock genre
+        </Tag>
+      </Paragraph>
+    </Col>
+  </Row>
+</Fragment>
+`;
+
+exports[`TopInfo component matches snapshot with required props 1`] = `
+<Fragment>
+  <Row
+    gutter={0}
+  >
+    <Col
+      offset={2}
+      span={20}
+    >
+      <Title>
+        <span>
+          Mock title
+        </span>
+         
+        <Icon
+          type="heart"
+        />
+         
+        <Connect(ToggleToWatchlistContainer)
+          id={1}
+          watchlist={false}
+        />
+      </Title>
+    </Col>
+  </Row>
+  <Row
+    gutter={0}
+  >
+    <Col
+      offset={2}
+      span={20}
+    >
+      <Paragraph>
+        <b>
+          Original Language: 
+        </b>
+        <span>
+          Mock language
+        </span>
+      </Paragraph>
+    </Col>
+    <Col
+      offset={2}
+      span={20}
+    />
+    <Col
+      offset={2}
+      span={20}
+    >
+      <Paragraph>
+        <b>
+          Budget: 
+        </b>
+        <span>
+          $
+          1000000
+        </span>
+      </Paragraph>
+    </Col>
+    <Col
+      offset={2}
+      span={20}
+    >
+      <Paragraph>
+        <b>
+          Revenue: 
+        </b>
+        <span>
+          $
+          50000
+        </span>
+      </Paragraph>
+    </Col>
+    <Col
+      offset={2}
+      span={20}
+    >
+      <Paragraph>
+        <b>
+          Genres: 
+        </b>
+        <Tag
+          closable={false}
+          key="1"
+        >
+          Mock genre
+        </Tag>
+      </Paragraph>
+    </Col>
+  </Row>
+</Fragment>
+`;

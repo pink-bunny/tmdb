@@ -6,6 +6,7 @@ import {
   fetchTrendingMovies,
   searchMovies
 } from '../../../../state/dashboard/actions';
+import { dashboardMoviesSearchQuery } from '../../../../state/dashboard/selectors';
 import ConnectedDashboard from '../container';
 
 jest.mock('../../../../state/dashboard/selectors', () => ({
@@ -30,15 +31,17 @@ jest.mock('../../../../state/dashboard/actions', () => ({
 describe('Dashboard container', () => {
   const store = configureStore()({});
   store.dispatch = jest.fn();
-  const wrapper = shallow(<ConnectedDashboard store={store} />).dive().dive();
-  const instance = wrapper.instance();
+  const wrapper = shallow(<ConnectedDashboard store={store} />);
+  const container = wrapper.dive().dive();
+  const instance = container.instance();
 
   it('matches snapsot', () => {
-    expect(instance).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('componentDidMount()', () => {
     instance.componentDidMount();
+
     expect(fetchTrendingMovies).toHaveBeenCalled();
   });
 
@@ -51,10 +54,13 @@ describe('Dashboard container', () => {
     });
 
     it('has empty search query and page=3', () => {
+      dashboardMoviesSearchQuery.mockImplementation(() => '');
       const page = 3;
+      const wrapperEmptySearchQuery = shallow(<ConnectedDashboard store={store} />);
+      const containerEmptySearchQuery = wrapperEmptySearchQuery.dive().dive();
+      const instanceEmptySearchQuery = containerEmptySearchQuery.instance();
 
-      wrapper.setProps({ searchQuery: '' });
-      instance.checkSearchState(page);
+      instanceEmptySearchQuery.checkSearchState(page);
       expect(fetchTrendingMovies).toHaveBeenCalledWith(page);
     });
   });

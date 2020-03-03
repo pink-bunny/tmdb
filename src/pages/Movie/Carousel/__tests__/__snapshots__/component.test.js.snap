@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Carousel component matches snapshot with required props 1`] = `
+<Row
+  gutter={0}
+  type="flex"
+>
+  <Col
+    span={24}
+  >
+    <Carousel
+      arrows={false}
+      dots={true}
+      draggable={false}
+    >
+      <div
+        key="mock_path"
+      >
+        <img
+          alt=""
+          className="movie-image"
+          src="https://image.tmdb.org/t/p/original/mock_path"
+        />
+      </div>
+    </Carousel>
+  </Col>
+</Row>
+`;

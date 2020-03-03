@@ -1,0 +1,150 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cast component matches snapshot and has profile_path 1`] = `
+<Fragment>
+  <Row
+    gutter={0}
+  >
+    <Col
+      className="top-margin"
+      offset={2}
+      span={10}
+    >
+      <Title
+        level={3}
+      >
+        Casts
+      </Title>
+    </Col>
+  </Row>
+  <Row
+    gutter={8}
+    type="flex"
+  >
+    <Col
+      offset={2}
+      span={20}
+    >
+      <Col
+        key="Mock name"
+        lg={
+          Object {
+            "span": 4,
+          }
+        }
+        md={
+          Object {
+            "span": 6,
+          }
+        }
+        sm={
+          Object {
+            "span": 8,
+          }
+        }
+        xl={
+          Object {
+            "span": 4,
+          }
+        }
+        xs={
+          Object {
+            "span": 12,
+          }
+        }
+      >
+        <Card
+          className="detailed-movie__card top-margin"
+          cover={
+            <div
+              className="detailed-movie__card-img"
+              style={
+                Object {
+                  "backgroundImage": "url(http://image.tmdb.org/t/p/original/mock_path)",
+                }
+              }
+            />
+          }
+        >
+          <Meta
+            description="Mock character"
+            title="Mock name"
+          />
+        </Card>
+      </Col>
+    </Col>
+  </Row>
+</Fragment>
+`;
+
+exports[`Cast component matches snapshot with required props 1`] = `
+<Fragment>
+  <Row
+    gutter={0}
+  >
+    <Col
+      className="top-margin"
+      offset={2}
+      span={10}
+    >
+      <Title
+        level={3}
+      >
+        Casts
+      </Title>
+    </Col>
+  </Row>
+  <Row
+    gutter={8}
+    type="flex"
+  >
+    <Col
+      offset={2}
+      span={20}
+    >
+      <Col
+        key="Mock name"
+        lg={
+          Object {
+            "span": 4,
+          }
+        }
+        md={
+          Object {
+            "span": 6,
+          }
+        }
+        sm={
+          Object {
+            "span": 8,
+          }
+        }
+        xl={
+          Object {
+            "span": 4,
+          }
+        }
+        xs={
+          Object {
+            "span": 12,
+          }
+        }
+      >
+        <Card
+          className="detailed-movie__card top-margin"
+          cover={
+            <div
+              className="detailed-movie__card-img"
+            />
+          }
+        >
+          <Meta
+            description="Mock character"
+            title="Mock name"
+          />
+        </Card>
+      </Col>
+    </Col>
+  </Row>
+</Fragment>
+`;

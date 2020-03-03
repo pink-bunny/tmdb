@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Layout,
   Row,
   Col,
   Typography,
@@ -19,48 +20,58 @@ const MovieComponent = ({
 }) => {
   if (loading) {
     return (
-      <Row type="flex" justify="center" className="top-margin">
-        <Col>
-          <Spin />
-        </Col>
-      </Row>
+      <Layout>
+        <Layout.Content>
+          <Row type="flex" justify="center" className="top-margin">
+            <Col>
+              <Spin />
+            </Col>
+          </Row>
+        </Layout.Content>
+      </Layout>
     );
   }
 
   if (error) {
     return (
-      <Row type="flex" justify="center" className="top-margin">
-        <Col>
-          <Typography.Paragraph type="danger">
-            {error}
-          </Typography.Paragraph>
-        </Col>
-      </Row>
+      <Layout>
+        <Layout.Content>
+          <Row type="flex" justify="center" className="top-margin">
+            <Col>
+              <Typography.Paragraph type="danger">
+                {error}
+              </Typography.Paragraph>
+            </Col>
+          </Row>
+        </Layout.Content>
+      </Layout>
     );
   }
 
   return (
     details ? (
-      <>
-        <Carousel backdrops={details.backdrops} />
+      <Layout>
+        <Layout.Content>
+          <Carousel backdrops={details.backdrops} />
 
-        <div className="top-margin">
-          <TopInfo details={details} />
+          <div className="top-margin">
+            <TopInfo details={details} />
 
-          <Cast cast={details.cast} />
+            <Cast cast={details.cast} />
 
-          <Crew crew={details.crew} />
-        </div>
-      </>
+            <Crew crew={details.crew} />
+          </div>
+        </Layout.Content>
+      </Layout>
     ) : null
   );
 };
 
 MovieComponent.propTypes = {
   details: PropTypes.shape({
-    backdrops: PropTypes.arrayOf(PropTypes.object).isRequired,
-    cast: PropTypes.arrayOf(PropTypes.object).isRequired,
-    crew: PropTypes.arrayOf(PropTypes.object).isRequired
+    backdrops: PropTypes.arrayOf(PropTypes.object),
+    cast: PropTypes.arrayOf(PropTypes.object),
+    crew: PropTypes.arrayOf(PropTypes.object)
   }),
   loading: PropTypes.bool.isRequired,
   error: PropTypes.string

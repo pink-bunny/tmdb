@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieComponent component matches snapshot with required props 1`] = `""`;
+
+exports[`MovieComponent component matches snapsot when component has details 1`] = `
+<Adapter>
+  <Adapter>
+    <Carousel
+      backdrops={
+        Array [
+          Object {},
+        ]
+      }
+    />
+    <div
+      className="top-margin"
+    >
+      <TopInfo
+        details={
+          Object {
+            "backdrops": Array [
+              Object {},
+            ],
+            "budget": 1000000,
+            "cast": Array [
+              Object {},
+            ],
+            "crew": Array [
+              Object {},
+            ],
+            "genres": Array [
+              Object {
+                "id": 1,
+                "name": "Mock genre",
+              },
+            ],
+            "id": 1,
+            "original_language": "Mock language",
+            "revenue": 50000,
+            "title": "Mock title",
+            "watchlist": false,
+          }
+        }
+      />
+      <Cast
+        cast={
+          Array [
+            Object {},
+          ]
+        }
+      />
+      <Crew
+        crew={
+          Array [
+            Object {},
+          ]
+        }
+      />
+    </div>
+  </Adapter>
+</Adapter>
+`;
+
+exports[`MovieComponent component matches snapsot when component has error 1`] = `
+<Adapter>
+  <Adapter>
+    <Row
+      className="top-margin"
+      gutter={0}
+      justify="center"
+      type="flex"
+    >
+      <Col>
+        <Paragraph
+          type="danger"
+        >
+          Mock error
+        </Paragraph>
+      </Col>
+    </Row>
+  </Adapter>
+</Adapter>
+`;
+
+exports[`MovieComponent component matches snapsot when component is loading 1`] = `
+<Adapter>
+  <Adapter>
+    <Row
+      className="top-margin"
+      gutter={0}
+      justify="center"
+      type="flex"
+    >
+      <Col>
+        <Spin
+          size="default"
+          spinning={true}
+          wrapperClassName=""
+        />
+      </Col>
+    </Row>
+  </Adapter>
+</Adapter>
+`;
