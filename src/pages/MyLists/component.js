@@ -36,9 +36,13 @@ const MyLists = ({
 );
 
 MyLists.propTypes = {
-  list: PropTypes.arrayOf(PropTypes.object).isRequired,
+  list: PropTypes.arrayOf(PropTypes.object),
   loading: PropTypes.bool.isRequired,
   error: PropTypes.string.isRequired
+};
+
+MyLists.defaultProps = {
+  list: null
 };
 
 export default MyLists;

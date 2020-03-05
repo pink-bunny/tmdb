@@ -33,7 +33,7 @@ const List = ({
     );
   }
 
-  if (list.length === 0) {
+  if (!list) {
     return (
       <Empty description="No results" />
     );
@@ -83,9 +83,13 @@ const List = ({
 };
 
 List.propTypes = {
-  list: PropTypes.arrayOf(PropTypes.object).isRequired,
+  list: PropTypes.arrayOf(PropTypes.object),
   loading: PropTypes.bool.isRequired,
   error: PropTypes.string.isRequired
+};
+
+List.defaultProps = {
+  list: null
 };
 
 export default List;

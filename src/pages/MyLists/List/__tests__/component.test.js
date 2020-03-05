@@ -6,8 +6,7 @@ import List from '../component';
 describe('List component', () => {
   const requiredProps = {
     loading: false,
-    error: '',
-    list: []
+    error: ''
   };
 
   it('matches snapshot when it is loading', () => {

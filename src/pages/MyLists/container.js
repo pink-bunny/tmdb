@@ -37,9 +37,13 @@ class MyListsContainer extends React.Component {
 
 MyListsContainer.propTypes = {
   fetchMyLists: PropTypes.func.isRequired,
-  list: PropTypes.arrayOf(PropTypes.object).isRequired,
+  list: PropTypes.arrayOf(PropTypes.object),
   loading: PropTypes.bool.isRequired,
   error: PropTypes.string.isRequired
+};
+
+MyListsContainer.defaultProps = {
+  list: null
 };
 
 const mapDispatchToPtops = {
