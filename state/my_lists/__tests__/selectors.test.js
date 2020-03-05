@@ -6,12 +6,11 @@ import {
 } from '../selectors';
 
 describe('Movie selectors.', () => {
-  const loading = false;
   const error = 'Mock error';
   const deleteMyListError = 'Mock error';
   const state = {
     myLists: {
-      loading,
+      loading: false,
       error,
       ids: [1, 2],
       deleteMyListError
@@ -25,7 +24,7 @@ describe('Movie selectors.', () => {
   };
 
   it('isMyListsLoading() returns loading status', () => {
-    expect(isMyListsLoading(state)).toEqual(loading);
+    expect(isMyListsLoading(state)).toBeFalsy();
   });
 
   describe('myListsList()', () => {
@@ -42,7 +41,7 @@ describe('Movie selectors.', () => {
         myLists: { ids: [] },
         data: { lists: {} }
       };
-      expect(myListsList(emptyListsState)).toEqual(null);
+      expect(myListsList(emptyListsState)).toBeNull();
     });
   });
 

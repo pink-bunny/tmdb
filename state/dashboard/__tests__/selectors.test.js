@@ -8,14 +8,13 @@ import {
 } from '../selectors';
 
 describe('Dashboard selectors.', () => {
-  const loading = false;
   const error = 'Mock error';
   const totalItems = 21;
   const currentPage = 2;
   const searchQuery = 'Mock query';
   const state = {
     dashboard: {
-      loading,
+      loading: false,
       error,
       ids: [1, 2],
       totalItems,
@@ -31,7 +30,7 @@ describe('Dashboard selectors.', () => {
   };
 
   it('isDashboardMoviesLoading() returns loading status', () => {
-    expect(isDashboardMoviesLoading(state)).toEqual(loading);
+    expect(isDashboardMoviesLoading(state)).toBeFalsy();
   });
 
   describe('dashboardMoviesList()', () => {
@@ -48,7 +47,7 @@ describe('Dashboard selectors.', () => {
         dashboard: { ids: [] },
         data: { movies: {} }
       };
-      expect(dashboardMoviesList(emptyMoviesState)).toEqual(null);
+      expect(dashboardMoviesList(emptyMoviesState)).toBeNull();
     });
   });
 

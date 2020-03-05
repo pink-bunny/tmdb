@@ -7,7 +7,6 @@ import {
 describe('Movie selectors.', () => {
   const sessionId = '1q2w3e4r5t';
   const username = 'mock-name';
-  const sessionIdBool = !!sessionId;
   const state = {
     session: {
       sessionId,
@@ -20,7 +19,7 @@ describe('Movie selectors.', () => {
   });
 
   it('isUserLoggedIn() converts sessionId to bool type and returns it', () => {
-    expect(isUserLoggedIn(state)).toEqual(sessionIdBool);
+    expect(isUserLoggedIn(state)).toBeTruthy();
   });
 
   it('username() returns username', () => {

@@ -5,11 +5,10 @@ import {
 } from '../selectors';
 
 describe('Movie selectors.', () => {
-  const loading = false;
   const error = 'Mock error';
   const state = {
     movie: {
-      loading,
+      loading: false,
       error,
       id: 1
     },
@@ -22,7 +21,7 @@ describe('Movie selectors.', () => {
   };
 
   it('isMovieLoading() returns loading status', () => {
-    expect(isMovieLoading(state)).toEqual(loading);
+    expect(isMovieLoading(state)).toBeFalsy();
   });
 
   it('movieError() returns error', () => {
@@ -40,7 +39,7 @@ describe('Movie selectors.', () => {
         movie: { id: null },
         data: { movies: {} }
       };
-      expect(movieDetails(emptyMovieState)).toEqual(null);
+      expect(movieDetails(emptyMovieState)).toBeNull();
     });
   });
 });
