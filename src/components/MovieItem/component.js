@@ -12,7 +12,7 @@ const Movie = ({
 }) => (
   <Link
     className="top-margin"
-    style={{ display: 'inline-block' }}
+    style={{ display: 'block' }}
     to={`movie/${id}`}
   >
     <Card

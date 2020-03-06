@@ -16,8 +16,8 @@ const List = ({
   loading,
   error,
   totalItems,
-  fetchMovies,
-  currentPage
+  currentPage,
+  fetchWatchlist
 }) => {
   if (loading) {
     return (
@@ -44,7 +44,7 @@ const List = ({
   if (!list) {
     return (
       <Empty
-        description="No movies found"
+        description="No movies in watchlist found"
         image={Empty.PRESENTED_IMAGE_SIMPLE}
       />
     );
@@ -53,8 +53,8 @@ const List = ({
   return (
     <>
       <Row
+        gutter={8}
         type="flex"
-        gutter={16}
       >
         <Col
           span={20}
@@ -90,7 +90,7 @@ const List = ({
               pageSize={20}
               total={totalItems}
               className="pagination"
-              onChange={fetchMovies}
+              onChange={fetchWatchlist}
             />
           </Col>
         </Row>
@@ -102,16 +102,19 @@ const List = ({
 };
 
 List.propTypes = {
+  fetchWatchlist: PropTypes.func.isRequired,
   list: PropTypes.arrayOf(PropTypes.object),
   loading: PropTypes.bool.isRequired,
-  error: PropTypes.string.isRequired,
-  totalItems: PropTypes.number.isRequired,
-  fetchMovies: PropTypes.func.isRequired,
-  currentPage: PropTypes.number.isRequired
+  error: PropTypes.string,
+  totalItems: PropTypes.number,
+  currentPage: PropTypes.number
 };
 
 List.defaultProps = {
-  list: null
+  list: null,
+  error: null,
+  totalItems: null,
+  currentPage: null
 };
 
 export default List;
