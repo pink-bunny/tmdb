@@ -1,6 +1,6 @@
 import reducer from '../reducer';
 import * as types from '../types';
-import { TOGGLE_TO_WATCHLIST_SUCCESS } from '../../movie/types';
+import { TOGGLE_TO_WATCHLIST_SUCCESS } from '../../watchlist/types';
 
 describe('Data reducer', () => {
   const initialState = {

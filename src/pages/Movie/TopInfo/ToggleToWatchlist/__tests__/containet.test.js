@@ -3,13 +3,13 @@ import configureStore from 'redux-mock-store';
 import { shallow } from 'enzyme';
 
 import ConnectedToggleToWatchlist from '../container';
-import { toggleToWatchlist } from '../../../../../../state/movie/actions';
+import { toggleToWatchlist } from '../../../../../../state/watchlist/actions';
 
-jest.mock('../../../../../../state/movie/actions', () => ({
+jest.mock('../../../../../../state/watchlist/actions', () => ({
   toggleToWatchlist: jest.fn()
 }));
 
-describe(' container', () => {
+describe('ToggleToWatchlist container', () => {
   const store = configureStore()({});
   const props = {
     store,

@@ -1,5 +1,5 @@
 import * as types from './types';
-import { TOGGLE_TO_WATCHLIST_SUCCESS } from '../movie/types';
+import { TOGGLE_TO_WATCHLIST_SUCCESS } from '../watchlist/types';
 
 const initialState = {
   movies: {},

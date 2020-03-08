@@ -25,4 +25,15 @@ describe('MovieItem component', () => {
 
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('matches snapshot with actions', () => {
+    const actionItem = <div>Remove item</div>;
+    const props = {
+      ...requiredProps,
+      actions: [actionItem]
+    };
+    const wrapper = shallow(<MovieItem {...props} />); /* eslint-disable-line */
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });
