@@ -1,5 +1,6 @@
 import trendingMovies from '../trendingMovies';
 import * as types from '../../types';
+import mockHttpClient from '../../../../utils/testsHelpers/mockHttpClient';
 import { trendingMoviesResponseSuccess, trendingMoviesResponseError } from '../__mocks__/trendingMovies';
 import normalizedMovies from '../../normalize/movies';
 import { fetchMoviesSuccess, fetchMoviesError } from '../../actions';
@@ -17,19 +18,6 @@ describe('trendingMovies logic', () => {
   const action = {
     type: types.FETCH_TRENDING_MOVIES,
     page: 1
-  };
-  const mockHttpClient = ({ method, response, reject } = { reject: false, response: {} }) => {
-    const httpClient = {
-      [method]: () => new Promise((resolve, deny) => {
-        if (reject) {
-          deny(response);
-        } else {
-          resolve(response);
-        }
-      })
-    };
-    jest.spyOn(httpClient, method);
-    return httpClient;
   };
   const dispatch = jest.fn();
   const done = jest.fn();
