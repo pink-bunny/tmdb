@@ -1,6 +1,6 @@
 import { createLogic } from 'redux-logic';
-import { normalize, schema } from 'normalizr';
 
+import normalizedMovies from '../normalize/movies';
 import { SEARCH_MOVIES } from '../types';
 import { mergeMoviesList } from '../../data/actions';
 import {
@@ -18,13 +18,8 @@ const searchMoviesLogic = createLogic({
 
     try {
       const { data } = await httpClient.get(`search/movie?query=${searchQuery}&page=${page}`);
-      // normalize data
-      const movie = new schema.Entity('movies');
-      const moviesSchema = { results: [movie] };
-      const normalizedData = normalize(data, moviesSchema);
-      const { movies } = normalizedData.entities;
-      const ids = normalizedData.result.results;
-      const totalItems = normalizedData.result.total_results;
+      // normalized data
+      const { movies, ids, totalItems } = normalizedMovies(data);
 
       dispatch(mergeMoviesList(movies));
       dispatch(fetchMoviesSuccess(ids, totalItems, currentPage));
