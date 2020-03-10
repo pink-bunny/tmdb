@@ -10,7 +10,6 @@ import {
 
 const searchMoviesLogic = createLogic({
   type: SEARCH_MOVIES,
-  warnTimeout: 0,
 
   async process({ httpClient, action }, dispatch, done) {
     const { searchQuery, page } = action;
