@@ -2,7 +2,7 @@ import trendingMovies from '../trendingMovies';
 import * as types from '../../types';
 import mockHttpClient from '../../../../utils/testsHelpers/mockHttpClient';
 import { trendingMoviesResponseSuccess, trendingMoviesResponseError } from '../__mocks__/trendingMovies';
-import normalizedMovies from '../../normalize/movies';
+import normalizedMovies from '../../../../utils/normalize/movies';
 import { fetchMoviesSuccess, fetchMoviesError } from '../../actions';
 import { mergeMoviesList } from '../../../data/actions';
 

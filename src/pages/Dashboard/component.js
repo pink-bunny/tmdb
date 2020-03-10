@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Layout } from 'antd';
 import Search from './Search';
-import List from './List';
+import List from '../../components/List';
 
 const Dashboard = ({
   list,
@@ -22,9 +22,10 @@ const Dashboard = ({
           list={list}
           error={error}
           loading={loading}
+          onPaginationClick={fetchMovies}
           totalItems={totalItems}
-          fetchMovies={fetchMovies}
           currentPage={currentPage}
+          emptyListTxt="No movies found"
         />
       </div>
     </Layout.Content>

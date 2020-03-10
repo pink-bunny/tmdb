@@ -1,7 +1,7 @@
 import { createLogic } from 'redux-logic';
 
 import { FETCH_WATCHLIST } from '../types';
-import normalizedMovies from '../../dashboard/normalize/movies';
+import normalizedMovies from '../../../utils/normalize/movies';
 import { getSessionId } from '../../session/selectors';
 import { mergeMoviesList } from '../../data/actions';
 import { fetchWatchlistSuccess, fetchWatchlistError } from '../actions';

@@ -9,8 +9,8 @@ exports[`Dashboard component matches snapshot with custom props 1`] = `
     >
       <List
         currentPage={0}
+        emptyListTxt="No movies found"
         error=""
-        fetchMovies={[MockFunction]}
         list={
           Array [
             Object {
@@ -22,6 +22,7 @@ exports[`Dashboard component matches snapshot with custom props 1`] = `
           ]
         }
         loading={false}
+        onPaginationClick={[MockFunction]}
         totalItems={0}
       />
     </div>
@@ -38,10 +39,11 @@ exports[`Dashboard component matches snapshot with required props 1`] = `
     >
       <List
         currentPage={0}
+        emptyListTxt="No movies found"
         error=""
-        fetchMovies={[MockFunction]}
         list={null}
         loading={false}
+        onPaginationClick={[MockFunction]}
         totalItems={0}
       />
     </div>

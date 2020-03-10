@@ -1,7 +1,10 @@
 import * as types from './types';
 
 const initialState = {
-  loading: false
+  loading: false,
+  error: '',
+  totalItems: 0,
+  currentPage: 0
 };
 
 const watchlist = (state = initialState, action) => {

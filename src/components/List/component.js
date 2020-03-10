@@ -9,15 +9,16 @@ import {
   Spin
 } from 'antd';
 
-import Movie from '../../../components/MovieItem';
+import Movie from '../MovieItem';
 
 const List = ({
   list,
   loading,
   error,
   totalItems,
-  fetchMovies,
-  currentPage
+  onPaginationClick,
+  currentPage,
+  emptyListTxt
 }) => {
   if (loading) {
     return (
@@ -44,7 +45,7 @@ const List = ({
   if (!list) {
     return (
       <Empty
-        description="No movies found"
+        description={emptyListTxt}
         image={Empty.PRESENTED_IMAGE_SIMPLE}
       />
     );
@@ -90,7 +91,7 @@ const List = ({
               pageSize={20}
               total={totalItems}
               className="pagination"
-              onChange={fetchMovies}
+              onChange={onPaginationClick}
             />
           </Col>
         </Row>
@@ -104,14 +105,16 @@ const List = ({
 List.propTypes = {
   list: PropTypes.arrayOf(PropTypes.object),
   loading: PropTypes.bool.isRequired,
-  error: PropTypes.string.isRequired,
+  error: PropTypes.string,
   totalItems: PropTypes.number.isRequired,
-  fetchMovies: PropTypes.func.isRequired,
-  currentPage: PropTypes.number.isRequired
+  onPaginationClick: PropTypes.func.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  emptyListTxt: PropTypes.string.isRequired
 };
 
 List.defaultProps = {
-  list: null
+  list: null,
+  error: null
 };
 
 export default List;

@@ -4,7 +4,7 @@ import {
   Layout, Row, Col, Typography
 } from 'antd';
 
-import List from './List';
+import List from '../../components/List';
 
 const WatchlistComponent = ({
   list,
@@ -29,11 +29,12 @@ const WatchlistComponent = ({
 
       <List
         list={list}
-        loading={loading}
         error={error}
+        loading={loading}
+        onPaginationClick={fetchWatchlist}
         totalItems={totalItems}
         currentPage={currentPage}
-        fetchWatchlist={fetchWatchlist}
+        emptyListTxt="No movies in watchlist found"
       />
 
     </Layout.Content>
@@ -43,16 +44,13 @@ const WatchlistComponent = ({
 WatchlistComponent.propTypes = {
   fetchWatchlist: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
-  error: PropTypes.string,
+  error: PropTypes.string.isRequired,
   list: PropTypes.arrayOf(PropTypes.object),
-  totalItems: PropTypes.number,
-  currentPage: PropTypes.number
+  totalItems: PropTypes.number.isRequired,
+  currentPage: PropTypes.number.isRequired
 };
 WatchlistComponent.defaultProps = {
-  list: null,
-  error: null,
-  totalItems: null,
-  currentPage: null
+  list: null
 };
 
 export default WatchlistComponent;

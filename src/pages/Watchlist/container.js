@@ -44,16 +44,13 @@ class WatchlistContainer extends React.Component {
 WatchlistContainer.propTypes = {
   fetchWatchlist: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
-  error: PropTypes.string,
+  error: PropTypes.string.isRequired,
   list: PropTypes.arrayOf(PropTypes.object),
-  totalItems: PropTypes.number,
-  currentPage: PropTypes.number
+  totalItems: PropTypes.number.isRequired,
+  currentPage: PropTypes.number.isRequired
 };
 WatchlistContainer.defaultProps = {
-  list: null,
-  error: null,
-  totalItems: null,
-  currentPage: null
+  list: null
 };
 
 const mapDispatchToPtops = {
