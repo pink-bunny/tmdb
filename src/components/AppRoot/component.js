@@ -7,6 +7,7 @@ import NotFound from '../../pages/NotFound';
 import Home from '../../pages/Home';
 import MyLists from '../../pages/MyLists';
 import Movie from '../../pages/Movie';
+import Watchlist from '../../pages/Watchlist';
 
 const AppRoot = () => (
   <Router>
@@ -17,6 +18,7 @@ const AppRoot = () => (
         <Route exact path="/" component={Home} />
         <Route path="/movie/:movieId" component={requireAuth(Movie)} />
         <Route path="/my-lists" component={requireAuth(MyLists)} />
+        <Route path="/watchlist" component={requireAuth(Watchlist)} />
         <Route component={NotFound} />
       </Switch>
     </div>

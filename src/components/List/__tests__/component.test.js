@@ -8,8 +8,9 @@ describe('List component', () => {
     loading: false,
     error: '',
     totalItems: 0,
-    fetchMovies: jest.fn(),
-    currentPage: 0
+    onPaginationClick: jest.fn(),
+    currentPage: 0,
+    emptyListTxt: 'No movies found'
   };
   const listArr = [{
     id: 1,

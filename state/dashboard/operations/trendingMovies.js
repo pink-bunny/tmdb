@@ -1,6 +1,6 @@
 import { createLogic } from 'redux-logic';
 
-import normalizedMovies from '../normalize/movies';
+import normalizedMovies from '../../../utils/normalize/movies';
 import { FETCH_TRENDING_MOVIES } from '../types';
 import { fetchMoviesSuccess, fetchMoviesError } from '../actions';
 import { mergeMoviesList } from '../../data/actions';
