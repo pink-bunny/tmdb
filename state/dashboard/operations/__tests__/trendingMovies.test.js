@@ -21,22 +21,22 @@ describe('trendingMovies logic', () => {
   };
   const dispatch = jest.fn();
   const done = jest.fn();
+  const { page } = action;
+  const currentPage = page;
+  let httpClient;
+  httpClient = mockHttpClient({ method: 'get', response: trendingMoviesResponseSuccess });
+  trendingMovies.process({ httpClient, action }, dispatch, done);
 
   it('matches snapshot', () => {
     expect(trendingMovies).toMatchSnapshot();
   });
 
+  it('httpClient called with right arguments', () => {
+    const requestUrl = `trending/movie/day?page=${page}`;
+    expect(httpClient.get).toHaveBeenCalledWith(requestUrl);
+  });
+
   describe('success', () => {
-    const { page } = action;
-    const currentPage = page;
-    const httpClient = mockHttpClient({ method: 'get', response: trendingMoviesResponseSuccess });
-    trendingMovies.process({ httpClient, action }, dispatch, done);
-
-    it('httpClient called with right arguments', () => {
-      const requestUrl = `trending/movie/day?page=${page}`;
-      expect(httpClient.get).toHaveBeenCalledWith(requestUrl);
-    });
-
     describe('dispatch', () => {
       const { data } = trendingMoviesResponseSuccess;
       const { movies, ids, totalItems } = normalizedMovies(data);
@@ -51,7 +51,7 @@ describe('trendingMovies logic', () => {
   });
 
   describe('failure', () => {
-    const httpClient = mockHttpClient({ method: 'get', response: trendingMoviesResponseError, reject: true });
+    httpClient = mockHttpClient({ method: 'get', response: trendingMoviesResponseError, reject: true });
     trendingMovies.process({ httpClient, action }, dispatch, done);
 
     it('fetchMoviesError() with error', () => {
