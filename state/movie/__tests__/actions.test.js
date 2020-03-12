@@ -2,8 +2,7 @@ import * as types from '../types';
 import {
   fetchMovie,
   fetchMovieSuccess,
-  fetchMovieError,
-  toggleToWatchlist
+  fetchMovieError
 } from '../actions';
 
 describe('Movie actions.', () => {
@@ -32,16 +31,5 @@ describe('Movie actions.', () => {
       error
     };
     expect(fetchMovieError(error)).toEqual(expectedAction);
-  });
-
-  it('Fetch movie error', () => {
-    const id = 1;
-    const watchlist = true;
-    const expectedAction = {
-      type: types.TOGGLE_TO_WATCHLIST,
-      id,
-      watchlist
-    };
-    expect(toggleToWatchlist(id, watchlist)).toEqual(expectedAction);
   });
 });

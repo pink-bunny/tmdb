@@ -9,23 +9,18 @@ const Movie = ({
   overview,
   poster,
   id
-}) => (
-  <Link
-    className="top-margin"
-    style={{ display: 'block' }}
-    to={`movie/${id}`}
-  >
+}) => {
+  const imagePath = poster ? `url(https://image.tmdb.org/t/p/w300_and_h450_bestv2/${poster})` : 'none';
+
+  return (
     <Card
-      hoverable
+      className="movie-item top-margin"
       cover={(
-        poster ? (
-          <img
-            alt={title}
-            src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${poster}`}
-          />
-        ) : (
-          null
-        )
+        <Link
+          className="movie-item__img"
+          to={`movie/${id}`}
+          style={{ backgroundImage: imagePath }}
+        />
       )}
       actions={actions}
     >
@@ -34,8 +29,8 @@ const Movie = ({
         description={overview}
       />
     </Card>
-  </Link>
-);
+  );
+};
 
 Movie.propTypes = {
   actions: PropTypes.arrayOf(PropTypes.node),
