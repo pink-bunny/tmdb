@@ -11,7 +11,7 @@ describe('MovieItem component', () => {
   };
 
   it('matches snapshot with required props', () => {
-    const wrapper = shallow(<MovieItem {...requiredProps} />); /* eslint-disable-line */
+    const wrapper = shallow(<MovieItem {...requiredProps} />); /* eslint-disable-line react/jsx-props-no-spreading, max-len */
 
     expect(wrapper).toMatchSnapshot();
   });
@@ -19,9 +19,9 @@ describe('MovieItem component', () => {
   it('matches snapshot with poster', () => {
     const props = {
       ...requiredProps,
-      poster: '/vqzNJRH4YyquRiWxCCOH0aXggHI.jpg' /* eslint-disable-line */
+      poster: '/vqzNJRH4YyquRiWxCCOH0aXggHI.jpg'
     };
-    const wrapper = shallow(<MovieItem {...props} />); /* eslint-disable-line */
+    const wrapper = shallow(<MovieItem {...props} />); /* eslint-disable-line react/jsx-props-no-spreading, max-len */
 
     expect(wrapper).toMatchSnapshot();
   });
@@ -32,7 +32,7 @@ describe('MovieItem component', () => {
       ...requiredProps,
       actions: [actionItem]
     };
-    const wrapper = shallow(<MovieItem {...props} />); /* eslint-disable-line */
+    const wrapper = shallow(<MovieItem {...props} />); /* eslint-disable-line react/jsx-props-no-spreading, max-len */
 
     expect(wrapper).toMatchSnapshot();
   });
