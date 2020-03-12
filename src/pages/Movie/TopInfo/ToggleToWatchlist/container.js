@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import {
   toggleToWatchlist as toggleToWatchlistAction
-} from '../../../../../state/movie/actions';
+} from '../../../../../state/watchlist/actions';
 import ToggleToWatchlistComponent from './component';
 
 class ToggleToWatchlistContainer extends React.Component {

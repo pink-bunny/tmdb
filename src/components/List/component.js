@@ -18,7 +18,8 @@ const List = ({
   totalItems,
   onPaginationClick,
   currentPage,
-  emptyListTxt
+  emptyListTxt,
+  actionsList
 }) => {
   if (loading) {
     return (
@@ -75,6 +76,7 @@ const List = ({
                 title={item.title}
                 overview={item.overview}
                 poster={item.poster_path}
+                actions={actionsList(item.id, item.title)}
               />
             </Col>
           ))}
@@ -103,6 +105,7 @@ const List = ({
 };
 
 List.propTypes = {
+  actionsList: PropTypes.func,
   list: PropTypes.arrayOf(PropTypes.object),
   loading: PropTypes.bool.isRequired,
   error: PropTypes.string,
@@ -113,6 +116,7 @@ List.propTypes = {
 };
 
 List.defaultProps = {
+  actionsList: () => [],
   list: null,
   error: null
 };

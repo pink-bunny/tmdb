@@ -1,9 +1,7 @@
 import * as types from '../types';
-import { TOGGLE_TO_WATCHLIST_SUCCESS } from '../../movie/types';
 import {
   mergeMoviesList,
-  mergeListsList,
-  toggleToWatchlistSuccess
+  mergeListsList
 } from '../actions';
 
 describe('Data actions.', () => {
@@ -23,16 +21,5 @@ describe('Data actions.', () => {
       lists
     };
     expect(mergeListsList(lists)).toEqual(expectedAction);
-  });
-
-  it('Success toggle to watchlist', () => {
-    const id = 1;
-    const isMovieInWatchlist = false;
-    const expectedAction = {
-      type: TOGGLE_TO_WATCHLIST_SUCCESS,
-      id,
-      isMovieInWatchlist
-    };
-    expect(toggleToWatchlistSuccess(id, isMovieInWatchlist)).toEqual(expectedAction);
   });
 });
