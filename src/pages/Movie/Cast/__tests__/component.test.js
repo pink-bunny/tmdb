@@ -7,6 +7,7 @@ describe('Cast component', () => {
   it('matches snapshot with required props', () => {
     const requiredProps = {
       cast: [{
+        cast_id: 1, /* eslint-disable-line camelcase */
         name: 'Mock name',
         character: 'Mock character'
       }]
@@ -21,6 +22,7 @@ describe('Cast component', () => {
   it('matches snapshot and has profile_path', () => {
     const props = {
       cast: [{
+        cast_id: 1, /* eslint-disable-line camelcase */
         name: 'Mock name',
         character: 'Mock character',
         profile_path: '/mock_path' /* eslint-disable-line camelcase */

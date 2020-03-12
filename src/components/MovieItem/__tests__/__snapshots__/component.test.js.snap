@@ -5,7 +5,7 @@ exports[`MovieItem component matches snapshot with poster 1`] = `
   className="top-margin"
   style={
     Object {
-      "display": "inline-block",
+      "display": "block",
     }
   }
   to="movie/1"
@@ -33,7 +33,7 @@ exports[`MovieItem component matches snapshot with required props 1`] = `
   className="top-margin"
   style={
     Object {
-      "display": "inline-block",
+      "display": "block",
     }
   }
   to="movie/1"
