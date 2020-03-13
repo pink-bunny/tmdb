@@ -5,6 +5,7 @@ import {
 } from 'antd';
 
 import List from '../../components/List';
+import RemoveFromWatchlistModal from './RemoveFromWatchlistModal';
 
 const WatchlistComponent = ({
   list,
@@ -35,6 +36,13 @@ const WatchlistComponent = ({
         totalItems={totalItems}
         currentPage={currentPage}
         emptyListTxt="No movies in watchlist found"
+        actionsList={(id, title) => ([
+          <RemoveFromWatchlistModal
+            key="delete"
+            id={id}
+            title={title}
+          />
+        ])}
       />
 
     </Layout.Content>

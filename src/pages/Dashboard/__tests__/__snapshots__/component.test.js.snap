@@ -8,6 +8,7 @@ exports[`Dashboard component matches snapshot with custom props 1`] = `
       className="top-margin"
     >
       <List
+        actionsList={[Function]}
         currentPage={0}
         emptyListTxt="No movies found"
         error=""
@@ -38,6 +39,7 @@ exports[`Dashboard component matches snapshot with required props 1`] = `
       className="top-margin"
     >
       <List
+        actionsList={[Function]}
         currentPage={0}
         emptyListTxt="No movies found"
         error=""
