@@ -6,7 +6,6 @@ import { requestSessionSuccess } from '../actions';
 
 const requestSessionLogic = createLogic({
   type: REQUEST_SESSION,
-  warnTimeout: 0,
 
   async process({ httpClient, action }, dispatch, done) {
     const {

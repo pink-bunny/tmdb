@@ -1,14 +1,13 @@
 import { createLogic } from 'redux-logic';
-import { normalize, schema } from 'normalizr';
 
 import { FETCH_MOVIE } from '../types';
+import normalizeMovie from '../../../utils/normalize/movie';
 import { fetchMovieSuccess, fetchMovieError } from '../actions';
 import { mergeMoviesList } from '../../data/actions';
 import { getSessionId } from '../../session/selectors';
 
 const movieLogic = createLogic({
   type: FETCH_MOVIE,
-  warnTimeout: 0,
 
   async process({ getState, httpClient, action }, dispatch, done) {
     const { id } = action;
@@ -29,9 +28,7 @@ const movieLogic = createLogic({
       };
 
       // normalize data
-      const movieInfoSchema = new schema.Entity('movie');
-      const normalizedInfo = normalize(data, movieInfoSchema);
-      const { movie } = normalizedInfo.entities;
+      const { movie } = normalizeMovie(data);
 
       dispatch(mergeMoviesList(movie));
       dispatch(fetchMovieSuccess(id));
