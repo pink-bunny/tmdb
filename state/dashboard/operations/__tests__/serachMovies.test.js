@@ -1,10 +1,13 @@
-import trendingMovies from '../trendingMovies';
-import * as types from '../../types';
+import searchMovies from '../searchMovies';
+import { SEARCH_MOVIES } from '../../types';
 import mockHttpClient from '../../../../utils/testsHelpers/mockHttpClient';
-import { moviesResponseSuccess, trendingMoviesResponseError } from '../__mocks__/trendingMovies';
+import { moviesResponseSuccess, searchMoviesResponseError } from '../__mocks__/trendingMovies';
 import normalizedMovies from '../../../../utils/normalize/movies';
-import { fetchMoviesSuccess, fetchMoviesError } from '../../actions';
 import { mergeMoviesList } from '../../../data/actions';
+import {
+  fetchMoviesSuccess,
+  fetchMoviesError
+} from '../../actions';
 
 jest.mock('../../../data/actions', () => ({
   mergeMoviesList: jest.fn()
@@ -14,25 +17,26 @@ jest.mock('../../actions', () => ({
   fetchMoviesError: jest.fn()
 }));
 
-describe('trendingMovies logic', () => {
+describe('searchMovies logic', () => {
   const action = {
-    type: types.FETCH_TRENDING_MOVIES,
-    page: 1
+    type: SEARCH_MOVIES,
+    page: 1,
+    searchQuery: 'query'
   };
   const dispatch = jest.fn();
   const done = jest.fn();
-  const { page } = action;
+  const { searchQuery, page } = action;
   const currentPage = page;
   let httpClient;
   httpClient = mockHttpClient({ method: 'get', response: moviesResponseSuccess });
-  trendingMovies.process({ httpClient, action }, dispatch, done);
+  searchMovies.process({ httpClient, action }, dispatch, done);
 
   it('matches snapshot', () => {
-    expect(trendingMovies).toMatchSnapshot();
+    expect(searchMovies).toMatchSnapshot();
   });
 
   it('httpClient called with right arguments', () => {
-    const requestUrl = `trending/movie/day?page=${page}`;
+    const requestUrl = `search/movie?query=${searchQuery}&page=${page}`;
     expect(httpClient.get).toHaveBeenCalledWith(requestUrl);
   });
 
@@ -49,12 +53,12 @@ describe('trendingMovies logic', () => {
   });
 
   describe('failure', () => {
-    httpClient = mockHttpClient({ method: 'get', response: trendingMoviesResponseError, reject: true });
-    trendingMovies.process({ httpClient, action }, dispatch, done);
+    httpClient = mockHttpClient({ method: 'get', response: searchMoviesResponseError, reject: true });
+    searchMovies.process({ httpClient, action }, dispatch, done);
 
     it('dispatch fetchMoviesError() with error', () => {
-      const error = trendingMoviesResponseError;
-      const errorMessage = error.response.data.status_message;
+      const error = searchMoviesResponseError;
+      const [errorMessage] = error.response.data.errors;
       expect(fetchMoviesError).toHaveBeenCalledWith(errorMessage);
     });
   });

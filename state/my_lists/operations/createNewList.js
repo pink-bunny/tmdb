@@ -26,7 +26,7 @@ const createNewListLogic = createLogic({
       hideModal();
       dispatch(fetchMyLists());
     } catch (error) {
-      const [createNewListError] = error.response.data.errors;
+      const createNewListError = error.response.data.status_message;
       setErrors({ serverError: createNewListError });
     }
     done();

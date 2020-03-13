@@ -1,5 +1,5 @@
 /* eslint-disable quote-props, quotes */
-export const trendingMoviesResponseSuccess = {
+export const moviesResponseSuccess = {
   "data": {
     "page": 1,
     "results": [
@@ -57,6 +57,14 @@ export const trendingMoviesResponseError = {
     "data": {
       "status_code": 22,
       "status_message": "Invalid page: Pages start at 1 and max at 1000. They are expected to be an integer."
+    }
+  }
+};
+
+export const searchMoviesResponseError = {
+  "response": {
+    "data": {
+      "errors": ["query must be provided"]
     }
   }
 };

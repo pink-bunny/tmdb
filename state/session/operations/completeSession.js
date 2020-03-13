@@ -4,9 +4,8 @@ import cookie from 'cookie_js';
 import { COMPLETE_SESSION } from '../types';
 import { completeSessionSuccess } from '../actions';
 
-const requestSessionLogic = createLogic({
+const completeSessionLogic = createLogic({
   type: COMPLETE_SESSION,
-  warnTimeout: 0,
 
   process(_, dispatch, done) {
     cookie.remove('sessionId', 'username');
@@ -15,4 +14,4 @@ const requestSessionLogic = createLogic({
   }
 });
 
-export default requestSessionLogic;
+export default completeSessionLogic;

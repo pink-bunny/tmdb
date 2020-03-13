@@ -28,7 +28,7 @@ const Cast = ({ cast }) => (
       >
         {cast.map((item) => (
           <Col
-            key={item.name}
+            key={item.cast_id}
             xs={{ span: 12 }}
             sm={{ span: 8 }}
             md={{ span: 6 }}

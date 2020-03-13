@@ -26,7 +26,7 @@ exports[`Cast component matches snapshot and has profile_path 1`] = `
       span={20}
     >
       <Col
-        key="Mock name"
+        key="1"
         lg={
           Object {
             "span": 4,
@@ -103,7 +103,7 @@ exports[`Cast component matches snapshot with required props 1`] = `
       span={20}
     >
       <Col
-        key="Mock name"
+        key="1"
         lg={
           Object {
             "span": 4,
