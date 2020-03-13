@@ -1,7 +1,7 @@
 import { createLogic } from 'redux-logic';
 
 import { FETCH_MY_LISTS } from '../types';
-import normalizeMyLists from './normalize/myLists';
+import normalizeMyLists from '../../../utils/normalize/myLists';
 import { getSessionId } from '../../session/selectors';
 import { fetchMyListsSuccess, fetchMyListsError } from '../actions';
 import { mergeListsList } from '../../data/actions';

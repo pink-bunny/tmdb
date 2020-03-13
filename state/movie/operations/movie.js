@@ -1,7 +1,7 @@
 import { createLogic } from 'redux-logic';
 
 import { FETCH_MOVIE } from '../types';
-import normalizeMovie from './normalize/movie';
+import normalizeMovie from '../../../utils/normalize/movie';
 import { fetchMovieSuccess, fetchMovieError } from '../actions';
 import { mergeMoviesList } from '../../data/actions';
 import { getSessionId } from '../../session/selectors';

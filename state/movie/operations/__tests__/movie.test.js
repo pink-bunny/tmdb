@@ -2,7 +2,7 @@ import movieLogic from '../movie';
 import { FETCH_MOVIE } from '../../types';
 import { mockMultiHttpClient } from '../../../../utils/testsHelpers/mockHttpClient';
 import { getSessionId } from '../../../session/selectors';
-import normalizeMovie from '../normalize/movie';
+import normalizeMovie from '../../../../utils/normalize/movie';
 import { mergeMoviesList } from '../../../data/actions';
 import { fetchMovieSuccess, fetchMovieError } from '../../actions';
 import {
@@ -82,10 +82,7 @@ describe('Movie logic', () => {
   describe('failure.', () => {
     beforeEach(() => {
       httpClient = mockMultiHttpClient([
-        { method: 'get', response: movieInfoResponseError, reject: true },
-        { method: 'get', response: movieImagesResponseSuccess },
-        { method: 'get', response: movieCreditsResponseSuccess },
-        { method: 'get', response: movieStatesResponseSuccess }
+        { method: 'get', response: movieInfoResponseError, reject: true }
       ]);
       movieLogic.process({ getState, httpClient, action }, dispatch, done);
     });

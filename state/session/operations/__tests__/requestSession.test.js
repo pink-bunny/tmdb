@@ -80,9 +80,7 @@ describe('requestSession logic', () => {
   describe('failure.', () => {
     beforeAll(() => {
       httpClient = mockMultiHttpClient([
-        { method: 'get', response: authenticationTokenResponseSuccess },
-        { method: 'post', response: {}, reject: true },
-        { method: 'post', response: authenticationSessionResponseSuccess }
+        { method: 'post', response: {}, reject: true }
       ]);
       requestSessionLogic.process({ httpClient, action }, dispatch, done);
     });

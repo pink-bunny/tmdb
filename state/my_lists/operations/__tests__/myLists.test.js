@@ -1,7 +1,7 @@
 import myListsLogic from '../myLists';
 import { getSessionId } from '../../../session/selectors';
 import mockHttpClient from '../../../../utils/testsHelpers/mockHttpClient';
-import normalizeMyLists from '../normalize/myLists';
+import normalizeMyLists from '../../../../utils/normalize/myLists';
 import { mergeListsList } from '../../../data/actions';
 import {
   myListsResponseSuccess,
