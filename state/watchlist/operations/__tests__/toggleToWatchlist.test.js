@@ -3,9 +3,18 @@ import mockHttpClient from '../../../../utils/testsHelpers/mockHttpClient';
 import { TOGGLE_TO_WATCHLIST } from '../../types';
 import { getSessionId } from '../../../session/selectors';
 import {
+  watchlistTotalItems,
+  watchlistCurrentPage
+} from '../../selectors';
+import {
+  fetchWatchlist,
   toggleToWatchlistSuccess
 } from '../../actions';
 
+jest.mock('../../selectors', () => ({
+  watchlistTotalItems: jest.fn(() => 22),
+  watchlistCurrentPage: jest.fn(() => 2)
+}));
 jest.mock('../../../session/selectors', () => ({
   getSessionId: jest.fn(() => '1q2w3e4r5t')
 }));
@@ -48,6 +57,24 @@ describe('toggleToWatchlist logic', () => {
   describe('success.', () => {
     it('Dispatch toggleToWatchlistSuccess() with arguments', () => {
       expect(toggleToWatchlistSuccess).toHaveBeenCalledWith(id, watchlist);
+    });
+
+    describe('Need refetch watchlist.', () => {
+      it('Dispatch fetchWatchlist() called with current page', () => {
+        expect(fetchWatchlist).toHaveBeenCalledWith(2);
+      });
+
+      describe('Dispatch fetchWatchlist()', () => {
+        beforeEach(() => {
+          watchlistTotalItems.mockImplementation(() => 21);
+          watchlistCurrentPage.mockImplementation(() => 2);
+          toggleToWatchlistLogic.process({ getState, httpClient, action }, dispatch, done);
+        });
+
+        it('called with previous page', () => {
+          expect(fetchWatchlist).toHaveBeenCalledWith(1);
+        });
+      });
     });
   });
 
