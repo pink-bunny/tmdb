@@ -3,7 +3,7 @@ import configureStore from 'redux-mock-store';
 import { shallow } from 'enzyme';
 
 import ConnectedMovie from '../container';
-import { fetchMovie } from '../../../../state/movie/actions';
+import { fetchMovie, clearMovieFromState } from '../../../../state/movie/actions';
 import { movieError } from '../../../../state/movie/selectors';
 
 jest.mock('../../../../state/movie/selectors', () => ({
@@ -13,7 +13,8 @@ jest.mock('../../../../state/movie/selectors', () => ({
 }));
 
 jest.mock('../../../../state/movie/actions', () => ({
-  fetchMovie: jest.fn()
+  fetchMovie: jest.fn(),
+  clearMovieFromState: jest.fn()
 }));
 
 describe('Movie container', () => {
@@ -49,5 +50,10 @@ describe('Movie container', () => {
     instance.componentDidMount();
 
     expect(fetchMovie).toHaveBeenCalledWith(movieId);
+  });
+
+  it('componentWillUnmount() method clears movie from state', () => {
+    instance.componentWillUnmount();
+    expect(clearMovieFromState).toHaveBeenCalled();
   });
 });
