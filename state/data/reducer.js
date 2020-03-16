@@ -1,5 +1,6 @@
 import * as types from './types';
 import { TOGGLE_TO_WATCHLIST_SUCCESS } from '../watchlist/types';
+import { TOGGLE_TO_FAVORITES_SUCCESS } from '../favorites/types';
 
 const initialState = {
   movies: {},
@@ -30,6 +31,17 @@ const data = (state = initialState, action) => {
           [action.id]: {
             ...state.movies[action.id],
             watchlist: action.isMovieInWatchlist
+          }
+        }
+      };
+    case TOGGLE_TO_FAVORITES_SUCCESS:
+      return {
+        ...state,
+        movies: {
+          ...state.movies,
+          [action.id]: {
+            ...state.movies[action.id],
+            favorites: action.isMovieInFavorites
           }
         }
       };

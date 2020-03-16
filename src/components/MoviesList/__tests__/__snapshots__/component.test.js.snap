@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`List component matches snapshot when it has error 1`] = `
+exports[`MoviesList component matches snapshot when it has error 1`] = `
 <Row
   gutter={0}
   justify="center"
@@ -16,7 +16,7 @@ exports[`List component matches snapshot when it has error 1`] = `
 </Row>
 `;
 
-exports[`List component matches snapshot when it is loading 1`] = `
+exports[`MoviesList component matches snapshot when it is loading 1`] = `
 <Row
   gutter={0}
   justify="center"
@@ -32,14 +32,14 @@ exports[`List component matches snapshot when it is loading 1`] = `
 </Row>
 `;
 
-exports[`List component matches snapshot with empty list 1`] = `
+exports[`MoviesList component matches snapshot with empty list 1`] = `
 <Empty
   description="No movies found"
   image={<Simple />}
 />
 `;
 
-exports[`List component matches snapshot with list and pagination 1`] = `
+exports[`MoviesList component matches snapshot with list and pagination 1`] = `
 <Fragment>
   <Row
     gutter={16}
@@ -105,7 +105,7 @@ exports[`List component matches snapshot with list and pagination 1`] = `
 </Fragment>
 `;
 
-exports[`List component matches snapshot with list and without pagination 1`] = `
+exports[`MoviesList component matches snapshot with list and without pagination 1`] = `
 <Fragment>
   <Row
     gutter={16}

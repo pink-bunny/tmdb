@@ -12,7 +12,7 @@ describe('Watchlist actions.', () => {
       type: types.TOGGLE_TO_WATCHLIST,
       id,
       watchlist,
-      needRefetchWatchlist: false
+      needRefetchList: false
     };
     expect(toggleToWatchlist(id, watchlist)).toEqual(expectedAction);
   });

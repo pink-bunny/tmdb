@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Modal, Icon } from 'antd';
 
-const RemoveFromWatchlistModalComponent = ({
+const RemoveFromListModalComponent = ({
   title,
   showModal,
   modalVisible,
   hideModal,
-  removeFromWatchlist
+  removeFromList,
+  removeModalTxt
 }) => (
   <>
     <Icon type="delete" onClick={showModal} />
@@ -15,20 +16,21 @@ const RemoveFromWatchlistModalComponent = ({
     <Modal
       visible={modalVisible}
       onCancel={hideModal}
-      onOk={removeFromWatchlist}
-      title="Delete list"
+      onOk={removeFromList}
+      title={`Delete ${title}`}
     >
-      {`Do you want to delete ${title} from the watchlist?`}
+      {removeModalTxt}
     </Modal>
   </>
 );
 
-RemoveFromWatchlistModalComponent.propTypes = {
+RemoveFromListModalComponent.propTypes = {
   title: PropTypes.string.isRequired,
+  removeModalTxt: PropTypes.string.isRequired,
   modalVisible: PropTypes.bool.isRequired,
   hideModal: PropTypes.func.isRequired,
   showModal: PropTypes.func.isRequired,
-  removeFromWatchlist: PropTypes.func.isRequired
+  removeFromList: PropTypes.func.isRequired
 };
 
-export default RemoveFromWatchlistModalComponent;
+export default RemoveFromListModalComponent;

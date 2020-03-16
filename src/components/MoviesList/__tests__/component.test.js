@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import List from '../component';
+import MoviesList from '../component';
 
-describe('List component', () => {
+describe('MoviesList component', () => {
   const requiredProps = {
     loading: false,
     error: '',
@@ -24,7 +24,7 @@ describe('List component', () => {
       ...requiredProps,
       loading: true
     };
-    const wrapper = shallow(<List {...props} />); /* eslint-disable-line */
+    const wrapper = shallow(<MoviesList {...props} />); /* eslint-disable-line */
 
     expect(wrapper).toMatchSnapshot();
   });
@@ -34,7 +34,7 @@ describe('List component', () => {
       ...requiredProps,
       error: 'Loading error'
     };
-    const wrapper = shallow(<List {...props} />); /* eslint-disable-line */
+    const wrapper = shallow(<MoviesList {...props} />); /* eslint-disable-line */
 
     expect(wrapper).toMatchSnapshot();
   });
@@ -44,7 +44,7 @@ describe('List component', () => {
       ...requiredProps,
       list: null
     };
-    const wrapper = shallow(<List {...props} />); /* eslint-disable-line */
+    const wrapper = shallow(<MoviesList {...props} />); /* eslint-disable-line */
 
     expect(wrapper).toMatchSnapshot();
   });
@@ -54,7 +54,7 @@ describe('List component', () => {
       ...requiredProps,
       list: listArr
     };
-    const wrapper = shallow(<List {...props} />); /* eslint-disable-line */
+    const wrapper = shallow(<MoviesList {...props} />); /* eslint-disable-line */
 
     expect(wrapper).toMatchSnapshot();
   });
@@ -66,7 +66,7 @@ describe('List component', () => {
       currentPage: 1,
       totalItems: 21
     };
-    const wrapper = shallow(<List {...props} />); /* eslint-disable-line */
+    const wrapper = shallow(<MoviesList {...props} />); /* eslint-disable-line */
 
     expect(wrapper).toMatchSnapshot();
   });

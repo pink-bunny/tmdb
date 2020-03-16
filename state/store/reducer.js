@@ -5,6 +5,7 @@ import dashboard from '../dashboard/reducer';
 import myLists from '../my_lists/reducer';
 import movie from '../movie/reducer';
 import watchlist from '../watchlist/reducer';
+import favorites from '../favorites/reducer';
 
 const reducer = combineReducers({
   data,
@@ -12,7 +13,8 @@ const reducer = combineReducers({
   dashboard,
   myLists,
   movie,
-  watchlist
+  watchlist,
+  favorites
 });
 
 export default reducer;

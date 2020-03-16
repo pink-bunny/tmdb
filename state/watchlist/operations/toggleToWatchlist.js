@@ -15,7 +15,7 @@ const toggleToWatchlistLogic = createLogic({
   type: TOGGLE_TO_WATCHLIST,
 
   async process({ getState, httpClient, action }, dispatch, done) {
-    const { id, watchlist, needRefetchWatchlist } = action;
+    const { id, watchlist, needRefetchList } = action;
     const state = getState();
     const sessionId = getSessionId(state);
 
@@ -27,7 +27,7 @@ const toggleToWatchlistLogic = createLogic({
 
     dispatch(toggleToWatchlistSuccess(id, watchlist));
 
-    if (needRefetchWatchlist) {
+    if (needRefetchList) {
       const totalItems = watchlistTotalItems(state);
       const currentPage = watchlistCurrentPage(state);
       const itemsPerPage = 20;

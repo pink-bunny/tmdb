@@ -16,11 +16,11 @@ export const fetchWatchlistError = (error) => ({
   error
 });
 
-export const toggleToWatchlist = (id, watchlist, needRefetchWatchlist = false) => ({
+export const toggleToWatchlist = (id, watchlist, needRefetchList = false) => ({
   type: types.TOGGLE_TO_WATCHLIST,
   id,
   watchlist,
-  needRefetchWatchlist
+  needRefetchList
 });
 
 export const toggleToWatchlistSuccess = (id, isMovieInWatchlist) => ({
