@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Watchlist container matches snapshot 1`] = `
+<WatchlistComponent
+  currentPage={1}
+  error=""
+  fetchWatchlist={[Function]}
+  list={
+    Array [
+      Object {
+        "id": 1,
+        "overview": "Overview",
+        "poster_path": "Path",
+        "title": "Title",
+      },
+    ]
+  }
+  loading={false}
+  totalItems={21}
+/>
+`;

@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Watchlist component matches snapshot with custom props 1`] = `
+<Adapter>
+  <Adapter>
+    <Row
+      gutter={0}
+    >
+      <Col
+        offset={2}
+        span={20}
+      >
+        <div
+          className="top-margin"
+        >
+          <Title>
+            Watchlist
+          </Title>
+        </div>
+      </Col>
+    </Row>
+    <List
+      actionsList={[Function]}
+      currentPage={0}
+      emptyListTxt="No movies in watchlist found"
+      error=""
+      list={
+        Array [
+          Object {
+            "id": 1,
+            "overview": "Decades after Sarah Connor prevented Judgment Day.",
+            "poster_path": "/vqzNJRH4YyquRiWxCCOH0aXggHI.jpg",
+            "title": "Terminator: Dark Fate",
+          },
+        ]
+      }
+      loading={false}
+      onPaginationClick={[MockFunction]}
+      totalItems={0}
+    />
+  </Adapter>
+</Adapter>
+`;
+
+exports[`Watchlist component matches snapshot with required props 1`] = `
+<Adapter>
+  <Adapter>
+    <Row
+      gutter={0}
+    >
+      <Col
+        offset={2}
+        span={20}
+      >
+        <div
+          className="top-margin"
+        >
+          <Title>
+            Watchlist
+          </Title>
+        </div>
+      </Col>
+    </Row>
+    <List
+      actionsList={[Function]}
+      currentPage={0}
+      emptyListTxt="No movies in watchlist found"
+      error=""
+      list={null}
+      loading={false}
+      onPaginationClick={[MockFunction]}
+      totalItems={0}
+    />
+  </Adapter>
+</Adapter>
+`;
+
+exports[`Watchlist component passes actions array to <List /> 1`] = `
+<Connect(WrappedComponentShell)
+  id={1}
+  key="delete"
+  title="Mock title"
+/>
+`;

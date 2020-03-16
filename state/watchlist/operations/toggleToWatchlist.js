@@ -19,31 +19,33 @@ const toggleToWatchlistLogic = createLogic({
     const state = getState();
     const sessionId = getSessionId(state);
 
-    await httpClient.post(`/account/{account_id}/watchlist?session_id=${sessionId}`, {
-      media_type: 'movie', /* eslint-disable-line camelcase */
-      media_id: id, /* eslint-disable-line camelcase */
-      watchlist
-    });
+    try {
+      await httpClient.post(`/account/{account_id}/watchlist?session_id=${sessionId}`, {
+        media_type: 'movie', /* eslint-disable-line camelcase */
+        media_id: id, /* eslint-disable-line camelcase */
+        watchlist
+      });
 
-    dispatch(toggleToWatchlistSuccess(id, watchlist));
+      dispatch(toggleToWatchlistSuccess(id, watchlist));
 
-    if (needRefetchWatchlist) {
-      const totalItems = watchlistTotalItems(state);
-      const currentPage = watchlistCurrentPage(state);
-      const itemsPerPage = 20;
-      const totalPages = Math.ceil(totalItems / itemsPerPage);
+      if (needRefetchWatchlist) {
+        const totalItems = watchlistTotalItems(state);
+        const currentPage = watchlistCurrentPage(state);
+        const itemsPerPage = 20;
+        const totalPages = Math.ceil(totalItems / itemsPerPage);
 
-      const singleItemOnTheLastPage = totalItems % itemsPerPage === 1;
-      const notSinglePage = currentPage !== 1;
-      const isLastPage = currentPage === totalPages;
-      const previousPage = currentPage - 1;
+        const singleItemOnTheLastPage = totalItems % itemsPerPage === 1;
+        const notSinglePage = currentPage !== 1;
+        const isLastPage = currentPage === totalPages;
+        const previousPage = currentPage - 1;
 
-      if (notSinglePage && isLastPage && singleItemOnTheLastPage) {
-        dispatch(fetchWatchlist(previousPage));
-      } else {
-        dispatch(fetchWatchlist(currentPage));
+        if (notSinglePage && isLastPage && singleItemOnTheLastPage) {
+          dispatch(fetchWatchlist(previousPage));
+        } else {
+          dispatch(fetchWatchlist(currentPage));
+        }
       }
-    }
+    } catch (error) {} /* eslint-disable-line no-empty */
     done();
   }
 });

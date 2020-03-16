@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RemoveFromWatchlistModal component matches snapshot with required props 1`] = `
+<Fragment>
+  <Icon
+    onClick={[MockFunction]}
+    type="delete"
+  />
+  <Modal
+    confirmLoading={false}
+    maskTransitionName="fade"
+    okType="primary"
+    onCancel={[MockFunction]}
+    onOk={[MockFunction]}
+    title="Delete list"
+    transitionName="zoom"
+    visible={true}
+    width={520}
+  >
+    Do you want to delete Mock title from the watchlist?
+  </Modal>
+</Fragment>
+`;
