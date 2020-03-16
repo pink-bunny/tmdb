@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List container matches snapshot 1`] = `
+<ListComponent
+  currentPage={1}
+  emptyListTxt="Mock empty list text"
+  error=""
+  fetchList={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  list={null}
+  listTitle="Mock list title"
+  loading={true}
+  removeModalAction={[MockFunction]}
+  removeModalTxt="Mock modal text"
+  totalItems={21}
+/>
+`;
+
+exports[`List container received list 1`] = `
+<ListComponent
+  currentPage={1}
+  emptyListTxt="Mock empty list text"
+  error=""
+  fetchList={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  list={
+    Array [
+      Object {
+        "id": 1,
+        "title": "Mock title",
+      },
+      Object {
+        "id": 2,
+        "title": "Mock title",
+      },
+    ]
+  }
+  listTitle="Mock list title"
+  loading={true}
+  removeModalAction={[MockFunction]}
+  removeModalTxt="Mock modal text"
+  totalItems={21}
+/>
+`;

@@ -10,7 +10,8 @@ describe('RemoveFromListModal container', () => {
     store,
     title: 'Mock title',
     id: 1,
-    removeModalAction: jest.fn()
+    removeModalAction: jest.fn(),
+    removeModalTxt: 'Mock modal text'
   };
   store.dispatch = jest.fn();
   const wrapper = shallow(<ConnectedRemoveFromListModal {...props} />);/* eslint-disable-line react/jsx-props-no-spreading, max-len */

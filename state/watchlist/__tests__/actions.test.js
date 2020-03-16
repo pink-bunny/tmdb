@@ -56,21 +56,21 @@ describe('Watchlist actions.', () => {
         type: types.TOGGLE_TO_WATCHLIST,
         id,
         watchlist,
-        needRefetchWatchlist: false
+        needRefetchList: false
       };
       expect(toggleToWatchlist(id, watchlist)).toEqual(expectedAction);
     });
     it('with watchlist refetching', () => {
       const id = 1;
       const watchlist = true;
-      const needRefetchWatchlist = true;
+      const needRefetchList = true;
       const expectedAction = {
         type: types.TOGGLE_TO_WATCHLIST,
         id,
         watchlist,
-        needRefetchWatchlist
+        needRefetchList
       };
-      expect(toggleToWatchlist(id, watchlist, needRefetchWatchlist)).toEqual(expectedAction);
+      expect(toggleToWatchlist(id, watchlist, needRefetchList)).toEqual(expectedAction);
     });
   });
 

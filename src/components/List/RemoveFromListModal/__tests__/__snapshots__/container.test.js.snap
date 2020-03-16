@@ -5,6 +5,7 @@ exports[`RemoveFromListModal container matches snapshot 1`] = `
   hideModal={[Function]}
   modalVisible={false}
   removeFromList={[Function]}
+  removeModalTxt="Mock modal text"
   showModal={[Function]}
   title="Mock title"
 />

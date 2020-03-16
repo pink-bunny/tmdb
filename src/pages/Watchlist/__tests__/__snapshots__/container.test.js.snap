@@ -1,12 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Watchlist container matches snapshot 1`] = `
-<WatchlistContainer
+<ListContainer
   currentPage={1}
-  emptyListTxt="Mock empty list text"
+  emptyListTxt="No movies in watchlist found"
   error=""
-  fetchList={[MockFunction]}
-  fetchWatchlist={[Function]}
+  fetchList={[Function]}
   list={
     Array [
       Object {
@@ -17,20 +16,10 @@ exports[`Watchlist container matches snapshot 1`] = `
       },
     ]
   }
-  listTitle="Mock list title"
+  listTitle="Watchlist"
   loading={false}
-  removeModalAction={[MockFunction]}
-  removeModalTxt="Mock modal text"
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [MockFunction],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
+  removeModalAction={[Function]}
+  removeModalTxt="Do you want to delete this item from the watchlist?"
   totalItems={21}
 />
 `;
