@@ -2,7 +2,8 @@ import * as types from '../types';
 import {
   fetchMovie,
   fetchMovieSuccess,
-  fetchMovieError
+  fetchMovieError,
+  clearMovieFromState
 } from '../actions';
 
 describe('Movie actions.', () => {
@@ -31,5 +32,12 @@ describe('Movie actions.', () => {
       error
     };
     expect(fetchMovieError(error)).toEqual(expectedAction);
+  });
+
+  it('Clear movie from state', () => {
+    const expectedAction = {
+      type: types.CLEAR_MOVIE_FROM_STATE
+    };
+    expect(clearMovieFromState()).toEqual(expectedAction);
   });
 });

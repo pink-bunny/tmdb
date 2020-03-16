@@ -46,4 +46,15 @@ describe('Movie reducer', () => {
     };
     expect(reducer(initialState, action)).toEqual(newState);
   });
+
+  it('should handle CLEAR_MOVIE_FROM_STATE', () => {
+    const action = {
+      type: types.CLEAR_MOVIE_FROM_STATE
+    };
+    const newState = {
+      ...initialState,
+      id: null
+    };
+    expect(reducer(initialState, action)).toEqual(newState);
+  });
 });
