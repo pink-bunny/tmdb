@@ -6,7 +6,7 @@ import {
   Typography, Row, Col, Avatar, Dropdown, Icon, Menu, Layout
 } from 'antd';
 
-const getOverlay = (completeSession) => () => (
+const getOverlay = (completeSession) => (
   <Menu>
     <Menu.Item>
       <Link to="/">Dashboard</Link>

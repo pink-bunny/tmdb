@@ -22,7 +22,53 @@ exports[`Header component matches snapshot when user logged in 1`] = `
       <Dropdown
         mouseEnterDelay={0.15}
         mouseLeaveDelay={0.1}
-        overlay={[Function]}
+        overlay={
+          <Menu>
+            <MenuItem>
+              <Link
+                to="/"
+              >
+                Dashboard
+              </Link>
+            </MenuItem>
+            <Divider
+              className=""
+              disabled={true}
+              style={Object {}}
+            />
+            <MenuItem>
+              <Link
+                to="/my-lists"
+              >
+                My Lists
+              </Link>
+            </MenuItem>
+            <MenuItem>
+              <Link
+                to="/watchlist"
+              >
+                Watchlist
+              </Link>
+            </MenuItem>
+            <MenuItem>
+              <Link
+                to="/stubs/favorites"
+              >
+                Favorites
+              </Link>
+            </MenuItem>
+            <Divider
+              className=""
+              disabled={true}
+              style={Object {}}
+            />
+            <MenuItem
+              onClick={[MockFunction]}
+            >
+              Logout
+            </MenuItem>
+          </Menu>
+        }
         placement="bottomLeft"
       >
         <Text>

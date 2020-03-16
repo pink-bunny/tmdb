@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RemoveFromListModal container matches snapshot 1`] = `
+<RemoveFromListModalComponent
+  hideModal={[Function]}
+  modalVisible={false}
+  removeFromList={[Function]}
+  showModal={[Function]}
+  title="Mock title"
+/>
+`;

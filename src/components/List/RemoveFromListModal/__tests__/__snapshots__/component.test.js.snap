@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RemoveFromListModal component matches snapshot with required props 1`] = `
+<Fragment>
+  <Icon
+    onClick={[MockFunction]}
+    type="delete"
+  />
+  <Modal
+    confirmLoading={false}
+    maskTransitionName="fade"
+    okType="primary"
+    onCancel={[MockFunction]}
+    onOk={[MockFunction]}
+    title="Delete Mock title"
+    transitionName="zoom"
+    visible={true}
+    width={520}
+  >
+    Mock modal text
+  </Modal>
+</Fragment>
+`;

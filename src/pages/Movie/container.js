@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 
 import MovieComponent from './component';
 import {
-  fetchMovie as fetchMovieAction
+  fetchMovie as fetchMovieAction,
+  clearMovieFromState as clearMovieFromStateAction
 } from '../../../state/movie/actions';
 import {
   isMovieLoading,
@@ -18,6 +19,11 @@ class MovieContainer extends React.Component {
     const { movieId } = match.params;
 
     fetchMovie(movieId);
+  }
+
+  componentWillUnmount() {
+    const { clearMovieFromState } = this.props;
+    clearMovieFromState();
   }
 
   render() {
@@ -38,6 +44,7 @@ class MovieContainer extends React.Component {
 
 MovieContainer.propTypes = {
   fetchMovie: PropTypes.func.isRequired,
+  clearMovieFromState: PropTypes.func.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
       movieId: PropTypes.string.isRequired
@@ -60,7 +67,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToPtops = {
-  fetchMovie: fetchMovieAction
+  fetchMovie: fetchMovieAction,
+  clearMovieFromState: clearMovieFromStateAction
 };
 
 export default connect(mapStateToProps, mapDispatchToPtops)(MovieContainer);

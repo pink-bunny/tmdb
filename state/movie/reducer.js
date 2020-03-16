@@ -23,6 +23,11 @@ const movie = (state = initialState, action) => {
         loading: false,
         error: action.error
       };
+    case types.CLEAR_MOVIE_FROM_STATE:
+      return {
+        ...state,
+        id: null
+      };
     default:
       return state;
   }

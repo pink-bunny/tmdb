@@ -14,3 +14,7 @@ export const fetchMovieError = (error) => ({
   type: types.FETCH_MOVIE_ERROR,
   error
 });
+
+export const clearMovieFromState = () => ({
+  type: types.CLEAR_MOVIE_FROM_STATE
+});
