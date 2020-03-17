@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToggleToFavorite component matches snapshot when favorite is turned on 1`] = `
+<Icon
+  onClick={[MockFunction]}
+  theme="filled"
+  type="heart"
+/>
+`;
+
+exports[`ToggleToFavorite component matches snapshot with required props 1`] = `
+<Icon
+  onClick={[MockFunction]}
+  type="heart"
+/>
+`;

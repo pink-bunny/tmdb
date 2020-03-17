@@ -40,6 +40,7 @@ describe('MovieComponent component', () => {
         revenue: 50000,
         genres: [{ id: 1, name: 'Mock genre' }],
         watchlist: false,
+        favorite: true,
         backdrops: [{}],
         cast: [{}],
         crew: [{}]
