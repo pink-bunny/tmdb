@@ -29,7 +29,7 @@ describe('ToggleToFavorite container', () => {
     const {
       id,
       favorite
-    } = instance.props;
+    } = props;
     const updatedStatus = !favorite;
     instance.changeFavoriteStatus();
 
