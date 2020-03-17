@@ -52,7 +52,7 @@ exports[`Header component matches snapshot when user logged in 1`] = `
             </MenuItem>
             <MenuItem>
               <Link
-                to="/stubs/favorites"
+                to="/favorites"
               >
                 Favorites
               </Link>

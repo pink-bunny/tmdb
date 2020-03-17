@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Layout } from 'antd';
 import Search from './Search';
-import List from '../../components/List';
+import MoviesList from '../../components/MoviesList';
 
 const Dashboard = ({
   list,
@@ -18,7 +18,7 @@ const Dashboard = ({
       <Search />
 
       <div className="top-margin">
-        <List
+        <MoviesList
           list={list}
           error={error}
           loading={loading}

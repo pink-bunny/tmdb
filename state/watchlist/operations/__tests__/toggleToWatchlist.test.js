@@ -35,7 +35,7 @@ describe('toggleToWatchlist logic', () => {
     type: TOGGLE_TO_WATCHLIST,
     id,
     watchlist,
-    needRefetchWatchlist: true
+    needRefetchList: true
   };
   const httpClient = mockHttpClient({ method: 'post', response: {} });
   toggleToWatchlistLogic.process({ getState, httpClient, action }, dispatch, done);

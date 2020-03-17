@@ -1,10 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Watchlist container matches snapshot 1`] = `
-<WatchlistComponent
+<ListContainer
   currentPage={1}
+  emptyListTxt="No movies in watchlist found"
   error=""
-  fetchWatchlist={[Function]}
+  fetchList={[Function]}
   list={
     Array [
       Object {
@@ -15,7 +16,10 @@ exports[`Watchlist container matches snapshot 1`] = `
       },
     ]
   }
+  listTitle="Watchlist"
   loading={false}
+  removeModalAction={[Function]}
+  removeModalTxt="Do you want to delete this item from the watchlist?"
   totalItems={21}
 />
 `;

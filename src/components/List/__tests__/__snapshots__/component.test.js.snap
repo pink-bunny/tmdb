@@ -1,157 +1,86 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`List component matches snapshot when it has error 1`] = `
-<Row
-  gutter={0}
-  justify="center"
-  type="flex"
->
-  <Col>
-    <Paragraph
-      type="danger"
+exports[`List component matches snapshot with custom props 1`] = `
+<Adapter>
+  <Adapter>
+    <Row
+      gutter={0}
     >
-      Loading error
-    </Paragraph>
-  </Col>
-</Row>
-`;
-
-exports[`List component matches snapshot when it is loading 1`] = `
-<Row
-  gutter={0}
-  justify="center"
-  type="flex"
->
-  <Col>
-    <Spin
-      size="default"
-      spinning={true}
-      wrapperClassName=""
+      <Col
+        offset={2}
+        span={20}
+      >
+        <div
+          className="top-margin"
+        >
+          <Title>
+            Mock list title
+          </Title>
+        </div>
+      </Col>
+    </Row>
+    <MoviesList
+      actionsList={[Function]}
+      currentPage={1}
+      emptyListTxt="Mock empty list text"
+      error=""
+      list={
+        Array [
+          Object {
+            "id": 1,
+            "overview": "Decades after Sarah Connor prevented Judgment Day.",
+            "poster_path": "/vqzNJRH4YyquRiWxCCOH0aXggHI.jpg",
+            "title": "Terminator: Dark Fate",
+          },
+        ]
+      }
+      loading={true}
+      onPaginationClick={[MockFunction]}
+      totalItems={21}
     />
-  </Col>
-</Row>
+  </Adapter>
+</Adapter>
 `;
 
-exports[`List component matches snapshot with empty list 1`] = `
-<Empty
-  description="No movies found"
-  image={<Simple />}
+exports[`List component matches snapshot with required props 1`] = `
+<Adapter>
+  <Adapter>
+    <Row
+      gutter={0}
+    >
+      <Col
+        offset={2}
+        span={20}
+      >
+        <div
+          className="top-margin"
+        >
+          <Title>
+            Mock list title
+          </Title>
+        </div>
+      </Col>
+    </Row>
+    <MoviesList
+      actionsList={[Function]}
+      currentPage={1}
+      emptyListTxt="Mock empty list text"
+      error=""
+      list={null}
+      loading={true}
+      onPaginationClick={[MockFunction]}
+      totalItems={21}
+    />
+  </Adapter>
+</Adapter>
+`;
+
+exports[`List component passes actions array to <MoviesList /> 1`] = `
+<WrappedComponentShell
+  id={1}
+  key="delete"
+  removeModalAction={[MockFunction]}
+  removeModalTxt="Mock modal text"
+  title="Mock title"
 />
-`;
-
-exports[`List component matches snapshot with list and pagination 1`] = `
-<Fragment>
-  <Row
-    gutter={16}
-    type="flex"
-  >
-    <Col
-      offset={2}
-      span={20}
-    >
-      <Col
-        key="1"
-        lg={
-          Object {
-            "span": 6,
-          }
-        }
-        md={
-          Object {
-            "span": 8,
-          }
-        }
-        sm={
-          Object {
-            "span": 12,
-          }
-        }
-        xl={
-          Object {
-            "span": 4,
-          }
-        }
-        xs={
-          Object {
-            "span": 12,
-          }
-        }
-      >
-        <Movie
-          actions={Array []}
-          id={1}
-          overview="Decades after Sarah Connor prevented Judgment Day."
-          poster="/vqzNJRH4YyquRiWxCCOH0aXggHI.jpg"
-          title="Terminator: Dark Fate"
-        />
-      </Col>
-    </Col>
-  </Row>
-  <Row
-    gutter={0}
-    justify="center"
-    type="flex"
-  >
-    <Col>
-      <Pagination
-        className="pagination"
-        current={1}
-        onChange={[MockFunction]}
-        pageSize={20}
-        total={21}
-      />
-    </Col>
-  </Row>
-</Fragment>
-`;
-
-exports[`List component matches snapshot with list and without pagination 1`] = `
-<Fragment>
-  <Row
-    gutter={16}
-    type="flex"
-  >
-    <Col
-      offset={2}
-      span={20}
-    >
-      <Col
-        key="1"
-        lg={
-          Object {
-            "span": 6,
-          }
-        }
-        md={
-          Object {
-            "span": 8,
-          }
-        }
-        sm={
-          Object {
-            "span": 12,
-          }
-        }
-        xl={
-          Object {
-            "span": 4,
-          }
-        }
-        xs={
-          Object {
-            "span": 12,
-          }
-        }
-      >
-        <Movie
-          actions={Array []}
-          id={1}
-          overview="Decades after Sarah Connor prevented Judgment Day."
-          poster="/vqzNJRH4YyquRiWxCCOH0aXggHI.jpg"
-          title="Terminator: Dark Fate"
-        />
-      </Col>
-    </Col>
-  </Row>
-</Fragment>
 `;

@@ -2,35 +2,35 @@ import { createLogic } from 'redux-logic';
 
 import { getSessionId } from '../../session/selectors';
 import {
-  watchlistTotalItems,
-  watchlistCurrentPage
+  favoritesTotalItems,
+  favoritesCurrentPage
 } from '../selectors';
-import { TOGGLE_TO_WATCHLIST } from '../types';
+import { TOGGLE_TO_FAVORITES } from '../types';
 import {
-  fetchWatchlist,
-  toggleToWatchlistSuccess
+  fetchFavorites,
+  toggleToFavoriteSuccess
 } from '../actions';
 
-const toggleToWatchlistLogic = createLogic({
-  type: TOGGLE_TO_WATCHLIST,
+const toggleToFavoritesLogic = createLogic({
+  type: TOGGLE_TO_FAVORITES,
 
   async process({ getState, httpClient, action }, dispatch, done) {
-    const { id, watchlist, needRefetchList } = action;
+    const { favorite, id, needRefetchList } = action;
     const state = getState();
     const sessionId = getSessionId(state);
 
     try {
-      await httpClient.post(`/account/{account_id}/watchlist?session_id=${sessionId}`, {
+      await httpClient.post(`/account/{account_id}/favorite?session_id=${sessionId}`, {
         media_type: 'movie', /* eslint-disable-line camelcase */
         media_id: id, /* eslint-disable-line camelcase */
-        watchlist
+        favorite
       });
 
-      dispatch(toggleToWatchlistSuccess(id, watchlist));
+      dispatch(toggleToFavoriteSuccess(id, favorite));
 
       if (needRefetchList) {
-        const totalItems = watchlistTotalItems(state);
-        const currentPage = watchlistCurrentPage(state);
+        const totalItems = favoritesTotalItems(state);
+        const currentPage = favoritesCurrentPage(state);
         const itemsPerPage = 20;
         const totalPages = Math.ceil(totalItems / itemsPerPage);
 
@@ -40,9 +40,9 @@ const toggleToWatchlistLogic = createLogic({
         const previousPage = currentPage - 1;
 
         if (notSinglePage && isLastPage && singleItemOnTheLastPage) {
-          dispatch(fetchWatchlist(previousPage));
+          dispatch(fetchFavorites(previousPage));
         } else {
-          dispatch(fetchWatchlist(currentPage));
+          dispatch(fetchFavorites(currentPage));
         }
       }
     } catch (error) {} /* eslint-disable-line no-empty */
@@ -50,4 +50,4 @@ const toggleToWatchlistLogic = createLogic({
   }
 });
 
-export default toggleToWatchlistLogic;
+export default toggleToFavoritesLogic;
