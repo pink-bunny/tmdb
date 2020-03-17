@@ -2,6 +2,7 @@ import toggleToWatchlistLogic from '../toggleToWatchlist';
 import mockHttpClient from '../../../../utils/testsHelpers/mockHttpClient';
 import { TOGGLE_TO_WATCHLIST } from '../../types';
 import { getSessionId } from '../../../session/selectors';
+import needRefetchListCalculation from '../../../../utils/needRefetchListCalculation';
 import {
   watchlistTotalItems,
   watchlistCurrentPage
@@ -11,6 +12,7 @@ import {
   toggleToWatchlistSuccess
 } from '../../actions';
 
+jest.mock('../../../../utils/needRefetchListCalculation', () => jest.fn());
 jest.mock('../../selectors', () => ({
   watchlistTotalItems: jest.fn(() => 22),
   watchlistCurrentPage: jest.fn(() => 2)
@@ -29,14 +31,13 @@ describe('toggleToWatchlist logic', () => {
   const getState = jest.fn();
   const state = getState();
   const sessionId = getSessionId(state);
-  const id = 1;
-  const watchlist = false;
   const action = {
     type: TOGGLE_TO_WATCHLIST,
-    id,
-    watchlist,
+    id: 1,
+    watchlist: false,
     needRefetchList: true
   };
+  const { id, watchlist, needRefetchList } = action;
   const httpClient = mockHttpClient({ method: 'post', response: {} });
   toggleToWatchlistLogic.process({ getState, httpClient, action }, dispatch, done);
 
@@ -59,21 +60,17 @@ describe('toggleToWatchlist logic', () => {
       expect(toggleToWatchlistSuccess).toHaveBeenCalledWith(id, watchlist);
     });
 
-    describe('Need refetch watchlist.', () => {
-      it('Dispatch fetchWatchlist() called with current page', () => {
-        expect(fetchWatchlist).toHaveBeenCalledWith(2);
-      });
+    describe('needRefetchListCalculation()', () => {
+      const args = {
+        dispatch,
+        refetchFunc: fetchWatchlist,
+        needRefetch: needRefetchList,
+        totalItems: watchlistTotalItems(state),
+        currentPage: watchlistCurrentPage(state)
+      };
 
-      describe('Dispatch fetchWatchlist()', () => {
-        beforeEach(() => {
-          watchlistTotalItems.mockImplementation(() => 21);
-          watchlistCurrentPage.mockImplementation(() => 2);
-          toggleToWatchlistLogic.process({ getState, httpClient, action }, dispatch, done);
-        });
-
-        it('called with previous page', () => {
-          expect(fetchWatchlist).toHaveBeenCalledWith(1);
-        });
+      it('called with arguments', () => {
+        expect(needRefetchListCalculation).toHaveBeenCalledWith(args);
       });
     });
   });
