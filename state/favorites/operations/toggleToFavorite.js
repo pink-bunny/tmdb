@@ -1,5 +1,6 @@
 import { createLogic } from 'redux-logic';
 
+import needRefetchListCalculation from '../../../utils/needRefetchListCalculation';
 import { getSessionId } from '../../session/selectors';
 import {
   favoritesTotalItems,
@@ -28,23 +29,13 @@ const toggleToFavoritesLogic = createLogic({
 
       dispatch(toggleToFavoriteSuccess(id, favorite));
 
-      if (needRefetchList) {
-        const totalItems = favoritesTotalItems(state);
-        const currentPage = favoritesCurrentPage(state);
-        const itemsPerPage = 20;
-        const totalPages = Math.ceil(totalItems / itemsPerPage);
-
-        const singleItemOnTheLastPage = totalItems % itemsPerPage === 1;
-        const notSinglePage = currentPage !== 1;
-        const isLastPage = currentPage === totalPages;
-        const previousPage = currentPage - 1;
-
-        if (notSinglePage && isLastPage && singleItemOnTheLastPage) {
-          dispatch(fetchFavorites(previousPage));
-        } else {
-          dispatch(fetchFavorites(currentPage));
-        }
-      }
+      needRefetchListCalculation({
+        dispatch,
+        refetchFunc: fetchFavorites,
+        needRefetch: needRefetchList,
+        totalItems: favoritesTotalItems(state),
+        currentPage: favoritesCurrentPage(state)
+      });
     } catch (error) {} /* eslint-disable-line no-empty */
     done();
   }
