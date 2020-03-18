@@ -34,3 +34,9 @@ export const deleteMyListError = (error, hideModal) => ({
   error,
   hideModal
 });
+
+export const toggleToList = (listId, movieId) => ({
+  type: types.TOGGLE_TO_LIST,
+  listId,
+  movieId
+});

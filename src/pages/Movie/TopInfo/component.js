@@ -9,6 +9,7 @@ import {
 import PropTypes from 'prop-types';
 
 import ToggleToWatchlist from './ToggleToWatchlist';
+import AddToListPopover from './AddToListPopover';
 
 const TopInfo = ({ details }) => {
   const {
@@ -34,6 +35,8 @@ const TopInfo = ({ details }) => {
             <span>
               {title}
             </span>
+            {' '}
+            <AddToListPopover movieId={id} />
             {' '}
             <Icon
               type="heart"
