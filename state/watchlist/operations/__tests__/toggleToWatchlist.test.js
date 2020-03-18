@@ -2,7 +2,7 @@ import toggleToWatchlistLogic from '../toggleToWatchlist';
 import mockHttpClient from '../../../../utils/testsHelpers/mockHttpClient';
 import { TOGGLE_TO_WATCHLIST } from '../../types';
 import { getSessionId } from '../../../session/selectors';
-import needRefetchListCalculation from '../../../../utils/needRefetchListCalculation';
+import refetchListIfNeeded from '../../../../utils/refetchListIfNeeded';
 import {
   watchlistTotalItems,
   watchlistCurrentPage
@@ -12,7 +12,7 @@ import {
   toggleToWatchlistSuccess
 } from '../../actions';
 
-jest.mock('../../../../utils/needRefetchListCalculation', () => jest.fn());
+jest.mock('../../../../utils/refetchListIfNeeded', () => jest.fn());
 jest.mock('../../selectors', () => ({
   watchlistTotalItems: jest.fn(() => 22),
   watchlistCurrentPage: jest.fn(() => 2)
@@ -60,7 +60,7 @@ describe('toggleToWatchlist logic', () => {
       expect(toggleToWatchlistSuccess).toHaveBeenCalledWith(id, watchlist);
     });
 
-    describe('needRefetchListCalculation()', () => {
+    describe('refetchListIfNeeded()', () => {
       const args = {
         dispatch,
         refetchFunc: fetchWatchlist,
@@ -70,7 +70,7 @@ describe('toggleToWatchlist logic', () => {
       };
 
       it('called with arguments', () => {
-        expect(needRefetchListCalculation).toHaveBeenCalledWith(args);
+        expect(refetchListIfNeeded).toHaveBeenCalledWith(args);
       });
     });
   });

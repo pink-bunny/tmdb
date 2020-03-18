@@ -1,4 +1,4 @@
-const needRefetchListCalculation = ({
+const refetchListIfNeeded = ({
   needRefetch,
   totalItems,
   currentPage,
@@ -22,4 +22,4 @@ const needRefetchListCalculation = ({
   }
 };
 
-export default needRefetchListCalculation;
+export default refetchListIfNeeded;

@@ -1,6 +1,6 @@
 import { createLogic } from 'redux-logic';
 
-import needRefetchListCalculation from '../../../utils/needRefetchListCalculation';
+import refetchListIfNeeded from '../../../utils/refetchListIfNeeded';
 import { getSessionId } from '../../session/selectors';
 import {
   watchlistTotalItems,
@@ -29,7 +29,7 @@ const toggleToWatchlistLogic = createLogic({
 
       dispatch(toggleToWatchlistSuccess(id, watchlist));
 
-      needRefetchListCalculation({
+      refetchListIfNeeded({
         dispatch,
         refetchFunc: fetchWatchlist,
         needRefetch: needRefetchList,

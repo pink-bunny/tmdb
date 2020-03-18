@@ -1,6 +1,6 @@
 import { createLogic } from 'redux-logic';
 
-import needRefetchListCalculation from '../../../utils/needRefetchListCalculation';
+import refetchListIfNeeded from '../../../utils/refetchListIfNeeded';
 import { getSessionId } from '../../session/selectors';
 import {
   favoritesTotalItems,
@@ -29,7 +29,7 @@ const toggleToFavoritesLogic = createLogic({
 
       dispatch(toggleToFavoriteSuccess(id, favorite));
 
-      needRefetchListCalculation({
+      refetchListIfNeeded({
         dispatch,
         refetchFunc: fetchFavorites,
         needRefetch: needRefetchList,
