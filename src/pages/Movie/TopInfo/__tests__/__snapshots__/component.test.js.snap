@@ -14,8 +14,9 @@ exports[`TopInfo component has optional props 1`] = `
           Mock title
         </span>
          
-        <Icon
-          type="heart"
+        <Connect(ToggleToFavoriteContainer)
+          favorite={true}
+          id={1}
         />
          
         <Connect(ToggleToWatchlistContainer)
@@ -124,8 +125,9 @@ exports[`TopInfo component matches snapshot with required props 1`] = `
           Mock title
         </span>
          
-        <Icon
-          type="heart"
+        <Connect(ToggleToFavoriteContainer)
+          favorite={true}
+          id={1}
         />
          
         <Connect(ToggleToWatchlistContainer)

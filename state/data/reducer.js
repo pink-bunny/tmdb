@@ -41,7 +41,7 @@ const data = (state = initialState, action) => {
           ...state.movies,
           [action.id]: {
             ...state.movies[action.id],
-            favorites: action.isMovieInFavorites
+            favorite: action.isMovieInFavorites
           }
         }
       };

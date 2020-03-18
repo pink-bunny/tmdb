@@ -28,6 +28,7 @@ exports[`MovieComponent component matches snapsot when component has details 1`]
             "crew": Array [
               Object {},
             ],
+            "favorite": true,
             "genres": Array [
               Object {
                 "id": 1,

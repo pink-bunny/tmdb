@@ -1,5 +1,6 @@
 import { createLogic } from 'redux-logic';
 
+import refetchListIfNeeded from '../../../utils/refetchListIfNeeded';
 import { getSessionId } from '../../session/selectors';
 import {
   watchlistTotalItems,
@@ -28,23 +29,13 @@ const toggleToWatchlistLogic = createLogic({
 
       dispatch(toggleToWatchlistSuccess(id, watchlist));
 
-      if (needRefetchList) {
-        const totalItems = watchlistTotalItems(state);
-        const currentPage = watchlistCurrentPage(state);
-        const itemsPerPage = 20;
-        const totalPages = Math.ceil(totalItems / itemsPerPage);
-
-        const singleItemOnTheLastPage = totalItems % itemsPerPage === 1;
-        const notSinglePage = currentPage !== 1;
-        const isLastPage = currentPage === totalPages;
-        const previousPage = currentPage - 1;
-
-        if (notSinglePage && isLastPage && singleItemOnTheLastPage) {
-          dispatch(fetchWatchlist(previousPage));
-        } else {
-          dispatch(fetchWatchlist(currentPage));
-        }
-      }
+      refetchListIfNeeded({
+        dispatch,
+        refetchFunc: fetchWatchlist,
+        needRefetch: needRefetchList,
+        totalItems: watchlistTotalItems(state),
+        currentPage: watchlistCurrentPage(state)
+      });
     } catch (error) {} /* eslint-disable-line no-empty */
     done();
   }

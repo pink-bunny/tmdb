@@ -3,12 +3,12 @@ import {
   Row,
   Col,
   Typography,
-  Icon,
   Tag
 } from 'antd';
 import PropTypes from 'prop-types';
 
 import ToggleToWatchlist from './ToggleToWatchlist';
+import ToggleToFavorite from './ToggleToFavorite';
 import AddToListPopover from './AddToListPopover';
 
 const TopInfo = ({ details }) => {
@@ -21,7 +21,8 @@ const TopInfo = ({ details }) => {
     budget,
     revenue,
     genres,
-    watchlist
+    watchlist,
+    favorite
   } = details;
 
   return (
@@ -38,9 +39,7 @@ const TopInfo = ({ details }) => {
             {' '}
             <AddToListPopover movieId={id} />
             {' '}
-            <Icon
-              type="heart"
-            />
+            <ToggleToFavorite id={id} favorite={favorite} />
             {' '}
             <ToggleToWatchlist id={id} watchlist={watchlist} />
           </Typography.Title>
@@ -133,7 +132,8 @@ TopInfo.propTypes = {
     budget: PropTypes.number.isRequired,
     revenue: PropTypes.number.isRequired,
     genres: PropTypes.arrayOf(PropTypes.object).isRequired,
-    watchlist: PropTypes.bool.isRequired
+    watchlist: PropTypes.bool.isRequired,
+    favorite: PropTypes.bool.isRequired
   })
 };
 
