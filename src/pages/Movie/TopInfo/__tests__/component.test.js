@@ -12,7 +12,8 @@ describe('TopInfo component', () => {
       budget: 1000000,
       revenue: 50000,
       genres: [{ id: 1, name: 'Mock genre' }],
-      watchlist: false
+      watchlist: false,
+      favorite: true
     }
   };
   /* eslint-disable react/jsx-props-no-spreading */
