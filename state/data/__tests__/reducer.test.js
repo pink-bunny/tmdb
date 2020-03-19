@@ -1,6 +1,7 @@
 import reducer from '../reducer';
 import * as types from '../types';
 import { TOGGLE_TO_WATCHLIST_SUCCESS } from '../../watchlist/types';
+import { TOGGLE_TO_FAVORITES_SUCCESS } from '../../favorites/types';
 
 describe('Data reducer', () => {
   const initialState = {
@@ -68,6 +69,32 @@ describe('Data reducer', () => {
         1: {
           ...state.movies[1],
           watchlist: true
+        }
+      }
+    };
+    expect(reducer(state, action)).toEqual(newState);
+  });
+  it('should handle TOGGLE_TO_FAVORITES_SUCCESS', () => {
+    const state = {
+      ...initialState,
+      movies: {
+        ...initialState.movies,
+        1: { id: 1, title: 'Mock title', favorite: false },
+        2: { id: 2, title: 'Mock title', favorite: false }
+      }
+    };
+    const action = {
+      type: TOGGLE_TO_FAVORITES_SUCCESS,
+      id: 1,
+      isMovieInFavorites: true
+    };
+    const newState = {
+      ...state,
+      movies: {
+        ...state.movies,
+        1: {
+          ...state.movies[1],
+          favorite: true
         }
       }
     };

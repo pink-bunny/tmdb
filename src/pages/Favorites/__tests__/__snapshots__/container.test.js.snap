@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Favorites container matches snapshot 1`] = `
+<ListContainer
+  currentPage={1}
+  emptyListTxt="No movies in favorites found"
+  error=""
+  fetchList={[Function]}
+  list={
+    Array [
+      Object {
+        "id": 1,
+        "overview": "Overview",
+        "poster_path": "Path",
+        "title": "Title",
+      },
+    ]
+  }
+  listTitle="Favorites"
+  loading={false}
+  removeModalAction={[Function]}
+  removeModalTxt="Do you want to delete this item from the favorites?"
+  totalItems={21}
+/>
+`;
