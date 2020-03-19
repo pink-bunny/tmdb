@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 
 import MyLists from './component';
 import {
-  fetchMyLists as fetchMyListsAction
+  fetchMyLists as fetchMyListsAction,
+  createMyList as createMyListAction
 } from '../../../state/my_lists/actions';
 import {
   isMyListsLoading,
@@ -22,7 +23,8 @@ class MyListsContainer extends React.Component {
     const {
       list,
       loading,
-      error
+      error,
+      createMyList
     } = this.props;
 
     return (
@@ -30,6 +32,7 @@ class MyListsContainer extends React.Component {
         list={list}
         loading={loading}
         error={error}
+        createMyList={createMyList}
       />
     );
   }
@@ -37,6 +40,7 @@ class MyListsContainer extends React.Component {
 
 MyListsContainer.propTypes = {
   fetchMyLists: PropTypes.func.isRequired,
+  createMyList: PropTypes.func.isRequired,
   list: PropTypes.arrayOf(PropTypes.object),
   loading: PropTypes.bool.isRequired,
   error: PropTypes.string.isRequired
@@ -47,7 +51,8 @@ MyListsContainer.defaultProps = {
 };
 
 const mapDispatchToPtops = {
-  fetchMyLists: fetchMyListsAction
+  fetchMyLists: fetchMyListsAction,
+  createMyList: createMyListAction
 };
 
 const mapStateToProps = (state) => ({

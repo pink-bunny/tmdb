@@ -1,16 +1,12 @@
 import { withFormik } from 'formik';
-import { connect } from 'react-redux';
 import * as Yup from 'yup';
 
-import withModal from '../../../hoc/withModal';
+import withModal from '../../hoc/withModal';
 import CreateNewListModal from './component';
-import {
-  createMyList as createMyListAction
-} from '../../../../state/my_lists/actions';
 
 export const handleSubmit = (values, { props, setErrors }) => {
   const { hideModal } = props;
-  props.createMyList(values, setErrors, hideModal);
+  props.handleSubmitList(values, setErrors, hideModal);
 };
 
 const createNewListFormSchema = Yup.object().shape({
@@ -30,8 +26,4 @@ const CreateNewListModalContainer = withFormik({
   displayName: 'CreateNewListForm'
 })(CreateNewListModal);
 
-const mapDispatchToPtops = {
-  createMyList: createMyListAction
-};
-
-export default connect(null, mapDispatchToPtops)(withModal(CreateNewListModalContainer));
+export default withModal(CreateNewListModalContainer);

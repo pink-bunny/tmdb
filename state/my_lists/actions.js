@@ -40,3 +40,12 @@ export const toggleToList = (listId, movieId) => ({
   listId,
   movieId
 });
+
+export const createAndAddToList = ({ name, description }, setErrors, hideModal, movieId) => ({
+  type: types.CREATE_AND_ADD_TO_LIST,
+  name,
+  description,
+  setErrors,
+  hideModal,
+  movieId
+});
