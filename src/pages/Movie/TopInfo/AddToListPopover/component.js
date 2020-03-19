@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { Popover, Button, Icon } from 'antd';
+
+import AddToListButton from './AddToListButton';
 
 const AddToListComponent = ({
   list,
@@ -22,12 +23,11 @@ const AddToListComponent = ({
           </div>
           {list && list.map((item) => (
             <div key={item.id}>
-              <Button
-                type="link"
-                onClick={() => addToList(item.id)}
-              >
-                {item.name}
-              </Button>
+              <AddToListButton
+                addToList={addToList}
+                id={item.id}
+                name={item.name}
+              />
             </div>
           ))}
         </>

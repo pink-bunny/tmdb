@@ -21,9 +21,10 @@ class AddToListContainer extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     const prevVisibleStatus = prevState.popoverVisible;
-    const currentVisibleStatus = !prevVisibleStatus;
     const { fetchMyLists } = this.props;
-    if (currentVisibleStatus) {
+    const { popoverVisible } = this.state;
+
+    if (!prevVisibleStatus && popoverVisible !== prevVisibleStatus) {
       fetchMyLists();
     }
   }
