@@ -34,6 +34,10 @@ class AddToListContainer extends React.Component {
     this.setState({ popoverVisible: visible });
   }
 
+  closePopover = () => {
+    this.visiblePopover(false);
+  }
+
   createListModalSubmit = (values, setErrors, hideModal) => {
     const { createAndAddToList, movieId } = this.props;
     createAndAddToList(values, setErrors, hideModal, movieId);
@@ -53,6 +57,7 @@ class AddToListContainer extends React.Component {
         addToList={this.addToList}
         list={list}
         handleVisiblePopover={this.visiblePopover}
+        closePopover={this.closePopover}
         popoverVisible={popoverVisible}
         popoverCreateListModalSubmit={this.createListModalSubmit}
       />

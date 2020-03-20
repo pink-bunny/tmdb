@@ -10,7 +10,7 @@ import {
 import InputField from '../InputField';
 
 const CreateNewListModal = ({
-  showModal,
+  handleTriggerClick,
   modalVisible,
   hideModal,
   handleSubmit,
@@ -21,12 +21,7 @@ const CreateNewListModal = ({
   <>
     <TriggerComponent
       {...triggerProps} /* eslint-disable-line react/jsx-props-no-spreading */
-      onClick={() => {
-        if (triggerProps.onClick) {
-          triggerProps.onClick();
-        }
-        showModal();
-      }}
+      onClick={handleTriggerClick}
     />
 
     <Modal
@@ -63,7 +58,7 @@ const CreateNewListModal = ({
 CreateNewListModal.propTypes = {
   modalVisible: PropTypes.bool.isRequired,
   hideModal: PropTypes.func.isRequired,
-  showModal: PropTypes.func.isRequired,
+  handleTriggerClick: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   triggerProps: PropTypes.shape({
     onClick: PropTypes.func

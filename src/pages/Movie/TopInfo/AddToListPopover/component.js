@@ -7,6 +7,7 @@ import PopoverContent from './PopoverContent';
 const AddToListComponent = ({
   list,
   addToList,
+  closePopover,
   popoverVisible,
   handleVisiblePopover,
   popoverCreateListModalSubmit
@@ -21,7 +22,7 @@ const AddToListComponent = ({
         <PopoverContent
           list={list}
           addToList={addToList}
-          closePopover={() => handleVisiblePopover(false)}
+          closePopover={closePopover}
           createListModalSubmit={popoverCreateListModalSubmit}
         />
       )}
@@ -35,6 +36,7 @@ AddToListComponent.propTypes = {
   addToList: PropTypes.func.isRequired,
   popoverCreateListModalSubmit: PropTypes.func.isRequired,
   popoverVisible: PropTypes.bool.isRequired,
+  closePopover: PropTypes.func.isRequired,
   handleVisiblePopover: PropTypes.func.isRequired,
   list: PropTypes.arrayOf(PropTypes.object)
 };
