@@ -1,36 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Popover, Button, Icon } from 'antd';
+import { Popover, Icon } from 'antd';
 
-import AddToListButton from './AddToListButton';
+import PopoverContent from './PopoverContent';
 
 const AddToListComponent = ({
   list,
   addToList,
+  closePopover,
   popoverVisible,
-  handleVisible
+  handleVisiblePopover,
+  popoverCreateListModalSubmit
 }) => (
   <>
     <Popover
       title="Add movie to list"
       trigger="click"
       visible={popoverVisible}
-      onVisibleChange={handleVisible}
+      onVisibleChange={handleVisiblePopover}
       content={(
-        <>
-          <div>
-            <Button type="link">Create new list ...</Button>
-          </div>
-          {list && list.map((item) => (
-            <div key={item.id}>
-              <AddToListButton
-                addToList={addToList}
-                id={item.id}
-                name={item.name}
-              />
-            </div>
-          ))}
-        </>
+        <PopoverContent
+          list={list}
+          addToList={addToList}
+          closePopover={closePopover}
+          createListModalSubmit={popoverCreateListModalSubmit}
+        />
       )}
     >
       <Icon type="plus-circle" />
@@ -40,8 +34,10 @@ const AddToListComponent = ({
 
 AddToListComponent.propTypes = {
   addToList: PropTypes.func.isRequired,
+  popoverCreateListModalSubmit: PropTypes.func.isRequired,
   popoverVisible: PropTypes.bool.isRequired,
-  handleVisible: PropTypes.func.isRequired,
+  closePopover: PropTypes.func.isRequired,
+  handleVisiblePopover: PropTypes.func.isRequired,
   list: PropTypes.arrayOf(PropTypes.object)
 };
 
