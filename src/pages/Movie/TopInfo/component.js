@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 
 import ToggleToWatchlist from './ToggleToWatchlist';
 import ToggleToFavorite from './ToggleToFavorite';
+import AddToListPopover from './AddToListPopover';
 
 const TopInfo = ({ details }) => {
   const {
@@ -35,6 +36,8 @@ const TopInfo = ({ details }) => {
             <span>
               {title}
             </span>
+            {' '}
+            <AddToListPopover movieId={id} />
             {' '}
             <ToggleToFavorite id={id} favorite={favorite} />
             {' '}
