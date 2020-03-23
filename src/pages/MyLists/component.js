@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Layout, Row, Col, Typography
+  Layout, Row, Col, Typography, Icon
 } from 'antd';
 
 import List from './List';
-import CreateNewListModal from './CreateNewListModal';
+import CreateNewListModal from '../../components/CreateNewListModal';
 
 const MyLists = ({
   list,
   loading,
-  error
+  error,
+  createMyList
 }) => (
   <Layout>
     <Layout.Content>
@@ -20,7 +21,11 @@ const MyLists = ({
             <Typography.Title>
               My Lists
               {' '}
-              <CreateNewListModal />
+              <CreateNewListModal
+                handleSubmitList={createMyList}
+                triggerComponent={Icon}
+                triggerProps={{ type: 'plus-circle' }}
+              />
             </Typography.Title>
           </div>
         </Col>
@@ -36,6 +41,7 @@ const MyLists = ({
 );
 
 MyLists.propTypes = {
+  createMyList: PropTypes.func.isRequired,
   list: PropTypes.arrayOf(PropTypes.object),
   loading: PropTypes.bool.isRequired,
   error: PropTypes.string.isRequired

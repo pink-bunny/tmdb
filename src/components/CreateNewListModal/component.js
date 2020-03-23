@@ -4,21 +4,25 @@ import { Field } from 'formik';
 import {
   Modal,
   Form,
-  Typography,
-  Icon
+  Typography
 } from 'antd';
 
-import InputField from '../../../components/InputField';
+import InputField from '../InputField';
 
 const CreateNewListModal = ({
-  showModal,
+  handleTriggerClick,
   modalVisible,
   hideModal,
   handleSubmit,
-  errors
+  errors,
+  triggerComponent: TriggerComponent,
+  triggerProps
 }) => (
   <>
-    <Icon onClick={showModal} type="plus-circle" />
+    <TriggerComponent
+      {...triggerProps} /* eslint-disable-line react/jsx-props-no-spreading */
+      onClick={handleTriggerClick}
+    />
 
     <Modal
       visible={modalVisible}
@@ -54,14 +58,20 @@ const CreateNewListModal = ({
 CreateNewListModal.propTypes = {
   modalVisible: PropTypes.bool.isRequired,
   hideModal: PropTypes.func.isRequired,
-  showModal: PropTypes.func.isRequired,
+  handleTriggerClick: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
+  triggerProps: PropTypes.shape({
+    onClick: PropTypes.func
+  }),
+  triggerComponent: PropTypes.func,
   errors: PropTypes.shape({
     serverError: PropTypes.string
   })
 };
 
 CreateNewListModal.defaultProps = {
+  triggerProps: null,
+  triggerComponent: null,
   errors: {
     serverError: null
   }

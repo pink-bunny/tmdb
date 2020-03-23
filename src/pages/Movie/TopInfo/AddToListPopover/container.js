@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 
 import {
   fetchMyLists as fetchMyListsAction,
-  toggleToList as toggleToListAction
+  toggleToList as toggleToListAction,
+  createAndAddToList as createAndAddToListAction
 } from '../../../../../state/my_lists/actions';
 import {
   myListsList
@@ -29,8 +30,21 @@ class AddToListContainer extends React.Component {
     }
   }
 
+  visiblePopover = (visible) => {
+    this.setState({ popoverVisible: visible });
+  }
+
   handleVisiblePopover = (visible) => {
     this.setState({ popoverVisible: visible });
+  }
+
+  closePopover = () => {
+    this.visiblePopover(false);
+  }
+
+  createListModalSubmit = (values, setErrors, hideModal) => {
+    const { createAndAddToList, movieId } = this.props;
+    createAndAddToList(values, setErrors, hideModal, movieId);
   }
 
   addToList = (listId) => {
@@ -48,6 +62,9 @@ class AddToListContainer extends React.Component {
         list={list}
         handleVisible={this.handleVisiblePopover}
         popoverVisible={popoverVisible}
+        handleVisiblePopover={this.visiblePopover}
+        closePopover={this.closePopover}
+        popoverCreateListModalSubmit={this.createListModalSubmit}
       />
     );
   }
@@ -55,6 +72,7 @@ class AddToListContainer extends React.Component {
 
 AddToListContainer.propTypes = {
   toggleToList: PropTypes.func.isRequired,
+  createAndAddToList: PropTypes.func.isRequired,
   movieId: PropTypes.number.isRequired,
   fetchMyLists: PropTypes.func.isRequired,
   list: PropTypes.arrayOf(PropTypes.object)
@@ -66,7 +84,8 @@ AddToListContainer.defaultProps = {
 
 const mapDispatchToPtops = {
   fetchMyLists: fetchMyListsAction,
-  toggleToList: toggleToListAction
+  toggleToList: toggleToListAction,
+  createAndAddToList: createAndAddToListAction
 };
 
 const mapStateToProps = (state) => ({
