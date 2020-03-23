@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddToListButton component matches snapshot with required props 1`] = `
+<Button
+  block={false}
+  ghost={false}
+  htmlType="button"
+  loading={false}
+  onClick={[MockFunction]}
+  type="link"
+>
+  Mock name
+</Button>
+`;

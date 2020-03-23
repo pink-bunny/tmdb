@@ -84,6 +84,11 @@ body,
   background-size: cover;
 }
 
+.detailed-movie__add-to-list-popover .ant-popover-inner-content {
+  max-height: 240px;
+  overflow: auto;
+}
+
 .movie-item__img {
   padding-top: 150%;
   background-color: #ccc;

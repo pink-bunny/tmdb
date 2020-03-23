@@ -2,7 +2,7 @@
 
 exports[`CreateNewListModal component matches snapshot with required props 1`] = `
 <Fragment>
-  <Component
+  <mockConstructor
     onClick={[MockFunction]}
   />
   <Modal
@@ -40,7 +40,7 @@ exports[`CreateNewListModal component matches snapshot with required props 1`] =
 
 exports[`CreateNewListModal component matches snapshot with server error 1`] = `
 <Fragment>
-  <Component
+  <mockConstructor
     onClick={[MockFunction]}
   />
   <Modal
@@ -86,14 +86,12 @@ exports[`CreateNewListModal component matches snapshot with server error 1`] = `
 </Fragment>
 `;
 
-exports[`CreateNewListModal component matches snapshot with trigger component 1`] = `
+exports[`CreateNewListModal component matches snapshot with trigger props 1`] = `
 <Fragment>
   <mockConstructor
     onClick={[MockFunction]}
     type="button"
-  >
-    Click button
-  </mockConstructor>
+  />
   <Modal
     confirmLoading={false}
     maskTransitionName="fade"

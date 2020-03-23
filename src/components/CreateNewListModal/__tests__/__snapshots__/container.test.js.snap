@@ -1,19 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CreateNewListModal container matches snapshot 1`] = `
+exports[`CreateNewListModal container with trigger props matches snapshot 1`] = `
 <CreateNewListModal
   errors={Object {}}
   handleSubmit={[Function]}
   handleTriggerClick={[Function]}
   hideModal={[Function]}
   modalVisible={false}
-  showModal={[Function]}
-  triggerComponent={null}
+  showModal={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  triggerComponent={[MockFunction]}
+  triggerProps={
+    Object {
+      "classname": "mock-button",
+      "onClick": [MockFunction],
+    }
+  }
+/>
+`;
+
+exports[`CreateNewListModal container without trigger props matches snapshot 1`] = `
+<CreateNewListModal
+  errors={Object {}}
+  handleSubmit={[Function]}
+  handleTriggerClick={[Function]}
+  hideModal={[Function]}
+  modalVisible={false}
+  showModal={[MockFunction]}
+  triggerComponent={[MockFunction]}
   triggerProps={null}
 />
 `;
 
-exports[`CreateNewListModal container validationSchema matches snapshot 1`] = `
+exports[`CreateNewListModal form. validationSchema matches snapshot 1`] = `
 Object {
   "fields": Object {
     "description": Object {

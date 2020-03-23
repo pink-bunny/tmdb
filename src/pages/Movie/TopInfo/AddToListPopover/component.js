@@ -12,24 +12,23 @@ const AddToListComponent = ({
   handleVisiblePopover,
   popoverCreateListModalSubmit
 }) => (
-  <>
-    <Popover
-      title="Add movie to list"
-      trigger="click"
-      visible={popoverVisible}
-      onVisibleChange={handleVisiblePopover}
-      content={(
-        <PopoverContent
-          list={list}
-          addToList={addToList}
-          closePopover={closePopover}
-          createListModalSubmit={popoverCreateListModalSubmit}
-        />
-      )}
-    >
-      <Icon type="plus-circle" />
-    </Popover>
-  </>
+  <Popover
+    overlayClassName="detailed-movie__add-to-list-popover"
+    title="Add movie to list"
+    trigger="click"
+    visible={popoverVisible}
+    onVisibleChange={handleVisiblePopover}
+    content={(
+      <PopoverContent
+        list={list}
+        addToList={addToList}
+        closePopover={closePopover}
+        createListModalSubmit={popoverCreateListModalSubmit}
+      />
+    )}
+  >
+    <Icon type="plus-circle" />
+  </Popover>
 );
 
 AddToListComponent.propTypes = {

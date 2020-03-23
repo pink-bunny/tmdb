@@ -9,7 +9,8 @@ describe('CreateNewListModal component', () => {
     modalVisible: false,
     hideModal: jest.fn(),
     handleSubmit: jest.fn(),
-    handleTriggerClick: jest.fn()
+    handleTriggerClick: jest.fn(),
+    triggerComponent: jest.fn(() => <div>Mock button</div>)
   };
 
   it('matches snapshot with required props', () => {
@@ -26,13 +27,11 @@ describe('CreateNewListModal component', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('matches snapshot with trigger component', () => {
+  it('matches snapshot with trigger props', () => {
     const props = {
       ...requiredProps,
-      triggerComponent: jest.fn(),
       triggerProps: {
-        type: 'button',
-        children: 'Click button'
+        type: 'button'
       }
     };
     const wrapper = shallow(<CreateNewListModal {...props} />); /* eslint-disable-line */

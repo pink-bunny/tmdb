@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddToListButton container matches snapshot 1`] = `
+<AddToListButton
+  handleCLick={[Function]}
+  name="Mock name"
+/>
+`;
