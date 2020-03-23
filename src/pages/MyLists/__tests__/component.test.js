@@ -5,14 +5,20 @@ import MyLists from '../component';
 
 describe('MyLists component', () => {
   const requiredProps = {
-    list: [],
+    createMyList: jest.fn(),
     loading: false,
     error: ''
   };
+  const wrapper = shallow(<MyLists {...requiredProps} />); /* eslint-disable-line */
 
   it('matches snapshot', () => {
-    const wrapper = shallow(<MyLists {...requiredProps} />); /* eslint-disable-line */
+    expect(wrapper).toMatchSnapshot();
+  });
 
+  it('received list array and matches snapshot', () => {
+    wrapper.setProps({
+      list: [{ id: 1, title: 'Mock title' }]
+    });
     expect(wrapper).toMatchSnapshot();
   });
 });

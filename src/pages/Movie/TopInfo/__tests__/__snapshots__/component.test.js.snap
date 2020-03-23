@@ -14,6 +14,10 @@ exports[`TopInfo component has optional props 1`] = `
           Mock title
         </span>
          
+        <Connect(AddToListContainer)
+          movieId={1}
+        />
+         
         <Connect(ToggleToFavoriteContainer)
           favorite={true}
           id={1}
@@ -124,6 +128,10 @@ exports[`TopInfo component matches snapshot with required props 1`] = `
         <span>
           Mock title
         </span>
+         
+        <Connect(AddToListContainer)
+          movieId={1}
+        />
          
         <Connect(ToggleToFavoriteContainer)
           favorite={true}

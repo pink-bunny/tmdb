@@ -19,18 +19,18 @@ describe('CreateNewListModal container', () => {
     it('calls createMyList with arguments', () => {
       const props = {
         hideModal: jest.fn(),
-        createMyList: jest.fn()
+        handleSubmitList: jest.fn()
       };
       const setErrors = jest.fn();
       const values = {};
       handleSubmit(values, { props, setErrors });
 
-      expect(props.createMyList).toHaveBeenCalledWith(values, setErrors, props.hideModal);
+      expect(props.handleSubmitList).toHaveBeenCalledWith(values, setErrors, props.hideModal);
     });
   });
 
   describe('validationSchema', () => {
-    const container = wrapper.dive().dive().props().validationSchema()
+    const container = wrapper.dive().props().validationSchema()
       .describe();
 
     it('matches snapshot', () => {
