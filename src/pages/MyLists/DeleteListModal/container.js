@@ -45,7 +45,10 @@ DeleteListModalContainer.propTypes = {
   hideModal: PropTypes.func.isRequired,
   showModal: PropTypes.func.isRequired,
   deleteMyList: PropTypes.func.isRequired,
-  id: PropTypes.number.isRequired,
+  id: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]).isRequired,
   name: PropTypes.string.isRequired,
   error: PropTypes.string
 };
