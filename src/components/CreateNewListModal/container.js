@@ -10,7 +10,7 @@ class CreateNewListModalContainer extends React.Component {
   handleTriggerClick = () => {
     const { triggerProps, showModal } = this.props;
 
-    if (triggerProps.onClick) {
+    if (triggerProps && triggerProps.onClick) {
       triggerProps.onClick();
     }
     showModal();
@@ -49,7 +49,7 @@ CreateNewListModalContainer.propTypes = {
   triggerProps: PropTypes.shape({
     onClick: PropTypes.func
   }),
-  triggerComponent: PropTypes.func,
+  triggerComponent: PropTypes.func.isRequired,
   errors: PropTypes.shape({
     serverError: PropTypes.string
   })
@@ -57,7 +57,6 @@ CreateNewListModalContainer.propTypes = {
 
 CreateNewListModalContainer.defaultProps = {
   triggerProps: null,
-  triggerComponent: null,
   errors: {
     serverError: null
   }

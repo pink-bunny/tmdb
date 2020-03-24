@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddToList container matches snapshot 1`] = `
+<AddToListComponent
+  addToList={[Function]}
+  closePopover={[Function]}
+  handleVisiblePopover={[Function]}
+  list={
+    Array [
+      Object {
+        "id": 1,
+        "name": "Mock name",
+      },
+    ]
+  }
+  popoverCreateListModalSubmit={[Function]}
+  popoverVisible={false}
+/>
+`;

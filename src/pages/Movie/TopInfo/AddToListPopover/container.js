@@ -34,10 +34,6 @@ class AddToListContainer extends React.Component {
     this.setState({ popoverVisible: visible });
   }
 
-  handleVisiblePopover = (visible) => {
-    this.setState({ popoverVisible: visible });
-  }
-
   closePopover = () => {
     this.visiblePopover(false);
   }
@@ -60,7 +56,6 @@ class AddToListContainer extends React.Component {
       <AddToListComponent
         addToList={this.addToList}
         list={list}
-        handleVisible={this.handleVisiblePopover}
         popoverVisible={popoverVisible}
         handleVisiblePopover={this.visiblePopover}
         closePopover={this.closePopover}

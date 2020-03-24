@@ -16,14 +16,67 @@ exports[`MyLists component matches snapshot 1`] = `
           <Title>
             My Lists
              
-            <Connect(WrappedComponentShell) />
+            <WrappedComponentShell
+              handleSubmitList={[MockFunction]}
+              triggerComponent={[Function]}
+              triggerProps={
+                Object {
+                  "type": "plus-circle",
+                }
+              }
+            />
           </Title>
         </div>
       </Col>
     </Row>
     <List
       error=""
-      list={Array []}
+      list={null}
+      loading={false}
+    />
+  </Adapter>
+</Adapter>
+`;
+
+exports[`MyLists component received list array and matches snapshot 1`] = `
+<Adapter>
+  <Adapter>
+    <Row
+      gutter={0}
+    >
+      <Col
+        offset={2}
+        span={20}
+      >
+        <div
+          className="top-margin"
+        >
+          <Title>
+            My Lists
+             
+            <WrappedComponentShell
+              handleSubmitList={[MockFunction]}
+              triggerComponent={[Function]}
+              triggerProps={
+                Object {
+                  "type": "plus-circle",
+                }
+              }
+            />
+          </Title>
+        </div>
+      </Col>
+    </Row>
+    <List
+      error=""
+      list={
+        Array [
+          Object {
+            "id": 1,
+            "title": "Mock title",
+          },
+        ]
+      }
       loading={false}
     />
   </Adapter>

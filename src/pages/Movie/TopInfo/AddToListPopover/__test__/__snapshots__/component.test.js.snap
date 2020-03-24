@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddToList component matches snapshot with optional props 1`] = `
+<Popover
+  content={
+    <PopoverContent
+      addToList={[MockFunction]}
+      closePopover={[MockFunction]}
+      createListModalSubmit={[MockFunction]}
+      list={
+        Array [
+          Object {
+            "id": 1,
+            "name": "Mock name",
+          },
+        ]
+      }
+    />
+  }
+  mouseEnterDelay={0.1}
+  mouseLeaveDelay={0.1}
+  onVisibleChange={[MockFunction]}
+  overlayClassName="detailed-movie__add-to-list-popover"
+  overlayStyle={Object {}}
+  placement="top"
+  title="Add movie to list"
+  transitionName="zoom-big"
+  trigger="click"
+  visible={true}
+>
+  <Icon
+    type="plus-circle"
+  />
+</Popover>
+`;
+
+exports[`AddToList component matches snapshot with required props 1`] = `
+<Popover
+  content={
+    <PopoverContent
+      addToList={[MockFunction]}
+      closePopover={[MockFunction]}
+      createListModalSubmit={[MockFunction]}
+      list={null}
+    />
+  }
+  mouseEnterDelay={0.1}
+  mouseLeaveDelay={0.1}
+  onVisibleChange={[MockFunction]}
+  overlayClassName="detailed-movie__add-to-list-popover"
+  overlayStyle={Object {}}
+  placement="top"
+  title="Add movie to list"
+  transitionName="zoom-big"
+  trigger="click"
+  visible={true}
+>
+  <Icon
+    type="plus-circle"
+  />
+</Popover>
+`;

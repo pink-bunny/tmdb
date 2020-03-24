@@ -1,71 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CreateNewListModal container matches snapshot 1`] = `
+exports[`CreateNewListModal container with trigger props matches snapshot 1`] = `
 <CreateNewListModal
-  createMyList={[Function]}
-  dirty={false}
   errors={Object {}}
-  getFieldHelpers={[Function]}
-  getFieldMeta={[Function]}
-  getFieldProps={[Function]}
-  handleBlur={[Function]}
-  handleChange={[Function]}
-  handleReset={[Function]}
   handleSubmit={[Function]}
+  handleTriggerClick={[Function]}
   hideModal={[Function]}
-  initialErrors={Object {}}
-  initialTouched={Object {}}
-  initialValues={
-    Object {
-      "description": "",
-      "name": "",
-    }
-  }
-  isSubmitting={false}
-  isValid={true}
-  isValidating={false}
   modalVisible={false}
-  registerField={[Function]}
-  resetForm={[Function]}
-  setErrors={[Function]}
-  setFieldError={[Function]}
-  setFieldTouched={[Function]}
-  setFieldValue={[Function]}
-  setFormikState={[Function]}
-  setStatus={[Function]}
-  setSubmitting={[Function]}
-  setTouched={[Function]}
-  setValues={[Function]}
-  showModal={[Function]}
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [MockFunction],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
+  showModal={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
     }
   }
-  submitCount={0}
-  submitForm={[Function]}
-  touched={Object {}}
-  unregisterField={[Function]}
-  validateField={[Function]}
-  validateForm={[Function]}
-  validateOnBlur={true}
-  validateOnChange={true}
-  validateOnMount={false}
-  values={
+  triggerComponent={[MockFunction]}
+  triggerProps={
     Object {
-      "description": "",
-      "name": "",
+      "classname": "mock-button",
+      "onClick": [MockFunction],
     }
   }
 />
 `;
 
-exports[`CreateNewListModal container validationSchema matches snapshot 1`] = `
+exports[`CreateNewListModal container without trigger props matches snapshot 1`] = `
+<CreateNewListModal
+  errors={Object {}}
+  handleSubmit={[Function]}
+  handleTriggerClick={[Function]}
+  hideModal={[Function]}
+  modalVisible={false}
+  showModal={[MockFunction]}
+  triggerComponent={[MockFunction]}
+  triggerProps={null}
+/>
+`;
+
+exports[`CreateNewListModal form. validationSchema matches snapshot 1`] = `
 Object {
   "fields": Object {
     "description": Object {

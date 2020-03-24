@@ -63,7 +63,7 @@ CreateNewListModal.propTypes = {
   triggerProps: PropTypes.shape({
     onClick: PropTypes.func
   }),
-  triggerComponent: PropTypes.func,
+  triggerComponent: PropTypes.func.isRequired,
   errors: PropTypes.shape({
     serverError: PropTypes.string
   })
@@ -71,7 +71,6 @@ CreateNewListModal.propTypes = {
 
 CreateNewListModal.defaultProps = {
   triggerProps: null,
-  triggerComponent: null,
   errors: {
     serverError: null
   }

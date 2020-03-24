@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PopoverContent component matches snapshot with optional props 1`] = `
+<Fragment>
+  <div>
+    <WrappedComponentShell
+      handleSubmitList={[MockFunction]}
+      triggerComponent={[Function]}
+      triggerProps={
+        Object {
+          "children": "Create new list ...",
+          "onClick": [MockFunction],
+          "type": "link",
+        }
+      }
+    />
+  </div>
+  <div
+    key="1"
+  >
+    <AddToListButton
+      addToList={[MockFunction]}
+      id={1}
+      name="Mock name 1"
+    />
+  </div>
+  <div
+    key="2"
+  >
+    <AddToListButton
+      addToList={[MockFunction]}
+      id={2}
+      name="Mock name 2"
+    />
+  </div>
+</Fragment>
+`;
+
+exports[`PopoverContent component matches snapshot with required props 1`] = `
+<Fragment>
+  <div>
+    <WrappedComponentShell
+      handleSubmitList={[MockFunction]}
+      triggerComponent={[Function]}
+      triggerProps={
+        Object {
+          "children": "Create new list ...",
+          "onClick": [MockFunction],
+          "type": "link",
+        }
+      }
+    />
+  </div>
+</Fragment>
+`;

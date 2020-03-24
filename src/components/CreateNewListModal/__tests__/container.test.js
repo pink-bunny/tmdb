@@ -4,37 +4,81 @@ import { shallow } from 'enzyme';
 
 import ConnectedCreateNewListModal, { handleSubmit } from '../container';
 
-describe('CreateNewListModal container', () => {
+describe('CreateNewListModal', () => {
   const store = configureStore()({});
+  const requiredProps = {
+    store,
+    modalVisible: false,
+    showModal: jest.fn(),
+    triggerComponent: jest.fn(() => <div>Mock button</div>)
+  };
   store.dispatch = jest.fn();
-  const wrapper = shallow(<ConnectedCreateNewListModal store={store} />);
 
-  it('matches snapshot', () => {
-    const container = wrapper.dive().dive().dive().dive();
+  describe('container', () => {
+    describe('without trigger props', () => {
+      const wrapper = shallow(<ConnectedCreateNewListModal {...requiredProps} />); /* eslint-disable-line react/jsx-props-no-spreading, max-len */
+      const container = wrapper.dive().dive().dive().dive();
+      const instance = container.instance();
+      const { showModal } = requiredProps;
 
-    expect(container).toMatchSnapshot();
-  });
+      it('matches snapshot', () => {
+        expect(container).toMatchSnapshot();
+      });
 
-  describe('handleSubmit()', () => {
-    it('calls createMyList with arguments', () => {
+      it('handleTriggerClick() called only showModal()', () => {
+        instance.handleTriggerClick();
+        expect(showModal).toHaveBeenCalled();
+      });
+    });
+
+    describe('with trigger props', () => {
       const props = {
-        hideModal: jest.fn(),
-        createMyList: jest.fn()
+        ...requiredProps,
+        triggerProps: {
+          classname: 'mock-button',
+          onClick: jest.fn()
+        }
       };
-      const setErrors = jest.fn();
-      const values = {};
-      handleSubmit(values, { props, setErrors });
+      const wrapper = shallow(<ConnectedCreateNewListModal {...props} />); /* eslint-disable-line react/jsx-props-no-spreading, max-len */
+      const container = wrapper.dive().dive().dive().dive();
+      const instance = container.instance();
+      const { triggerProps, showModal } = props;
 
-      expect(props.createMyList).toHaveBeenCalledWith(values, setErrors, props.hideModal);
+      it('matches snapshot', () => {
+        expect(container).toMatchSnapshot();
+      });
+
+      it('handleTriggerClick() called triggerProps.onClick() and showModal()', () => {
+        instance.handleTriggerClick();
+        expect(triggerProps.onClick).toHaveBeenCalled();
+        expect(showModal).toHaveBeenCalled();
+      });
     });
   });
 
-  describe('validationSchema', () => {
-    const container = wrapper.dive().dive().props().validationSchema()
-      .describe();
+  describe('form.', () => {
+    describe('handleSubmit()', () => {
+      const props = {
+        hideModal: jest.fn(),
+        handleSubmitList: jest.fn()
+      };
+      const setErrors = jest.fn();
+      const values = {};
 
-    it('matches snapshot', () => {
-      expect(container).toMatchSnapshot();
+      it('calls createMyList with arguments', () => {
+        handleSubmit(values, { props, setErrors });
+        expect(props.handleSubmitList).toHaveBeenCalledWith(values, setErrors, props.hideModal);
+      });
+    });
+
+    describe('validationSchema', () => {
+      const wrapper = shallow(<ConnectedCreateNewListModal {...requiredProps} />); /* eslint-disable-line react/jsx-props-no-spreading, max-len */
+      const container = wrapper.dive().props().validationSchema()
+        .describe();
+
+      it('matches snapshot', () => {
+        expect(container).toMatchSnapshot();
+      });
     });
   });
 });
