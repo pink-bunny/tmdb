@@ -4,7 +4,7 @@ import { FETCH_MY_LIST } from '../types';
 import normalizeMyList from '../../../utils/normalize/myList';
 import { getSessionId } from '../../session/selectors';
 import { fetchMyListSuccess, fetchMyListError } from '../actions';
-import { mergeListsList } from '../../data/actions';
+import { mergeListsList, mergeMoviesList } from '../../data/actions';
 
 const myListLogic = createLogic({
   type: FETCH_MY_LIST,
@@ -17,10 +17,11 @@ const myListLogic = createLogic({
       const { data } = await httpClient.get(`/list/${movieId}?session_id=${sessinId}`);
 
       // normalize data
-      const { list } = normalizeMyList(data);
+      const { listInfo, listMoviesIds, listMovies } = normalizeMyList(data);
 
-      dispatch(mergeListsList(list));
-      dispatch(fetchMyListSuccess(movieId));
+      dispatch(mergeListsList(listInfo));
+      dispatch(mergeMoviesList(listMovies));
+      dispatch(fetchMyListSuccess(movieId, listMoviesIds));
     } catch (error) {
       const errorMessage = error.response.data.status_message;
       dispatch(fetchMyListError(errorMessage));

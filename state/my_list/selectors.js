@@ -11,3 +11,13 @@ export const myListInfo = (state) => {
   }
   return list[id];
 };
+
+export const myListMovies = (state) => {
+  const refs = state.myList.moviesIds || [];
+  const list = state.data.movies || {};
+
+  if (refs.length === 0) {
+    return null;
+  }
+  return refs.map((item) => list[item]);
+};

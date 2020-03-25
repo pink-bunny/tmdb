@@ -16,7 +16,8 @@ const myList = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        movieId: action.movieId
+        movieId: action.movieId,
+        moviesIds: action.moviesIds
       };
     case types.FETCH_MY_LIST_ERROR:
       return {

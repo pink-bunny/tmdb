@@ -9,7 +9,8 @@ import {
 import {
   isMyListLoading,
   myListError,
-  myListInfo
+  myListInfo,
+  myListMovies
 } from '../../../state/my_list/selectors';
 
 class MyListContainer extends React.Component {
@@ -26,13 +27,14 @@ class MyListContainer extends React.Component {
       loading,
       error,
       totalItems,
-      currentPage
+      currentPage,
+      listMovies
     } = this.props;
     return (
       <List
         listTitle={listInfo ? listInfo.name : ''}
         emptyListTxt={`No movies in ${listInfo && listInfo.name} found`}
-        list={listInfo && listInfo.items}
+        list={listMovies}
         loading={loading}
         error={error}
         totalItems={totalItems}
@@ -49,6 +51,7 @@ MyListContainer.propTypes = {
   fetchMyList: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
   listInfo: PropTypes.objectOf(PropTypes.any),
+  listMovies: PropTypes.arrayOf(PropTypes.object),
   error: PropTypes.string.isRequired,
   totalItems: PropTypes.number.isRequired,
   currentPage: PropTypes.number.isRequired,
@@ -59,7 +62,8 @@ MyListContainer.propTypes = {
   }).isRequired
 };
 MyListContainer.defaultProps = {
-  listInfo: null
+  listInfo: null,
+  listMovies: null
 };
 
 const mapDispatchToPtops = {
@@ -69,6 +73,7 @@ const mapDispatchToPtops = {
 const mapStateToProps = (state) => ({
   loading: isMyListLoading(state),
   listInfo: myListInfo(state),
+  listMovies: myListMovies(state),
   error: myListError(state),
   totalItems: 0,
   currentPage: 0
