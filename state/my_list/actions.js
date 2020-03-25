@@ -41,6 +41,12 @@ export const toggleToList = (listId, movieId) => ({
   movieId
 });
 
+export const removeFromList = (listId, movieId) => ({
+  type: types.REMOVE_FROM_LIST,
+  listId,
+  movieId
+});
+
 export const createAndAddToList = ({ name, description }, setErrors, hideModal, movieId) => ({
   type: types.CREATE_AND_ADD_TO_LIST,
   name,
