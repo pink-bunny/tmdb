@@ -2,7 +2,7 @@ import {
   isMyListsLoading,
   myListsList,
   myListsListError,
-  deleteMyListError as deleteMyListErrorSelector
+  myListsDeleteListError as deleteMyListErrorSelector
 } from '../selectors';
 
 describe('Movie selectors.', () => {

@@ -86,12 +86,15 @@ exports[`List component matches snapshot with list 1`] = `
             ]
           }
           className="top-margin"
-          hoverable={true}
         >
           <Title
             level={4}
           >
-            My favorites movies
+            <Link
+              to="/my-lists/1"
+            >
+              My favorites movies
+            </Link>
           </Title>
           Description of my favorites movies
         </Card>

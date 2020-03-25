@@ -11,5 +11,3 @@ export const myListInfo = (state) => {
   }
   return list[id];
 };
-
-export const deleteMyListError = (state) => state.myLists.deleteMyListError;
