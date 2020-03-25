@@ -8,7 +8,7 @@ import {
 } from '../../../../../../state/my_lists/actions';
 import {
   createAndAddToList,
-  toggleToList
+  addToList
 } from '../../../../../../state/my_list/actions';
 
 jest.mock('../../../../../../state/my_lists/selectors', () => ({
@@ -18,7 +18,7 @@ jest.mock('../../../../../../state/my_lists/actions', () => ({
   fetchMyLists: jest.fn()
 }));
 jest.mock('../../../../../../state/my_list/actions', () => ({
-  toggleToList: jest.fn(),
+  addToList: jest.fn(),
   createAndAddToList: jest.fn()
 }));
 
@@ -70,6 +70,6 @@ describe('AddToList container', () => {
     const listId = 123;
     const { movieId } = props;
     instance.addToList(listId);
-    expect(toggleToList).toHaveBeenCalledWith(listId, movieId);
+    expect(addToList).toHaveBeenCalledWith(listId, movieId);
   });
 });

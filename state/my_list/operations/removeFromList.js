@@ -4,7 +4,7 @@ import { fetchMyList } from '../actions';
 
 import { REMOVE_FROM_LIST } from '../types';
 
-const toggleToListLogic = createLogic({
+const removeFromListLogic = createLogic({
   type: REMOVE_FROM_LIST,
 
   async process({ getState, httpClient, action }, dispatch, done) {
@@ -23,4 +23,4 @@ const toggleToListLogic = createLogic({
   }
 });
 
-export default toggleToListLogic;
+export default removeFromListLogic;

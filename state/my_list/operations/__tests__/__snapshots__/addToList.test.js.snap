@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`toggleToList logic matches snapshot 1`] = `
+exports[`addToList logic matches snapshot 1`] = `
 Object {
   "cancelType": undefined,
   "debounce": 0,
@@ -12,7 +12,7 @@ Object {
   },
   "throttle": 0,
   "transform": undefined,
-  "type": "TOGGLE_TO_LIST",
+  "type": "ADD_TO_LIST",
   "validate": undefined,
   "warnTimeout": 60000,
 }

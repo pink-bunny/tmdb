@@ -3,7 +3,7 @@ import {
   createMyList,
   deleteMyList,
   deleteMyListError,
-  toggleToList,
+  addToList,
   createAndAddToList
 } from '../actions';
 
@@ -43,15 +43,15 @@ describe('My list actions.', () => {
     expect(deleteMyListError(error, hideModal)).toEqual(expectedAction);
   });
 
-  it('Toggle to list', () => {
+  it('Add to list', () => {
     const listId = 123;
     const movieId = 321;
     const expectedAction = {
-      type: types.TOGGLE_TO_LIST,
+      type: types.ADD_TO_LIST,
       listId,
       movieId
     };
-    expect(toggleToList(listId, movieId)).toEqual(expectedAction);
+    expect(addToList(listId, movieId)).toEqual(expectedAction);
   });
 
   it('Create and add to list', () => {

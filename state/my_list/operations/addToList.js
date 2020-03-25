@@ -1,10 +1,10 @@
 import { createLogic } from 'redux-logic';
 import { getSessionId } from '../../session/selectors';
 
-import { TOGGLE_TO_LIST } from '../types';
+import { ADD_TO_LIST } from '../types';
 
-const toggleToListLogic = createLogic({
-  type: TOGGLE_TO_LIST,
+const addToListLogic = createLogic({
+  type: ADD_TO_LIST,
 
   async process({ getState, httpClient, action }, dispatch, done) {
     const { listId, movieId } = action;
@@ -20,4 +20,4 @@ const toggleToListLogic = createLogic({
   }
 });
 
-export default toggleToListLogic;
+export default addToListLogic;

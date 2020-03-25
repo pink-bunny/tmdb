@@ -1,7 +1,7 @@
 import { createLogic } from 'redux-logic';
 import { getSessionId } from '../../session/selectors';
 
-import { toggleToList } from '../actions';
+import { addToList } from '../actions';
 import { CREATE_AND_ADD_TO_LIST } from '../types';
 
 const createAndAddToListLogic = createLogic({
@@ -25,7 +25,7 @@ const createAndAddToListLogic = createLogic({
       });
       const { list_id: listId } = data;
 
-      dispatch(toggleToList(listId, movieId));
+      dispatch(addToList(listId, movieId));
       hideModal();
     } catch (error) {
       const createNewListError = error.response.data.status_message;

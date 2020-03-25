@@ -1,13 +1,13 @@
-import toggleToListLogic from '../toggleToList';
+import addToListLogic from '../addToList';
 import mockHttpClient from '../../../../utils/testsHelpers/mockHttpClient';
 import { getSessionId } from '../../../session/selectors';
-import { TOGGLE_TO_LIST } from '../../types';
+import { ADD_TO_LIST } from '../../types';
 
-describe('toggleToList logic', () => {
+describe('addToList logic', () => {
   const listId = 123;
   const movieId = 123;
   const action = {
-    type: TOGGLE_TO_LIST,
+    type: ADD_TO_LIST,
     listId,
     movieId
   };
@@ -17,10 +17,10 @@ describe('toggleToList logic', () => {
   const state = getState();
   const sessionId = getSessionId(state);
   const httpClient = mockHttpClient({ method: 'post' });
-  toggleToListLogic.process({ getState, httpClient, action }, dispatch, done);
+  addToListLogic.process({ getState, httpClient, action }, dispatch, done);
 
   it('matches snapshot', () => {
-    expect(toggleToListLogic).toMatchSnapshot();
+    expect(addToListLogic).toMatchSnapshot();
   });
 
   it('called with right arguments', () => {
