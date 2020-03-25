@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Layout, Row, Col, Typography
+  Layout, Row, Col, Typography, Icon
 } from 'antd';
 import List from '../../components/List';
+import DeleteListModal from '../../components/DeleteListModal';
 
 const MyList = ({
   listInfo,
@@ -24,7 +25,19 @@ const MyList = ({
         >
           <div className="top-margin">
             <Typography.Title>
-              {listInfo ? listInfo.name : ''}
+              {listInfo && (
+                <>
+                  {listInfo.name}
+                  {' '}
+                  <DeleteListModal
+                    id={listInfo.id}
+                    name={listInfo.name}
+                    key="delete"
+                    triggerComponent={Icon}
+                    triggerProps={{ type: 'minus-circle' }}
+                  />
+                </>
+              )}
             </Typography.Title>
           </div>
         </Col>

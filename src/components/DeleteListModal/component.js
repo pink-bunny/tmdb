@@ -1,17 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Modal, Typography, Icon } from 'antd';
+import { Modal, Typography } from 'antd';
 
 const DeleteListModal = ({
   name,
-  showModal,
+  handleTriggerClick,
   modalVisible,
   hideModal,
   deleteList,
-  error
+  error,
+  triggerComponent: TriggerComponent,
+  triggerProps
 }) => (
   <>
-    <Icon type="delete" onClick={showModal} />
+    <TriggerComponent
+      {...triggerProps} /* eslint-disable-line react/jsx-props-no-spreading */
+      onClick={handleTriggerClick}
+    />
 
     <Modal
       visible={modalVisible}
@@ -37,12 +42,17 @@ DeleteListModal.propTypes = {
   name: PropTypes.string.isRequired,
   modalVisible: PropTypes.bool.isRequired,
   hideModal: PropTypes.func.isRequired,
-  showModal: PropTypes.func.isRequired,
   deleteList: PropTypes.func.isRequired,
-  error: PropTypes.string
+  error: PropTypes.string,
+  handleTriggerClick: PropTypes.func.isRequired,
+  triggerProps: PropTypes.shape({
+    onClick: PropTypes.func
+  }),
+  triggerComponent: PropTypes.func.isRequired
 };
 
 DeleteListModal.defaultProps = {
+  triggerProps: null,
   error: ''
 };
 
