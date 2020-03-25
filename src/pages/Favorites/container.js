@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import List from '../../components/List';
+import FavoritesComponent from './component';
 import {
   fetchFavorites as fetchFavoritesAction,
   toggleToFavorite as toggleToFavoriteAction
@@ -24,9 +24,7 @@ const FavoritesContainer = ({
   fetchFavorites,
   toggleToFavorite
 }) => (
-  <List
-    listTitle="Favorites"
-    emptyListTxt="No movies in favorites found"
+  <FavoritesComponent
     list={list}
     loading={loading}
     error={error}
@@ -34,7 +32,6 @@ const FavoritesContainer = ({
     currentPage={currentPage}
     fetchList={fetchFavorites}
     removeModalAction={toggleToFavorite}
-    removeModalTxt="Do you want to delete this item from the favorites?"
   />
 );
 

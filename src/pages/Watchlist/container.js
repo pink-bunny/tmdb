@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import List from '../../components/List';
+import WatchlistComponent from './component';
 import {
   fetchWatchlist as fetchWatchlistAction,
   toggleToWatchlist as toggleToWatchlistAction
@@ -24,9 +24,7 @@ const WatchlistContainer = ({
   fetchWatchlist,
   toggleToWatchlist
 }) => (
-  <List
-    listTitle="Watchlist"
-    emptyListTxt="No movies in watchlist found"
+  <WatchlistComponent
     list={list}
     loading={loading}
     error={error}
@@ -34,7 +32,6 @@ const WatchlistContainer = ({
     currentPage={currentPage}
     fetchList={fetchWatchlist}
     removeModalAction={toggleToWatchlist}
-    removeModalTxt="Do you want to delete this item from the watchlist?"
   />
 );
 
