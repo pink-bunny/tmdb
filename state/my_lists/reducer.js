@@ -1,4 +1,5 @@
 import * as types from './types';
+import { DELETE_MY_LIST_ERROR } from '../my_list/types';
 
 const initialState = {
   loading: false,
@@ -26,7 +27,7 @@ const myLists = (state = initialState, action) => {
         loading: false,
         error: action.error
       };
-    case types.DELETE_MY_LIST_ERROR:
+    case DELETE_MY_LIST_ERROR:
       return {
         ...state,
         deleteMyListError: action.error

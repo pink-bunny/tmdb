@@ -4,8 +4,10 @@ import PropTypes from 'prop-types';
 
 import MyLists from './component';
 import {
-  fetchMyLists as fetchMyListsAction,
   createMyList as createMyListAction
+} from '../../../state/my_list/actions';
+import {
+  fetchMyLists as fetchMyListsAction
 } from '../../../state/my_lists/actions';
 import {
   isMyListsLoading,

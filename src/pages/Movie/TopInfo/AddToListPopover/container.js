@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import {
-  fetchMyLists as fetchMyListsAction,
   toggleToList as toggleToListAction,
   createAndAddToList as createAndAddToListAction
+} from '../../../../../state/my_list/actions';
+import {
+  fetchMyLists as fetchMyListsAction
 } from '../../../../../state/my_lists/actions';
 import {
   myListsList

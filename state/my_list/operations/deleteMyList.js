@@ -2,7 +2,8 @@ import { createLogic } from 'redux-logic';
 
 import { DELETE_MY_LIST } from '../types';
 import { getSessionId } from '../../session/selectors';
-import { fetchMyLists, deleteMyListError } from '../actions';
+import { deleteMyListError } from '../actions';
+import { fetchMyLists } from '../../my_lists/actions';
 
 const deleteMyListLogic = createLogic({
   type: DELETE_MY_LIST,

@@ -2,7 +2,7 @@ import { createLogic } from 'redux-logic';
 
 import { CREATE_MY_LIST } from '../types';
 import { getSessionId } from '../../session/selectors';
-import { fetchMyLists } from '../actions';
+import { fetchMyLists } from '../../my_lists/actions';
 
 const createNewListLogic = createLogic({
   type: CREATE_MY_LIST,

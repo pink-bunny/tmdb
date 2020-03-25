@@ -4,18 +4,22 @@ import { shallow } from 'enzyme';
 
 import ConnectedAddToList from '../container';
 import {
-  fetchMyLists,
+  fetchMyLists
+} from '../../../../../../state/my_lists/actions';
+import {
   createAndAddToList,
   toggleToList
-} from '../../../../../../state/my_lists/actions';
+} from '../../../../../../state/my_list/actions';
 
 jest.mock('../../../../../../state/my_lists/selectors', () => ({
   myListsList: jest.fn(() => [{ id: 1, name: 'Mock name' }])
 }));
 jest.mock('../../../../../../state/my_lists/actions', () => ({
-  toggleToList: jest.fn(),
-  createAndAddToList: jest.fn(),
   fetchMyLists: jest.fn()
+}));
+jest.mock('../../../../../../state/my_list/actions', () => ({
+  toggleToList: jest.fn(),
+  createAndAddToList: jest.fn()
 }));
 
 describe('AddToList container', () => {

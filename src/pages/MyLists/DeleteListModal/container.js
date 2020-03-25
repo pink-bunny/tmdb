@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import withModal from '../../../hoc/withModal';
-import { deleteMyListError } from '../../../../state/my_lists/selectors';
+import { deleteMyListError } from '../../../../state/my_list/selectors';
 import {
   deleteMyList as deleteMyListAction
-} from '../../../../state/my_lists/actions';
+} from '../../../../state/my_list/actions';
 import DeleteListModal from './component';
 
 class DeleteListModalContainer extends React.Component {
