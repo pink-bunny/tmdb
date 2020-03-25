@@ -9,8 +9,8 @@ jest.mock('../../../../../state/my_list/actions', () => ({
   deleteMyList: jest.fn()
 }));
 
-jest.mock('../../../../../state/my_list/selectors', () => ({
-  deleteMyListError: jest.fn(() => '')
+jest.mock('../../../../../state/my_lists/selectors', () => ({
+  myListsDeleteListError: jest.fn(() => '')
 }));
 
 describe('DeleteListModalContainer', () => {

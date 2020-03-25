@@ -22,9 +22,7 @@ jest.mock('../../../../state/my_lists/selectors', () => ({
 describe('MyListsContainer container', () => {
   const store = configureStore()({});
   const requiredProps = {
-    store,
-    fetchMyLists: jest.fn(),
-    createMyList: jest.fn()
+    store
   };
   store.dispatch = jest.fn();
   const wrapper = shallow(<ConnectedMyLists {...requiredProps} />); /* eslint-disable-line react/jsx-props-no-spreading, max-len */

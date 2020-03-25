@@ -2,10 +2,10 @@ import createNewListLogic from '../createNewList';
 import { CREATE_MY_LIST } from '../../types';
 import mockHttpClient from '../../../../utils/testsHelpers/mockHttpClient';
 import { getSessionId } from '../../../session/selectors';
-import { fetchMyLists } from '../../actions';
+import { fetchMyLists } from '../../../my_lists/actions';
 import createNewListResponseError from '../__mocks__/createNewList';
 
-jest.mock('../../actions', () => ({
+jest.mock('../../../my_lists/actions', () => ({
   fetchMyLists: jest.fn()
 }));
 

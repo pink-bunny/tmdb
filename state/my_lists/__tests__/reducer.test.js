@@ -1,5 +1,6 @@
 import reducer from '../reducer';
 import * as types from '../types';
+import { DELETE_MY_LIST_ERROR } from '../../my_list/types';
 
 describe('My lists reducer', () => {
   const initialState = {
@@ -51,7 +52,7 @@ describe('My lists reducer', () => {
 
   it('should handle DELETE_MY_LIST_ERROR', () => {
     const action = {
-      type: types.DELETE_MY_LIST_ERROR,
+      type: DELETE_MY_LIST_ERROR,
       error: 'Mock error',
       hideModal: jest.fn()
     };

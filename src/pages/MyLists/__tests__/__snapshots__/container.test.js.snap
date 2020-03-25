@@ -2,7 +2,7 @@
 
 exports[`MyListsContainer container matches snapshot 1`] = `
 <MyLists
-  createMyList={[MockFunction]}
+  createMyList={[Function]}
   error=""
   list={
     Array [

@@ -2,12 +2,15 @@ import deleteMyListLogic from '../deleteMyList';
 import { DELETE_MY_LIST } from '../../types';
 import mockHttpClient from '../../../../utils/testsHelpers/mockHttpClient';
 import { getSessionId } from '../../../session/selectors';
-import { fetchMyLists, deleteMyListError } from '../../actions';
+import { fetchMyLists } from '../../../my_lists/actions';
+import { deleteMyListError } from '../../actions';
 import deleteMyListResponseError from '../__mocks__/deleteMyList';
 
 jest.mock('../../actions', () => ({
-  fetchMyLists: jest.fn(),
   deleteMyListError: jest.fn()
+}));
+jest.mock('../../../my_lists/actions', () => ({
+  fetchMyLists: jest.fn()
 }));
 
 describe('deleteMyList logic', () => {

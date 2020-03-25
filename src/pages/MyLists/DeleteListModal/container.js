@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import withModal from '../../../hoc/withModal';
-import { deleteMyListError } from '../../../../state/my_list/selectors';
+import { myListsDeleteListError } from '../../../../state/my_lists/selectors';
 import {
   deleteMyList as deleteMyListAction
 } from '../../../../state/my_list/actions';
@@ -58,7 +58,7 @@ DeleteListModalContainer.defaultProps = {
 };
 
 const mapStateToProps = (state) => ({
-  error: deleteMyListError(state)
+  error: myListsDeleteListError(state)
 });
 
 const mapDispatchToPtops = {
