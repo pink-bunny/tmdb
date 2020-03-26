@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`toggleToList logic matches snapshot 1`] = `
+Object {
+  "cancelType": undefined,
+  "debounce": 0,
+  "latest": false,
+  "name": undefined,
+  "process": [Function],
+  "processOptions": Object {
+    "dispatchMultiple": true,
+  },
+  "throttle": 0,
+  "transform": undefined,
+  "type": "TOGGLE_TO_LIST",
+  "validate": undefined,
+  "warnTimeout": 60000,
+}
+`;
