@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import {
-  toggleToList as toggleToListAction,
+  addToList as addToListAction,
   createAndAddToList as createAndAddToListAction
 } from '../../../../../state/my_list/actions';
 import {
@@ -46,8 +46,8 @@ class AddToListContainer extends React.Component {
   }
 
   addToList = (listId) => {
-    const { toggleToList, movieId } = this.props;
-    toggleToList(listId, movieId);
+    const { addToList, movieId } = this.props;
+    addToList(listId, movieId);
   }
 
   render() {
@@ -68,7 +68,7 @@ class AddToListContainer extends React.Component {
 }
 
 AddToListContainer.propTypes = {
-  toggleToList: PropTypes.func.isRequired,
+  addToList: PropTypes.func.isRequired,
   createAndAddToList: PropTypes.func.isRequired,
   movieId: PropTypes.number.isRequired,
   fetchMyLists: PropTypes.func.isRequired,
@@ -81,7 +81,7 @@ AddToListContainer.defaultProps = {
 
 const mapDispatchToPtops = {
   fetchMyLists: fetchMyListsAction,
-  toggleToList: toggleToListAction,
+  addToList: addToListAction,
   createAndAddToList: createAndAddToListAction
 };
 

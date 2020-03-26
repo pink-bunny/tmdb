@@ -2,7 +2,7 @@ import createAndAddToListLogic from '../createAndAddToList';
 
 import { CREATE_AND_ADD_TO_LIST } from '../../types';
 import { getSessionId } from '../../../session/selectors';
-import { toggleToList } from '../../actions';
+import { addToList } from '../../actions';
 import mockHttpClient from '../../../../utils/testsHelpers/mockHttpClient';
 import {
   createAndAddToListResponceSuccess,
@@ -10,7 +10,7 @@ import {
 } from '../__mocks__/createAndAddToList';
 
 jest.mock('../../actions', () => ({
-  toggleToList: jest.fn()
+  addToList: jest.fn()
 }));
 
 describe('createAndAddToList logic', () => {
@@ -53,8 +53,8 @@ describe('createAndAddToList logic', () => {
     const { data } = createAndAddToListResponceSuccess;
     const { list_id: listId } = data;
 
-    it('Dispatch toggleToList() with right arguments', () => {
-      expect(toggleToList).toHaveBeenCalledWith(listId, movieId);
+    it('Dispatch addToList() with right arguments', () => {
+      expect(addToList).toHaveBeenCalledWith(listId, movieId);
     });
     it('Hide modal', () => {
       expect(hideModal).toHaveBeenCalled();

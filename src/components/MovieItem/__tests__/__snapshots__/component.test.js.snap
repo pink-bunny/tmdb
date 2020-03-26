@@ -18,7 +18,7 @@ exports[`MovieItem component matches snapshot with actions 1`] = `
           "backgroundImage": "none",
         }
       }
-      to="movie/1"
+      to="/movie/1"
     />
   }
 >
@@ -41,7 +41,7 @@ exports[`MovieItem component matches snapshot with poster 1`] = `
           "backgroundImage": "url(https://image.tmdb.org/t/p/w300_and_h450_bestv2//vqzNJRH4YyquRiWxCCOH0aXggHI.jpg)",
         }
       }
-      to="movie/1"
+      to="/movie/1"
     />
   }
 >
@@ -64,7 +64,7 @@ exports[`MovieItem component matches snapshot with required props 1`] = `
           "backgroundImage": "none",
         }
       }
-      to="movie/1"
+      to="/movie/1"
     />
   }
 >
