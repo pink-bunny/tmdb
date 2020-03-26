@@ -23,10 +23,11 @@ export const createMyList = ({ name, description }, setErrors, hideModal) => ({
   hideModal
 });
 
-export const deleteMyList = (id, hideModal) => ({
+export const deleteMyList = (id, hideModal, needRedirect) => ({
   type: types.DELETE_MY_LIST,
   id,
-  hideModal
+  hideModal,
+  needRedirect
 });
 
 export const deleteMyListError = (error, hideModal) => ({

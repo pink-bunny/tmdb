@@ -11,9 +11,14 @@ import DeleteListModal from './component';
 
 class DeleteListModalContainer extends React.Component {
   deleteList = () => {
-    const { deleteMyList, id, hideModal } = this.props;
+    const {
+      deleteMyList,
+      id,
+      hideModal,
+      needRedirect
+    } = this.props;
 
-    deleteMyList(id, hideModal);
+    deleteMyList(id, hideModal, needRedirect);
   };
 
   render() {
@@ -58,12 +63,14 @@ DeleteListModalContainer.propTypes = {
   triggerProps: PropTypes.shape({
     onClick: PropTypes.func
   }),
-  triggerComponent: PropTypes.func.isRequired
+  triggerComponent: PropTypes.func.isRequired,
+  needRedirect: PropTypes.bool
 };
 
 DeleteListModalContainer.defaultProps = {
   error: '',
-  triggerProps: null
+  triggerProps: null,
+  needRedirect: false
 };
 
 const mapStateToProps = (state) => ({

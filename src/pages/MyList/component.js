@@ -35,6 +35,7 @@ const MyList = ({
                     key="delete"
                     triggerComponent={Icon}
                     triggerProps={{ type: 'minus-circle' }}
+                    needRedirect
                   />
                 </>
               )}
