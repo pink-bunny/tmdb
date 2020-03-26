@@ -12,16 +12,16 @@ const myListLogic = createLogic({
   async process({ getState, httpClient, action }, dispatch, done) {
     const state = getState();
     const sessinId = getSessionId(state);
-    const { id: movieId } = action;
+    const { id } = action;
     try {
-      const { data } = await httpClient.get(`/list/${movieId}?session_id=${sessinId}`);
+      const { data } = await httpClient.get(`/list/${id}?session_id=${sessinId}`);
 
       // normalize data
-      const { listInfo, listMoviesIds, listMovies } = normalizeMyList(data);
+      const { lists, movies } = normalizeMyList(data);
 
-      dispatch(mergeListsList(listInfo));
-      dispatch(mergeMoviesList(listMovies));
-      dispatch(fetchMyListSuccess(movieId, listMoviesIds));
+      dispatch(mergeListsList(lists));
+      dispatch(mergeMoviesList(movies));
+      dispatch(fetchMyListSuccess(id));
     } catch (error) {
       const errorMessage = error.response.data.status_message;
       dispatch(fetchMyListError(errorMessage));

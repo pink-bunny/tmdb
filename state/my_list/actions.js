@@ -5,10 +5,9 @@ export const fetchMyList = (id) => ({
   id
 });
 
-export const fetchMyListSuccess = (movieId, listMoviesIds) => ({
+export const fetchMyListSuccess = (id) => ({
   type: types.FETCH_MY_LIST_SUCCESS,
-  movieId,
-  moviesIds: listMoviesIds
+  id
 });
 
 export const fetchMyListError = (error) => ({
