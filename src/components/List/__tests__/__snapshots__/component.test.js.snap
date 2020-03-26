@@ -1,78 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`List component matches snapshot with custom props 1`] = `
-<Adapter>
-  <Adapter>
-    <Row
-      gutter={0}
-    >
-      <Col
-        offset={2}
-        span={20}
-      >
-        <div
-          className="top-margin"
-        >
-          <Title>
-            Mock list title
-          </Title>
-        </div>
-      </Col>
-    </Row>
-    <MoviesList
-      actionsList={[Function]}
-      currentPage={1}
-      emptyListTxt="Mock empty list text"
-      error=""
-      list={
-        Array [
-          Object {
-            "id": 1,
-            "overview": "Decades after Sarah Connor prevented Judgment Day.",
-            "poster_path": "/vqzNJRH4YyquRiWxCCOH0aXggHI.jpg",
-            "title": "Terminator: Dark Fate",
-          },
-        ]
-      }
-      loading={true}
-      onPaginationClick={[MockFunction]}
-      totalItems={21}
-    />
-  </Adapter>
-</Adapter>
+<MoviesList
+  actionsList={[Function]}
+  currentPage={1}
+  emptyListTxt="Mock empty list text"
+  error=""
+  list={
+    Array [
+      Object {
+        "id": 1,
+        "overview": "Decades after Sarah Connor prevented Judgment Day.",
+        "poster_path": "/vqzNJRH4YyquRiWxCCOH0aXggHI.jpg",
+        "title": "Terminator: Dark Fate",
+      },
+    ]
+  }
+  loading={true}
+  onPaginationClick={[MockFunction]}
+  totalItems={21}
+/>
 `;
 
 exports[`List component matches snapshot with required props 1`] = `
-<Adapter>
-  <Adapter>
-    <Row
-      gutter={0}
-    >
-      <Col
-        offset={2}
-        span={20}
-      >
-        <div
-          className="top-margin"
-        >
-          <Title>
-            Mock list title
-          </Title>
-        </div>
-      </Col>
-    </Row>
-    <MoviesList
-      actionsList={[Function]}
-      currentPage={1}
-      emptyListTxt="Mock empty list text"
-      error=""
-      list={null}
-      loading={true}
-      onPaginationClick={[MockFunction]}
-      totalItems={21}
-    />
-  </Adapter>
-</Adapter>
+<MoviesList
+  actionsList={[Function]}
+  currentPage={1}
+  emptyListTxt="Mock empty list text"
+  error=""
+  list={null}
+  loading={true}
+  onPaginationClick={[MockFunction]}
+  totalItems={21}
+/>
 `;
 
 exports[`List component passes actions array to <MoviesList /> 1`] = `

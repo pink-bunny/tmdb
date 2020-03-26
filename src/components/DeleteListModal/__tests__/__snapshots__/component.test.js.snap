@@ -2,9 +2,8 @@
 
 exports[`DeleteListModal component matches snapshot with error 1`] = `
 <Fragment>
-  <Icon
+  <mockConstructor
     onClick={[MockFunction]}
-    type="delete"
   />
   <Modal
     confirmLoading={false}
@@ -34,9 +33,8 @@ exports[`DeleteListModal component matches snapshot with error 1`] = `
 
 exports[`DeleteListModal component matches snapshot with required props 1`] = `
 <Fragment>
-  <Icon
+  <mockConstructor
     onClick={[MockFunction]}
-    type="delete"
   />
   <Modal
     confirmLoading={false}

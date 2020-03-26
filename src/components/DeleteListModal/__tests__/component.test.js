@@ -8,8 +8,9 @@ describe('DeleteListModal component', () => {
     name: 'Test list',
     modalVisible: false,
     hideModal: jest.fn(),
-    showModal: jest.fn(),
-    deleteList: jest.fn()
+    handleTriggerClick: jest.fn(),
+    deleteList: jest.fn(),
+    triggerComponent: jest.fn(() => <div>Mock button</div>)
   };
 
   it('matches snapshot with required props', () => {
