@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import withModal from '../../../hoc/withModal';
-import { deleteMyListError } from '../../../../state/my_lists/selectors';
+import { myListsDeleteListError } from '../../../../state/my_lists/selectors';
 import {
   deleteMyList as deleteMyListAction
-} from '../../../../state/my_lists/actions';
+} from '../../../../state/my_list/actions';
 import DeleteListModal from './component';
 
 class DeleteListModalContainer extends React.Component {
@@ -45,7 +45,10 @@ DeleteListModalContainer.propTypes = {
   hideModal: PropTypes.func.isRequired,
   showModal: PropTypes.func.isRequired,
   deleteMyList: PropTypes.func.isRequired,
-  id: PropTypes.number.isRequired,
+  id: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]).isRequired,
   name: PropTypes.string.isRequired,
   error: PropTypes.string
 };
@@ -55,7 +58,7 @@ DeleteListModalContainer.defaultProps = {
 };
 
 const mapStateToProps = (state) => ({
-  error: deleteMyListError(state)
+  error: myListsDeleteListError(state)
 });
 
 const mapDispatchToPtops = {

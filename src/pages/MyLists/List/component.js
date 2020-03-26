@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import {
   Row, Col, Card, Typography, Spin, Empty
 } from 'antd';
@@ -59,7 +60,6 @@ const List = ({
               xl={{ span: 4 }}
             >
               <Card
-                hoverable
                 className="top-margin"
                 actions={[
                   <DeleteListModal
@@ -70,7 +70,9 @@ const List = ({
                 ]}
               >
                 <Typography.Title level={4}>
-                  {item.name}
+                  <Link to={`/my-lists/${item.id}`}>
+                    {item.name}
+                  </Link>
                 </Typography.Title>
                 {item.description}
               </Card>

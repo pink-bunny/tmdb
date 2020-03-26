@@ -1,32 +1,30 @@
 import { createLogic } from 'redux-logic';
+
+import { CREATE_MY_LIST } from '../types';
 import { getSessionId } from '../../session/selectors';
+import { fetchMyLists } from '../../my_lists/actions';
 
-import { toggleToList } from '../actions';
-import { CREATE_AND_ADD_TO_LIST } from '../types';
-
-const createAndAddToListLogic = createLogic({
-  type: CREATE_AND_ADD_TO_LIST,
+const createNewListLogic = createLogic({
+  type: CREATE_MY_LIST,
 
   async process({ getState, httpClient, action }, dispatch, done) {
     const {
       name,
       description,
       hideModal,
-      setErrors,
-      movieId
+      setErrors
     } = action;
     const state = getState();
     const sessionId = getSessionId(state);
 
     try {
-      const { data } = await httpClient.post(`/list?session_id=${sessionId}`, {
+      await httpClient.post(`/list?session_id=${sessionId}`, {
         name,
         description
       });
-      const { list_id: listId } = data;
 
-      dispatch(toggleToList(listId, movieId));
       hideModal();
+      dispatch(fetchMyLists());
     } catch (error) {
       const createNewListError = error.response.data.status_message;
       setErrors({ serverError: createNewListError });
@@ -35,4 +33,4 @@ const createAndAddToListLogic = createLogic({
   }
 });
 
-export default createAndAddToListLogic;
+export default createNewListLogic;

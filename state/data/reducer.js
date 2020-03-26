@@ -21,7 +21,10 @@ const data = (state = initialState, action) => {
     case types.MERGE_LISTS_LIST:
       return {
         ...state,
-        lists: action.lists
+        lists: {
+          ...state.lists,
+          ...action.lists
+        }
       };
     case TOGGLE_TO_WATCHLIST_SUCCESS:
       return {

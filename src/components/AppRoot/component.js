@@ -6,6 +6,7 @@ import Header from '../Header';
 import NotFound from '../../pages/NotFound';
 import Home from '../../pages/Home';
 import MyLists from '../../pages/MyLists';
+import MyList from '../../pages/MyList';
 import Movie from '../../pages/Movie';
 import Watchlist from '../../pages/Watchlist';
 import Favorites from '../../pages/Favorites';
@@ -18,7 +19,8 @@ const AppRoot = () => (
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/movie/:movieId" component={requireAuth(Movie)} />
-        <Route path="/my-lists" component={requireAuth(MyLists)} />
+        <Route exact path="/my-lists" component={requireAuth(MyLists)} />
+        <Route path="/my-lists/:listId" component={requireAuth(MyList)} />
         <Route path="/watchlist" component={requireAuth(Watchlist)} />
         <Route path="/favorites" component={requireAuth(Favorites)} />
         <Route component={NotFound} />
