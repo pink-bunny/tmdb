@@ -18,7 +18,7 @@ const Movie = ({
       cover={(
         <Link
           className="movie-item__img"
-          to={`movie/${id}`}
+          to={`/movie/${id}`}
           style={{ backgroundImage: imagePath }}
         />
       )}

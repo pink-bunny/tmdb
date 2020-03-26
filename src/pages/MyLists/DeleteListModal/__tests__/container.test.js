@@ -3,14 +3,14 @@ import configureStore from 'redux-mock-store';
 import { shallow } from 'enzyme';
 
 import ConnectedDeleteListModal from '../container';
-import { deleteMyList } from '../../../../../state/my_lists/actions';
+import { deleteMyList } from '../../../../../state/my_list/actions';
 
-jest.mock('../../../../../state/my_lists/actions', () => ({
+jest.mock('../../../../../state/my_list/actions', () => ({
   deleteMyList: jest.fn()
 }));
 
 jest.mock('../../../../../state/my_lists/selectors', () => ({
-  deleteMyListError: jest.fn(() => '')
+  myListsDeleteListError: jest.fn(() => '')
 }));
 
 describe('DeleteListModalContainer', () => {

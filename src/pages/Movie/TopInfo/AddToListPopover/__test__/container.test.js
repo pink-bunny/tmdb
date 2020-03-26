@@ -4,18 +4,22 @@ import { shallow } from 'enzyme';
 
 import ConnectedAddToList from '../container';
 import {
-  fetchMyLists,
-  createAndAddToList,
-  toggleToList
+  fetchMyLists
 } from '../../../../../../state/my_lists/actions';
+import {
+  createAndAddToList,
+  addToList
+} from '../../../../../../state/my_list/actions';
 
 jest.mock('../../../../../../state/my_lists/selectors', () => ({
   myListsList: jest.fn(() => [{ id: 1, name: 'Mock name' }])
 }));
 jest.mock('../../../../../../state/my_lists/actions', () => ({
-  toggleToList: jest.fn(),
-  createAndAddToList: jest.fn(),
   fetchMyLists: jest.fn()
+}));
+jest.mock('../../../../../../state/my_list/actions', () => ({
+  addToList: jest.fn(),
+  createAndAddToList: jest.fn()
 }));
 
 describe('AddToList container', () => {
@@ -66,6 +70,6 @@ describe('AddToList container', () => {
     const listId = 123;
     const { movieId } = props;
     instance.addToList(listId);
-    expect(toggleToList).toHaveBeenCalledWith(listId, movieId);
+    expect(addToList).toHaveBeenCalledWith(listId, movieId);
   });
 });
