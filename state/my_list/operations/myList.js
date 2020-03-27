@@ -11,10 +11,10 @@ const myListLogic = createLogic({
 
   async process({ getState, httpClient, action }, dispatch, done) {
     const state = getState();
-    const sessinId = getSessionId(state);
+    const sessionId = getSessionId(state);
     const { id } = action;
     try {
-      const { data } = await httpClient.get(`/list/${id}?session_id=${sessinId}`);
+      const { data } = await httpClient.get(`/list/${id}?session_id=${sessionId}`);
 
       // normalize data
       const { lists, movies } = normalizeMyList(data);

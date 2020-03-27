@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MyList container matches snapshot 1`] = `
+<MyList
+  currentPage={0}
+  error=""
+  fetchList={[Function]}
+  listInfo={
+    Object {
+      "id": 1,
+      "name": "Custom list",
+    }
+  }
+  listMovies={
+    Array [
+      Object {
+        "id": 1,
+        "title": "Mock title",
+      },
+    ]
+  }
+  loading={false}
+  removeModalAction={[Function]}
+  totalItems={0}
+/>
+`;

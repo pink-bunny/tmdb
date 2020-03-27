@@ -22,6 +22,7 @@
     "testURL": "http://test.com",
     "coveragePathIgnorePatterns": [
       "<rootDir>/src/components/AppRoot",
+      "<rootDir>/src/index.js",
       "<rootDir>/state/store"
     ],
     "coverageThreshold": {

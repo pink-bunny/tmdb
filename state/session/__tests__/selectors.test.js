@@ -25,4 +25,9 @@ describe('Movie selectors.', () => {
   it('username() returns username', () => {
     expect(usernameSelector(state)).toEqual(username);
   });
+
+  it('username() returns empty string', () => {
+    const stateWithoutUsername = { session: {} };
+    expect(usernameSelector(stateWithoutUsername)).toEqual('');
+  });
 });

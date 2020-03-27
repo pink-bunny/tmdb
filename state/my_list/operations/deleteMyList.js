@@ -20,7 +20,6 @@ const deleteMyListLogic = createLogic({
       // throwing error on success response
     } catch (error) {
       const errorMessage = error.response.data.status_message;
-
       hideModal();
       if (needRedirect) {
         history.goBack();
