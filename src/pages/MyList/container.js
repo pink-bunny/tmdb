@@ -5,7 +5,8 @@ import PropTypes from 'prop-types';
 import MyListComponent from './component';
 import {
   fetchMyList as fetchMyListAction,
-  removeFromList as removeFromListAction
+  removeFromList as removeFromListAction,
+  clearListIdFromState as clearListIdFromStateAction
 } from '../../../state/my_list/actions';
 import {
   isMyListLoading,
@@ -15,6 +16,11 @@ import {
 } from '../../../state/my_list/selectors';
 
 class MyListContainer extends React.Component {
+  componentWillUnmount() {
+    const { clearListIdFromState } = this.props;
+    clearListIdFromState();
+  }
+
   handleFetchList = () => {
     const { match, fetchMyList } = this.props;
     const { listId } = match.params;
@@ -55,6 +61,7 @@ class MyListContainer extends React.Component {
 
 MyListContainer.propTypes = {
   fetchMyList: PropTypes.func.isRequired,
+  clearListIdFromState: PropTypes.func.isRequired,
   removeFromList: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
   listInfo: PropTypes.objectOf(PropTypes.any),
@@ -75,7 +82,8 @@ MyListContainer.defaultProps = {
 
 const mapDispatchToPtops = {
   fetchMyList: fetchMyListAction,
-  removeFromList: removeFromListAction
+  removeFromList: removeFromListAction,
+  clearListIdFromState: clearListIdFromStateAction
 };
 
 const mapStateToProps = (state) => ({

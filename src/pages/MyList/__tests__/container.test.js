@@ -5,12 +5,14 @@ import { shallow } from 'enzyme';
 import ConnectedMyList from '../container';
 import {
   fetchMyList,
-  removeFromList
+  removeFromList,
+  clearListIdFromState
 } from '../../../../state/my_list/actions';
 
 jest.mock('../../../../state/my_list/actions', () => ({
   fetchMyList: jest.fn(),
-  removeFromList: jest.fn()
+  removeFromList: jest.fn(),
+  clearListIdFromState: jest.fn()
 }));
 jest.mock('../../../../state/my_list/selectors', () => ({
   isMyListLoading: jest.fn(() => false),
@@ -44,5 +46,10 @@ describe('MyList container', () => {
     const movieId = 1;
     instance.handleRemoveFromList(movieId);
     expect(removeFromList).toHaveBeenCalledWith(listId, movieId);
+  });
+
+  it('componentWillUnmount() called clearListIdFromState()', () => {
+    instance.componentWillUnmount();
+    expect(clearListIdFromState).toHaveBeenCalled();
   });
 });
