@@ -50,6 +50,6 @@ describe('MyList container', () => {
 
   it('componentWillUnmount() called clearListIdFromState()', () => {
     instance.componentWillUnmount();
-    expect(clearListIdFromState).toHaveBeenCalledWith();
+    expect(clearListIdFromState).toHaveBeenCalled();
   });
 });
