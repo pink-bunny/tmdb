@@ -50,4 +50,15 @@ describe('My list reducer', () => {
     };
     expect(reducer(initialState, action)).toEqual(newState);
   });
+
+  it('should handle CLEAR_LIST_ID_FROM_STATE', () => {
+    const action = {
+      type: types.CLEAR_LIST_ID_FROM_STATE
+    };
+    const newState = {
+      ...initialState,
+      id: null
+    };
+    expect(reducer(initialState, action)).toEqual(newState);
+  });
 });

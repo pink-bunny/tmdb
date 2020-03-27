@@ -8,7 +8,8 @@ import {
   deleteMyListError,
   addToList,
   createAndAddToList,
-  removeFromList
+  removeFromList,
+  clearListIdFromState
 } from '../actions';
 
 describe('My list actions.', () => {
@@ -112,5 +113,12 @@ describe('My list actions.', () => {
       movieId
     };
     expect(removeFromList(listId, movieId)).toEqual(expectedAction);
+  });
+
+  it('Clear list id from state', () => {
+    const expectedAction = {
+      type: types.CLEAR_LIST_ID_FROM_STATE
+    };
+    expect(clearListIdFromState()).toEqual(expectedAction);
   });
 });
