@@ -12,19 +12,17 @@ describe('DeleteListModal component', () => {
     deleteList: jest.fn(),
     triggerComponent: jest.fn(() => <div>Mock button</div>)
   };
+  const wrapper = shallow(<DeleteListModal {...requiredProps} />); /* eslint-disable-line */
 
   it('matches snapshot with required props', () => {
-    const wrapper = shallow(<DeleteListModal {...requiredProps} />); /* eslint-disable-line */
-
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('matches snapshot with error', () => {
-    const props = {
-      ...requiredProps,
-      error: 'Delete error'
-    };
-    const wrapper = shallow(<DeleteListModal {...props} />); /* eslint-disable-line */
+  it('matches snapshot with optional props', () => {
+    wrapper.setProps({
+      error: 'Delete error',
+      triggerProps: { type: 'button', children: 'Mock button' }
+    });
 
     expect(wrapper).toMatchSnapshot();
   });

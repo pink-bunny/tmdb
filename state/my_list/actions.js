@@ -56,3 +56,7 @@ export const createAndAddToList = ({ name, description }, setErrors, hideModal, 
   hideModal,
   movieId
 });
+
+export const clearListIdFromState = () => ({
+  type: types.CLEAR_LIST_ID_FROM_STATE
+});

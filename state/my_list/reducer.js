@@ -24,6 +24,11 @@ const myList = (state = initialState, action) => {
         loading: false,
         error: action.error
       };
+    case types.CLEAR_LIST_ID_FROM_STATE:
+      return {
+        ...state,
+        id: null
+      };
     default:
       return state;
   }

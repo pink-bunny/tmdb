@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Watchlist component matches snapshot with optional props 1`] = `
+<Adapter>
+  <Adapter>
+    <Row
+      gutter={0}
+    >
+      <Col
+        offset={2}
+        span={20}
+      >
+        <div
+          className="top-margin"
+        >
+          <Title>
+            Watchlist
+          </Title>
+        </div>
+      </Col>
+    </Row>
+    <ListContainer
+      currentPage={2}
+      emptyListTxt="No movies in watchlist found"
+      error=""
+      fetchList={[MockFunction]}
+      list={
+        Array [
+          Object {
+            "id": 1,
+            "name": "Mock name",
+          },
+        ]
+      }
+      loading={false}
+      removeModalAction={[MockFunction]}
+      removeModalTxt="Do you want to delete this item from the watchlist?"
+      totalItems={21}
+    />
+  </Adapter>
+</Adapter>
+`;
+
+exports[`Watchlist component matches snapshot with required props 1`] = `
+<Adapter>
+  <Adapter>
+    <Row
+      gutter={0}
+    >
+      <Col
+        offset={2}
+        span={20}
+      >
+        <div
+          className="top-margin"
+        >
+          <Title>
+            Watchlist
+          </Title>
+        </div>
+      </Col>
+    </Row>
+    <ListContainer
+      currentPage={2}
+      emptyListTxt="No movies in watchlist found"
+      error=""
+      fetchList={[MockFunction]}
+      list={null}
+      loading={false}
+      removeModalAction={[MockFunction]}
+      removeModalTxt="Do you want to delete this item from the watchlist?"
+      totalItems={21}
+    />
+  </Adapter>
+</Adapter>
+`;

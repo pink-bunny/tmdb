@@ -49,8 +49,8 @@ describe('Favorites selectors', () => {
     });
     it('empty list', () => {
       const state = {
-        favorites: { ids: [] },
-        data: { lists: {} }
+        favorites: {},
+        data: {}
       };
       expect(favoritesList(state)).toBeNull();
     });

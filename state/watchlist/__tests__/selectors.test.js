@@ -49,7 +49,7 @@ describe('Watchlist selectors', () => {
     });
     it('empty list', () => {
       const state = {
-        watchlist: { ids: [] },
+        watchlist: {},
         data: { lists: {} }
       };
       expect(watchlistList(state)).toBeNull();

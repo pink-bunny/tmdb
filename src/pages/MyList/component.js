@@ -25,19 +25,17 @@ const MyList = ({
         >
           <div className="top-margin">
             <Typography.Title>
+              {listInfo ? listInfo.name : 'List'}
+              {' '}
               {listInfo && (
-                <>
-                  {listInfo.name}
-                  {' '}
-                  <DeleteListModal
-                    id={listInfo.id}
-                    name={listInfo.name}
-                    key="delete"
-                    triggerComponent={Icon}
-                    triggerProps={{ type: 'minus-circle' }}
-                    needRedirect
-                  />
-                </>
+                <DeleteListModal
+                  id={listInfo.id}
+                  name={listInfo.name}
+                  key="delete"
+                  triggerComponent={Icon}
+                  triggerProps={{ type: 'minus-circle' }}
+                  needRedirect
+                />
               )}
             </Typography.Title>
           </div>
@@ -45,7 +43,7 @@ const MyList = ({
       </Row>
 
       <List
-        emptyListTxt={`No movies in ${listInfo && listInfo.name} found`}
+        emptyListTxt={`No movies in ${listInfo ? listInfo.name : 'this list'} found`}
         list={listMovies}
         loading={loading}
         error={error}
@@ -53,7 +51,7 @@ const MyList = ({
         currentPage={currentPage}
         fetchList={fetchList}
         removeModalAction={removeModalAction}
-        removeModalTxt={`Do you want to delete this item from the ${listInfo && listInfo.name}?`}
+        removeModalTxt={`Do you want to delete this item from the ${listInfo ? listInfo.name : 'list'}?`}
       />
 
     </Layout.Content>
