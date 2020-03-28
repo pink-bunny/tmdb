@@ -10,7 +10,6 @@ describe('List container', () => {
   const props = {
     store,
     removeModalTxt: 'Mock modal text',
-    listTitle: 'Mock list title',
     emptyListTxt: 'Mock empty list text',
     fetchList: jest.fn(),
     removeModalAction: jest.fn(),

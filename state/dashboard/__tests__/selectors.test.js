@@ -44,8 +44,8 @@ describe('Dashboard selectors.', () => {
 
     it('does not have movies and returns null', () => {
       const emptyMoviesState = {
-        dashboard: { ids: [] },
-        data: { movies: {} }
+        dashboard: {},
+        data: {}
       };
       expect(dashboardMoviesList(emptyMoviesState)).toBeNull();
     });

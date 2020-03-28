@@ -36,8 +36,8 @@ describe('Movie selectors.', () => {
 
     it('does not have movie id and returns null', () => {
       const emptyMovieState = {
-        movie: { id: null },
-        data: { movies: {} }
+        movie: {},
+        data: {}
       };
       expect(movieDetails(emptyMovieState)).toBeNull();
     });

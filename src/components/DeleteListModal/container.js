@@ -2,18 +2,23 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import withModal from '../../../hoc/withModal';
-import { myListsDeleteListError } from '../../../../state/my_lists/selectors';
+import withModal from '../../hoc/withModal';
+import { myListsDeleteListError } from '../../../state/my_lists/selectors';
 import {
   deleteMyList as deleteMyListAction
-} from '../../../../state/my_list/actions';
+} from '../../../state/my_list/actions';
 import DeleteListModal from './component';
 
 class DeleteListModalContainer extends React.Component {
   deleteList = () => {
-    const { deleteMyList, id, hideModal } = this.props;
+    const {
+      deleteMyList,
+      id,
+      hideModal,
+      needRedirect
+    } = this.props;
 
-    deleteMyList(id, hideModal);
+    deleteMyList(id, hideModal, needRedirect);
   };
 
   render() {
@@ -23,7 +28,9 @@ class DeleteListModalContainer extends React.Component {
       modalVisible,
       showModal,
       hideModal,
-      error
+      error,
+      triggerComponent,
+      triggerProps
     } = this.props;
 
     return (
@@ -33,8 +40,10 @@ class DeleteListModalContainer extends React.Component {
         error={error}
         deleteList={this.deleteList}
         modalVisible={modalVisible}
-        showModal={showModal}
+        handleTriggerClick={showModal}
         hideModal={hideModal}
+        triggerComponent={triggerComponent}
+        triggerProps={triggerProps}
       />
     );
   }
@@ -50,11 +59,18 @@ DeleteListModalContainer.propTypes = {
     PropTypes.number
   ]).isRequired,
   name: PropTypes.string.isRequired,
-  error: PropTypes.string
+  error: PropTypes.string,
+  triggerProps: PropTypes.shape({
+    onClick: PropTypes.func
+  }),
+  triggerComponent: PropTypes.func.isRequired,
+  needRedirect: PropTypes.bool
 };
 
 DeleteListModalContainer.defaultProps = {
-  error: ''
+  error: '',
+  triggerProps: null,
+  needRedirect: false
 };
 
 const mapStateToProps = (state) => ({

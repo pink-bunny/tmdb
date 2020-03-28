@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`deleteMyList logic action without redirect matches snapshot 1`] = `
+exports[`removeFromList logic matches snapshot 1`] = `
 Object {
   "cancelType": undefined,
   "debounce": 0,
@@ -12,7 +12,7 @@ Object {
   },
   "throttle": 0,
   "transform": undefined,
-  "type": "DELETE_MY_LIST",
+  "type": "REMOVE_FROM_LIST",
   "validate": undefined,
   "warnTimeout": 60000,
 }

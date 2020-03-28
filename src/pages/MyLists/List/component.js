@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import {
-  Row, Col, Card, Typography, Spin, Empty
+  Row, Col, Card, Typography, Spin, Empty, Icon
 } from 'antd';
 
-import DeleteListModal from '../DeleteListModal';
+import DeleteListModal from '../../../components/DeleteListModal';
 
 const List = ({
   list,
@@ -66,6 +66,8 @@ const List = ({
                     id={item.id}
                     name={item.name}
                     key="delete"
+                    triggerComponent={Icon}
+                    triggerProps={{ type: 'delete' }}
                   />
                 ]}
               >

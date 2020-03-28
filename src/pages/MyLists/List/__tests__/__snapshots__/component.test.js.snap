@@ -82,6 +82,12 @@ exports[`List component matches snapshot with list 1`] = `
               <Memo(Connect(WrappedComponentShell))
                 id={1}
                 name="My favorites movies"
+                triggerComponent={[Function]}
+                triggerProps={
+                  Object {
+                    "type": "delete",
+                  }
+                }
               />,
             ]
           }

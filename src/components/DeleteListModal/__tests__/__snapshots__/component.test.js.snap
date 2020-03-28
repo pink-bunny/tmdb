@@ -1,11 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DeleteListModal component matches snapshot with error 1`] = `
+exports[`DeleteListModal component matches snapshot with optional props 1`] = `
 <Fragment>
-  <Icon
+  <mockConstructor
     onClick={[MockFunction]}
-    type="delete"
-  />
+    type="button"
+  >
+    Mock button
+  </mockConstructor>
   <Modal
     confirmLoading={false}
     maskTransitionName="fade"
@@ -34,9 +36,8 @@ exports[`DeleteListModal component matches snapshot with error 1`] = `
 
 exports[`DeleteListModal component matches snapshot with required props 1`] = `
 <Fragment>
-  <Icon
+  <mockConstructor
     onClick={[MockFunction]}
-    type="delete"
   />
   <Modal
     confirmLoading={false}

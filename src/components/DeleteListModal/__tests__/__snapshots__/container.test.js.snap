@@ -4,10 +4,12 @@ exports[`DeleteListModalContainer matches snapshot 1`] = `
 <DeleteListModal
   deleteList={[Function]}
   error=""
-  hideModal={[Function]}
+  handleTriggerClick={[Function]}
+  hideModal={[MockFunction]}
   id={1}
   modalVisible={false}
   name="Mock list"
-  showModal={[Function]}
+  triggerComponent={[MockFunction]}
+  triggerProps={null}
 />
 `;

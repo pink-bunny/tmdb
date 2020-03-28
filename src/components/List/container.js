@@ -11,7 +11,6 @@ class ListContainer extends React.Component {
 
   render() {
     const {
-      listTitle,
       emptyListTxt,
       list,
       loading,
@@ -25,7 +24,6 @@ class ListContainer extends React.Component {
 
     return (
       <ListComponent
-        listTitle={listTitle}
         emptyListTxt={emptyListTxt}
         list={list}
         loading={loading}
@@ -42,7 +40,6 @@ class ListContainer extends React.Component {
 
 ListContainer.propTypes = {
   removeModalTxt: PropTypes.string.isRequired,
-  listTitle: PropTypes.string.isRequired,
   emptyListTxt: PropTypes.string.isRequired,
   fetchList: PropTypes.func.isRequired,
   removeModalAction: PropTypes.func.isRequired,

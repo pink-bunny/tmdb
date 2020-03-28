@@ -13,15 +13,13 @@ export const myListInfo = (state) => {
 };
 
 export const myListMovies = (state) => {
-  let refs;
-  const listId = state.myList.id || null;
+  let refs = [];
+  const listId = state.myList.id;
   const { lists } = state.data;
-  if (lists[listId]) {
-    refs = lists[listId].items;
-  } else {
-    refs = [];
-  }
   const list = state.data.movies || {};
+  if (listId) {
+    refs = lists[listId].items;
+  }
 
   if (refs.length === 0) {
     return null;

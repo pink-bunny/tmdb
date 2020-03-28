@@ -22,6 +22,7 @@
     "testURL": "http://test.com",
     "coveragePathIgnorePatterns": [
       "<rootDir>/src/components/AppRoot",
+      "<rootDir>/src/index.js",
       "<rootDir>/state/store"
     ],
     "coverageThreshold": {
@@ -51,6 +52,7 @@
     "cookie_js": "^1.3.0",
     "eslint-config-airbnb": "^18.0.1",
     "formik": "^2.1.2",
+    "history": "^4.10.1",
     "normalizr": "^3.5.0",
     "prop-types": "^15.7.2",
     "react": "^16.5.2",
