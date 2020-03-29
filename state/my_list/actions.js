@@ -36,10 +36,11 @@ export const deleteMyListError = (error, hideModal) => ({
   hideModal
 });
 
-export const addToList = (listId, movieId) => ({
+export const addToList = (listId, movieId, closePopover = null) => ({
   type: types.ADD_TO_LIST,
   listId,
-  movieId
+  movieId,
+  closePopover
 });
 
 export const removeFromList = (listId, movieId) => ({

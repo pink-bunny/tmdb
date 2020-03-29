@@ -47,7 +47,8 @@ class AddToListContainer extends React.Component {
 
   addToList = (listId) => {
     const { addToList, movieId } = this.props;
-    addToList(listId, movieId);
+    const { closePopover } = this;
+    addToList(listId, movieId, closePopover);
   }
 
   render() {
