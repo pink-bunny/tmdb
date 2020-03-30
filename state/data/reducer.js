@@ -4,8 +4,7 @@ import { TOGGLE_TO_FAVORITES_SUCCESS } from '../favorites/types';
 
 const initialState = {
   movies: {},
-  lists: {},
-  movie: {}
+  lists: {}
 };
 
 const data = (state = initialState, action) => {
