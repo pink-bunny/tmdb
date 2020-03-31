@@ -5,6 +5,7 @@ exports[`Search component matches snapshot when field is touched and has error 1
   <Search
     enterButton="Enter"
     name="searchField"
+    onPressEnter={[MockFunction]}
     onSearch={[MockFunction]}
     placeholder=""
     size="large"
@@ -27,6 +28,7 @@ exports[`Search component matches snapshot with custom props 1`] = `
   <Search
     enterButton="Search"
     name="searchField"
+    onPressEnter={[MockFunction]}
     onSearch={[MockFunction]}
     placeholder="Enter movie name"
     size="large"
@@ -39,6 +41,7 @@ exports[`Search component matches snapshot with required props 1`] = `
   <Search
     enterButton="Enter"
     name="searchField"
+    onPressEnter={[MockFunction]}
     onSearch={[MockFunction]}
     placeholder=""
     size="large"

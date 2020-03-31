@@ -21,6 +21,7 @@ const Search = ({
         size="large"
         enterButton={enterButton}
         onSearch={onSearch}
+        onPressEnter={onSearch}
         {...field} /* eslint-disable-line */
         {...props} /* eslint-disable-line */
       />

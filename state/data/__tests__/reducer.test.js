@@ -6,8 +6,7 @@ import { TOGGLE_TO_FAVORITES_SUCCESS } from '../../favorites/types';
 describe('Data reducer', () => {
   const initialState = {
     movies: {},
-    lists: {},
-    movie: {}
+    lists: {}
   };
 
   it('returns initial state', () => {
