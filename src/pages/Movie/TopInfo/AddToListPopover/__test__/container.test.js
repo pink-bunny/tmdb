@@ -67,9 +67,10 @@ describe('AddToList container', () => {
   });
 
   it('adds the movie to the list', () => {
+    const spyClosePopover = jest.spyOn(instance, 'closePopover');
     const listId = 123;
     const { movieId } = props;
     instance.addToList(listId);
-    expect(addToList).toHaveBeenCalledWith(listId, movieId);
+    expect(addToList).toHaveBeenCalledWith(listId, movieId, spyClosePopover);
   });
 });

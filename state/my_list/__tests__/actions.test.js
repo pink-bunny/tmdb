@@ -81,7 +81,8 @@ describe('My list actions.', () => {
     const expectedAction = {
       type: types.ADD_TO_LIST,
       listId,
-      movieId
+      movieId,
+      closePopover: null
     };
     expect(addToList(listId, movieId)).toEqual(expectedAction);
   });
